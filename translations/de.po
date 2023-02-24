@@ -36,6 +36,10 @@ msgstr "Förderfälle"
 msgid "funding_case_id"
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_case_list.yml
+msgid "Link to application history"
+msgstr ""
+
 #: civiremote_funding.permissions.yml
 msgid "Grants access to CiviCRM Funding via CiviRemote."
 msgstr ""
@@ -70,10 +74,6 @@ msgid "List of CiviCRM funding cases via remote API"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_case_list.yml
-msgid "Application process link"
-msgstr ""
-
-#: config/optional/views.view.civiremote_funding_case_list.yml
 msgid "Status"
 msgstr "Status"
 
@@ -101,9 +101,17 @@ msgstr "CiviCRM Förderfallliste"
 msgid "Actions"
 msgstr "Aktionen"
 
+#: config/optional/views.view.civiremote_funding_case_list.yml
+msgid "Link to application form"
+msgstr ""
+
 #: civiremote_funding.permissions.yml
 msgid "Access CiviCRM Funding"
 msgstr ""
+
+#: src/Controller/ApplicationHistoryController.php:61
+msgid "History"
+msgstr "Verlauf"
 
 #: src/Form/AbstractFundingJsonFormsForm.php:62
 msgid "Loading form failed: @error"
@@ -136,4 +144,3 @@ msgstr "Laden der Förderfalltypen fehlgeschlagen: @error"
 #: src/Form/ChooseFundingProgramForm.php:105
 msgid "No funding case type available in the selected funding program."
 msgstr "Kein Förderfalltyp im gewählten Förderprogramm verfügbar."
-

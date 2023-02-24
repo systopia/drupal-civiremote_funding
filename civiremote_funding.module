@@ -58,8 +58,10 @@ function civiremote_funding_theme(): array {
     'civiremote_funding_application_history' => [
       'template' => 'application/history',
       'variables' => [
+        'application_title' => NULL,
         'activities' => NULL,
         'statusLabels' => NULL,
+        'destination' => NULL,
       ],
     ],
   ];

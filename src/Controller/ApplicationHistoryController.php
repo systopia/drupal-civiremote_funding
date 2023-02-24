@@ -23,6 +23,8 @@ namespace Drupal\civiremote_funding\Controller;
 use Drupal\civiremote_funding\Access\RemoteContactIdProviderInterface;
 use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class ApplicationHistoryController extends ControllerBase {
 
@@ -40,9 +42,25 @@ final class ApplicationHistoryController extends ControllerBase {
    *
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
-  public function content(int $applicationProcessId): array {
+  public function content(int $applicationProcessId, Request $request): array {
+    $fundingCaseInfo = $this->fundingApi->getFundingCaseInfoByApplicationProcessId(
+      $this->contactIdProvider->getRemoteContactId(),
+      $applicationProcessId,
+    );
+    if (NULL === $fundingCaseInfo) {
+      throw new NotFoundHttpException();
+    }
+
+    $destination = $request->query->get('destination');
+    if (!is_string($destination) || !str_starts_with($destination, '/')) {
+      $destination = NULL;
+    }
+
     return [
       '#theme' => 'civiremote_funding_application_history',
+      '#title' => $this->t('History'),
+      '#destination' => $destination,
+      '#application_title' => $fundingCaseInfo->getApplicationProcessTitle(),
       '#activities' => $this->fundingApi->getApplicationActivities(
         $this->contactIdProvider->getRemoteContactId(),
         $applicationProcessId

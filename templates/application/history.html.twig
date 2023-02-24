@@ -1,6 +1,9 @@
 {{ attach_library('civiremote_funding/application_history') }}
 
-<h1>History</h1>
+<h2>{{ application_title }}</h2>
+{% if destination %}
+  <a href="{{ destination }}">{{ 'Back'|trans }}</a>
+{% endif %}
 
 <fieldset class="form-item form-wrapper">
   <legend class="fieldset__legend">{{ 'Filter'|trans }}</legend>
