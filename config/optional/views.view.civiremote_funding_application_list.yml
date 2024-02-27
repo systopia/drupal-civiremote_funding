@@ -746,8 +746,8 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: cmrf_views_filter_boolean
-          operator: '!='
-          value: '1'
+          operator: '='
+          value: '0'
           group: 1
           exposed: false
           expose:
