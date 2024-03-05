@@ -23,6 +23,7 @@ namespace Drupal\civiremote_funding\Api;
 use Drupal\civiremote_funding\Access\RemoteContactIdProviderInterface;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessActivity;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessTemplate;
+use Drupal\civiremote_funding\Api\DTO\ClearingProcess;
 use Drupal\civiremote_funding\Api\DTO\FundingCase;
 use Drupal\civiremote_funding\Api\DTO\FundingCaseInfo;
 use Drupal\civiremote_funding\Api\DTO\FundingCaseType;
@@ -435,6 +436,71 @@ class FundingApi {
     $result = $this->apiClient->executeV4('RemoteFundingCase', 'submitUpdateForm', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
       'fundingCaseId' => $fundingCaseId,
+      'data' => $data,
+    ]);
+
+    return FormSubmitResponse::fromApiResultValue($result['values']);
+  }
+
+  public function getOrCreateClearingProcess(int $applicationProcessId): ClearingProcess {
+    $result = $this->apiClient->executeV4('RemoteFundingClearingProcess', 'getOrCreate', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'applicationProcessId' => $applicationProcessId,
+    ]);
+
+    // @phpstan-ignore-next-line
+    return ClearingProcess::fromArray($result['values']);
+  }
+
+  /**
+   * @phpstan-return array<string, \Drupal\civiremote_funding\Api\DTO\Option>
+   *   Options with option ID as key.
+   *
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function getClearingStatusOptions(): array {
+    return FieldOptionsLoader::new($this->apiClient)->getOptions(
+      $this->remoteContactIdProvider->getRemoteContactId(),
+      'RemoteFundingClearingProcess',
+      'status'
+    );
+  }
+
+  public function getClearingForm(int $clearingProcessId): FundingForm {
+    $result = $this->apiClient->executeV4('RemoteFundingClearingProcess', 'getForm', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'id' => $clearingProcessId,
+    ]);
+
+    return FundingForm::fromApiResultValue($result['values']);
+  }
+
+  /**
+   * @phpstan-param array<int|string, mixed> $data
+   *   JSON serializable array.
+   *
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function validateClearingForm(int $clearingProcessId, array $data): FormValidationResponse {
+    $result = $this->apiClient->executeV4('RemoteFundingClearingProcess', 'validateForm', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'id' => $clearingProcessId,
+      'data' => $data,
+    ]);
+
+    return FormValidationResponse::fromApiResultValue($result['values']);
+  }
+
+  /**
+   * @phpstan-param array<int|string, mixed> $data
+   *   JSON serializable array.
+   *
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function submitClearingForm(int $clearingProcessId, array $data): FormSubmitResponse {
+    $result = $this->apiClient->executeV4('RemoteFundingClearingProcess', 'submitForm', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'id' => $clearingProcessId,
       'data' => $data,
     ]);
 

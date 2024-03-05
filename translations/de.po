@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: civiremote_funding\n"
-"POT-Creation-Date: 2024-03-05 12:16+0100\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-"X-Poedit-KeywordsList: t;title;label;description;text;submit_button\n"
+"X-Poedit-KeywordsList: t;title;label;description;text;submit_button;"
+"type_custom_true\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: config\n"
 "X-Poedit-SearchPath-1: src\n"
@@ -74,6 +75,11 @@ msgid "Download"
 msgstr "Herunterladen"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Open clearing"
+msgstr "Verwendungsnachweis öffnen"
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:42
 msgid "Funding Applications"
 msgstr "Förderanträge"
@@ -87,8 +93,9 @@ msgstr ""
 msgid "funding_case_id"
 msgstr ""
 
-#: config/optional/views.view.civiremote_funding_drawdown_list.yml
-msgid "{{ amount }} {{currency}}"
+#: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Link to clearing form"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
@@ -105,6 +112,10 @@ msgid "File clean up delay (seconds)"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
+msgid "Beantragter Betrag"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_case_list.yml
 msgid "CiviCRM Funding Case List (combined application)"
 msgstr "CiviCRM Förderfallliste (Sammelantrag)"
 
@@ -114,10 +125,6 @@ msgstr "CiviCRM Förderantragsliste (kein Sammelantrag)"
 
 #: civiremote_funding.info.yml
 msgid "Drupal frontend for funding applications of CiviCRM Funding Manager."
-msgstr ""
-
-#: config/optional/views.view.civiremote_funding_combined_case_list.yml
-msgid "{{amount_approved}} {{funding_program_id__currency}}"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
@@ -135,19 +142,13 @@ msgstr ""
 msgid "Requested Funding"
 msgstr "Beantragte Förderung"
 
-#: config/optional/views.view.civiremote_funding_transfer_contract.yml
-#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
-msgid "{{amount_paid_out}} {{currency}}"
-msgstr ""
-
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
 msgid "Acception Date"
 msgstr "Annahmedatum"
 
-#: config/optional/views.view.civiremote_funding_transfer_contract.yml
-#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
-msgid "{{ amount_approved }} {{currency}}"
-msgstr ""
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Amount Requested"
+msgstr "Beantragter Betrag"
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "ID"
@@ -194,10 +195,26 @@ msgstr "{{arguments.null}} öffnen"
 msgid "CiviCRM funding transfer contract via remote API"
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+#: config/optional/views.view.civiremote_funding_combined_case_list.yml
+#: config/optional/views.view.civiremote_funding_transfer_contract.yml
+#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
+msgid "Amount Admitted"
+msgstr "Anerkannter Betrag"
+
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
 #: src/Form/NewDrawdownForm.php:96
 msgid "Amount"
 msgstr "Betrag"
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+#: config/optional/views.view.civiremote_funding_combined_case_list.yml
+#: config/optional/views.view.civiremote_funding_transfer_contract.yml
+#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
+msgid "Amount Cleared"
+msgstr "Abgerechneter Betrag"
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "CiviCRM Funding Combined Applications"
@@ -231,11 +248,6 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
-msgid "{{amount_available}} {{currency}}"
-msgstr ""
-
-#: config/optional/views.view.civiremote_funding_transfer_contract.yml
-#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
 msgid "Show drawdowns"
 msgstr "Mittelabrufe anzeigen"
 
@@ -253,9 +265,13 @@ msgid ""
 "to allow all file extensions."
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+#: config/optional/views.view.civiremote_funding_combined_case_list.yml
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
+#: src/Plugin/views/field/LanguageAwareNumericField.php:114
+#: src/Plugin/views/field/LanguageAwareNumericField.php:127
 msgid "Currency"
 msgstr "Währung"
 
@@ -302,11 +318,6 @@ msgstr "Förderfall ID"
 msgid "Link to create drawdown form"
 msgstr ""
 
-#: config/optional/views.view.civiremote_funding_application_list.yml
-msgid ""
-"{{ application_process_amount_requested }} {{ funding_program_currency }}"
-msgstr ""
-
 #: src/Controller/ApplicationHistoryController.php:50
 msgid "Application History"
 msgstr "Antragsverlauf"
@@ -319,7 +330,15 @@ msgstr "Übersicht"
 msgid "CiviRemote Funding"
 msgstr ""
 
-#: src/Controller/FundingCaseController.php:73
+#: src/Controller/FundingCaseController.php:69
+msgid ""
+"Please do not forget to apply the combined application if everything is "
+"recorded or after additions."
+msgstr ""
+"Bitte nicht vergessen, den Sammelantrag zu beantragen, wenn alles erfasst "
+"wurde oder nach Ergänzungen."
+
+#: src/Controller/FundingCaseController.php:79
 msgid "Add @type"
 msgstr "@type hinzufügen"
 
@@ -327,23 +346,23 @@ msgstr "@type hinzufügen"
 msgid "Transfer Contract: @identifier"
 msgstr "Weiterleitungsvertrag: @identifier"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:42
+#: src/Element/CiviremoteFundingApplicationHistory.php:44
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:48
+#: src/Element/CiviremoteFundingApplicationHistory.php:50
 msgid "Back"
 msgstr "Zurück"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:49
+#: src/Element/CiviremoteFundingApplicationHistory.php:51
 msgid "Filter"
 msgstr "Filter"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:50
+#: src/Element/CiviremoteFundingApplicationHistory.php:52
 msgid "Hide workflow actions"
 msgstr "Ablaufaktivitäten ausblenden"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:51
+#: src/Element/CiviremoteFundingApplicationHistory.php:53
 msgid "Hide comments"
 msgstr "Kommentare ausblenden"
 
@@ -354,6 +373,8 @@ msgstr "Kommentar"
 #: src/Element/CiviremoteFundingApplicationHistoryComment.php:42
 #: src/Element/CiviremoteFundingApplicationHistoryCreate.php:40
 #: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:44
+#: src/Element/CiviremoteFundingClearingHistoryCreate.php:40
+#: src/Element/CiviremoteFundingClearingHistoryStatusChange.php:44
 msgid "Performed by"
 msgstr "Durchgeführt von"
 
@@ -361,6 +382,10 @@ msgstr "Durchgeführt von"
 #: src/Entity/FundingFile.php:81
 msgid "Created"
 msgstr "Erstellt"
+
+#: src/Element/CiviremoteFundingClearingHistoryCreate.php:39
+msgid "Clearing Started"
+msgstr "Verwendungsnachweis gestartet"
 
 #: src/Entity/FundingFile.php:54
 msgid "Referenced file"
@@ -418,15 +443,15 @@ msgstr "API-Anfrage fehlgeschlagen: @error"
 msgid "Create Drawdown"
 msgstr "Mittelabruf erstellen"
 
-#: src/Form/NewDrawdownForm.php:105
+#: src/Form/NewDrawdownForm.php:106
 msgid "Submit"
 msgstr "Absenden"
 
-#: src/Form/NewDrawdownForm.php:118
+#: src/Form/NewDrawdownForm.php:119
 msgid "Drawdown created."
 msgstr "Mittelabruf erstellt."
 
-#: src/Form/NewDrawdownForm.php:125
+#: src/Form/NewDrawdownForm.php:126
 msgid "Failed to create drawdown: @error"
 msgstr "Erstellung des Mittelabrufs fehlgeschlagen: @error"
 
@@ -465,6 +490,26 @@ msgstr "Bewilligungen"
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:50
 msgid "Download transfer contracts and manage drawdowns"
 msgstr "Weiterleitungsverträge herunterladen und Mittelabrufe verwalten"
+
+#: src/Plugin/views/field/LanguageAwareNumericField.php:103
+msgid "Format language aware"
+msgstr ""
+
+#: src/Plugin/views/field/LanguageAwareNumericField.php:105
+msgid "If checked, the current language will be used to format the value."
+msgstr ""
+
+#: src/Plugin/views/field/LanguageAwareNumericField.php:110
+msgid "Style"
+msgstr ""
+
+#: src/Plugin/views/field/LanguageAwareNumericField.php:113
+msgid "Decimal"
+msgstr ""
+
+#: src/Plugin/views/field/LanguageAwareNumericField.php:129
+msgid "3-letter ISO 4217 currency code. (Replacement patterns are allowed.)"
+msgstr ""
 
 #: src/Views/ApplicationProcessDropButton.php:89
 msgid "Create: @label"

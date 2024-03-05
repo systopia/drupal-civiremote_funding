@@ -70,6 +70,19 @@ civiremote_funding.application_template_render:
   requirements:
     _permission: 'civiremote_funding: access'
 
+civiremote_funding.application_clearing:
+  path: '/civiremote/funding/application/{applicationProcessId}/clearing'
+  defaults:
+    _controller: 'Drupal\civiremote_funding\Controller\ClearingController:formByApplicationProcessId'
+    _title_callback: 'Drupal\civiremote_funding\Controller\ClearingController:title'
+  options:
+    no_cache: TRUE
+    parameters:
+      applicationProcessId:
+        type: int
+  requirements:
+    _permission: 'civiremote_funding: access'
+
 civiremote_funding.case:
   path: '/civiremote/funding/case/{fundingCaseId}'
   defaults:
@@ -113,6 +126,21 @@ civiremote_funding.case_application_history:
   path: '/civiremote/funding/case/{fundingCaseId}/application/{applicationProcessId}/history'
   defaults:
     _controller: 'Drupal\civiremote_funding\Controller\ApplicationHistoryController:content'
+  options:
+    no_cache: TRUE
+    parameters:
+      fundingCaseId:
+        type: int
+      applicationProcessId:
+        type: int
+  requirements:
+    _permission: 'civiremote_funding: access'
+
+civiremote_funding.case_application_clearing:
+  path: '/civiremote/funding/case/{fundingCaseId}/application/{applicationProcessId}/clearing'
+  defaults:
+    _controller: 'Drupal\civiremote_funding\Controller\ClearingController:formByApplicationProcessId'
+    _title_callback: 'Drupal\civiremote_funding\Controller\ClearingController:title'
   options:
     no_cache: TRUE
     parameters:

@@ -257,8 +257,8 @@ display:
           label: 'Amount Approved'
           exclude: false
           alter:
-            alter_text: true
-            text: '{{ amount_approved }} {{currency}}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -303,6 +303,9 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
+          format_language_aware: true
+          format_style: 2
+          currency: '{{currency}}'
         amount_available:
           id: amount_available
           table: cmrf_views_civiremote_funding_transfer_contract
@@ -314,8 +317,8 @@ display:
           label: 'Amount Available'
           exclude: false
           alter:
-            alter_text: true
-            text: '{{amount_available}} {{currency}}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -360,6 +363,9 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
+          format_language_aware: true
+          format_style: 2
+          currency: '{{currency}}'
         amount_paid_out:
           id: amount_paid_out
           table: cmrf_views_civiremote_funding_transfer_contract
@@ -371,8 +377,8 @@ display:
           label: 'Amount Paid Out'
           exclude: false
           alter:
-            alter_text: true
-            text: '{{amount_paid_out}} {{currency}}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -417,6 +423,129 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
+          format_language_aware: true
+          format_style: 2
+          currency: '{{currency}}'
+        amount_cleared:
+          id: amount_cleared
+          table: cmrf_views_civiremote_funding_transfer_contract
+          field: amount_cleared
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          label: 'Amount Cleared'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ','
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          format_language_aware: true
+          format_style: 2
+          currency: '{{currency}}'
+        amount_admitted:
+          id: amount_admitted
+          table: cmrf_views_civiremote_funding_transfer_contract
+          field: amount_admitted
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          label: 'Amount Admitted'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ','
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          format_language_aware: true
+          format_style: 2
+          currency: '{{currency}}'
         nothing:
           id: nothing
           table: views
@@ -569,23 +698,9 @@ display:
           empty_zero: false
           hide_alter_empty: false
       pager:
-        type: mini
+        type: none
         options:
           offset: 0
-          items_per_page: 10
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
       exposed_form:
         type: basic
         options:
@@ -685,7 +800,6 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
         - user.permissions
       tags: {  }
   embed_1:
@@ -700,6 +814,5 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
         - user.permissions
       tags: {  }
