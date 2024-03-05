@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: civiremote_funding\n"
-"POT-Creation-Date: 2024-03-05 12:16+0100\n"
+"POT-Creation-Date: 2024-03-05 12:30+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-"X-Poedit-KeywordsList: t;title;label;description;text;submit_button\n"
+"X-Poedit-KeywordsList: t;title;label;description;text;submit_button;"
+"type_custom_true\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: config\n"
 "X-Poedit-SearchPath-1: src\n"
@@ -74,6 +75,11 @@ msgid "Download"
 msgstr "Herunterladen"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Open clearing"
+msgstr "Abrechnung öffnen"
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:42
 msgid "Funding Applications"
 msgstr "Förderanträge"
@@ -89,6 +95,11 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
 msgid "{{ amount }} {{currency}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Link to clearing form"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
