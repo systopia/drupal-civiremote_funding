@@ -52,6 +52,7 @@ final class ApplicationHistoryController extends ControllerBase {
       '#back_link_destination' => DestinationUtil::getDestinationWithoutBasePath($request),
       '#activities' => $this->fundingApi->getApplicationActivities($applicationProcessId),
       '#status_options' => $this->fundingApi->getApplicationStatusOptions($applicationProcessId),
+      '#clearing_status_options' => $this->fundingApi->getClearingStatusOptions(),
     ];
   }
 

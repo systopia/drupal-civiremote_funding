@@ -39,6 +39,8 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
       '#activities' => [],
       // Array mapping status to \Drupal\civiremote_funding\Api\DTO\Option.
       '#status_options' => [],
+      // Array mapping status to \Drupal\civiremote_funding\Api\DTO\Option.
+      '#clearing_status_options' => [],
       '#unknown_status_label' => $this->t('Unknown'),
       '#theme' => 'civiremote_funding_application_history',
       '#application_title' => '',
@@ -97,7 +99,12 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
     $withIcon = TRUE;
     foreach ($element['#activities'] as $activity) {
       $element['activities'][] = $activityArray =
-        self::createActivityArray($activity, $element['#status_options'], $withIcon);
+        self::createActivityArray(
+          $activity,
+          $element['#status_options'],
+          $element['#clearing_status_options'],
+          $withIcon
+        );
       if ([] !== $activityArray) {
         // Only first entry shall have an icon.
         $withIcon = FALSE;
@@ -109,12 +116,14 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
 
   /**
    * @phpstan-param array<string, \Drupal\civiremote_funding\Api\DTO\Option> $statusOptions
+   * @phpstan-param array<string, \Drupal\civiremote_funding\Api\DTO\Option> $clearingStatusOptions
    *
    * @phpstan-return array<string, mixed>
    */
   private static function createActivityArray(
     ApplicationProcessActivity $activity,
     array $statusOptions,
+    array $clearingStatusOptions,
     bool $withIcon
   ): array {
     switch ($activity->getActivityTypeName()) {
@@ -143,6 +152,29 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
 
         return [
           '#type' => 'civiremote_funding_application_history_create',
+          '#activity' => $activity,
+          '#icon' => $withIcon ? $statusOption->getIcon() : NULL,
+          '#icon_color' => $statusOption->getColor(),
+        ];
+
+      case 'funding_clearing_status_change':
+        /** @var \Drupal\civiremote_funding\Api\DTO\Option $statusOption */
+        $statusOption = $clearingStatusOptions[$activity->getToStatus()] ?? $statusOptions['unknown'];
+
+        return [
+          '#type' => 'civiremote_funding_clearing_history_status_change',
+          '#activity' => $activity,
+          '#status_label' => $statusOption->getLabel(),
+          '#icon' => $withIcon ? $statusOption->getIcon() : NULL,
+          '#icon_color' => $statusOption->getColor(),
+        ];
+
+      case 'funding_clearing_create':
+        /** @var \Drupal\civiremote_funding\Api\DTO\Option $statusOption */
+        $statusOption = $clearingStatusOptions[$activity->getToStatus()] ?? $statusOptions['draft'];
+
+        return [
+          '#type' => 'civiremote_funding_clearing_history_create',
           '#activity' => $activity,
           '#icon' => $withIcon ? $statusOption->getIcon() : NULL,
           '#icon_color' => $statusOption->getColor(),
