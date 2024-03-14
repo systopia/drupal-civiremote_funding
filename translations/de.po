@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: civiremote_funding\n"
-"POT-Creation-Date: 2024-03-05 12:30+0100\n"
+"POT-Creation-Date: 2024-03-14 09:10+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -77,7 +77,7 @@ msgstr "Herunterladen"
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Open clearing"
-msgstr "Abrechnung öffnen"
+msgstr "Verwendungsnachweise öffnen"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:42
@@ -338,23 +338,23 @@ msgstr "@type hinzufügen"
 msgid "Transfer Contract: @identifier"
 msgstr "Weiterleitungsvertrag: @identifier"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:42
+#: src/Element/CiviremoteFundingApplicationHistory.php:44
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:48
+#: src/Element/CiviremoteFundingApplicationHistory.php:50
 msgid "Back"
 msgstr "Zurück"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:49
+#: src/Element/CiviremoteFundingApplicationHistory.php:51
 msgid "Filter"
 msgstr "Filter"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:50
+#: src/Element/CiviremoteFundingApplicationHistory.php:52
 msgid "Hide workflow actions"
 msgstr "Ablaufaktivitäten ausblenden"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:51
+#: src/Element/CiviremoteFundingApplicationHistory.php:53
 msgid "Hide comments"
 msgstr "Kommentare ausblenden"
 
@@ -365,6 +365,8 @@ msgstr "Kommentar"
 #: src/Element/CiviremoteFundingApplicationHistoryComment.php:42
 #: src/Element/CiviremoteFundingApplicationHistoryCreate.php:40
 #: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:44
+#: src/Element/CiviremoteFundingClearingHistoryCreate.php:40
+#: src/Element/CiviremoteFundingClearingHistoryStatusChange.php:44
 msgid "Performed by"
 msgstr "Durchgeführt von"
 
@@ -372,6 +374,10 @@ msgstr "Durchgeführt von"
 #: src/Entity/FundingFile.php:81
 msgid "Created"
 msgstr "Erstellt"
+
+#: src/Element/CiviremoteFundingClearingHistoryCreate.php:39
+msgid "Clearing Started"
+msgstr "Verwendungsnachweise gestartet"
 
 #: src/Entity/FundingFile.php:54
 msgid "Referenced file"
