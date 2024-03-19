@@ -97,6 +97,7 @@ final class NewDrawdownForm extends FormBase {
         '#required' => TRUE,
         '#field_suffix' => $transferContract->getCurrency(),
         '#step' => 0.01,
+        '#min' => 0,
         '#max' => $transferContract->getAmountAvailable(),
       ],
       'actions' => [
