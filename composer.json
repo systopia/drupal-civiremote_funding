@@ -24,7 +24,9 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true
         }
     },
     "repositories": [
@@ -57,8 +59,8 @@
         "drupal/json_forms": "~0.1"
     },
     "require-dev": {
-        "drupal/core": "^9.5",
-        "drupal/core-dev": "^9.5"
+        "drupal/core": "^9.5 || ^10",
+        "drupal/core-dev": "^9.5 || ^10"
     },
     "suggest": {
         "drupal/fontawesome": "To load Font Awesome icons. https://www.drupal.org/project/fontawesome"
