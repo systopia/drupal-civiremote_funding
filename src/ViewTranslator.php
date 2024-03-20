@@ -33,6 +33,8 @@ final class ViewTranslator {
     'description',
     'text',
     'submit_button',
+    'type_custom_true',
+    'type_custom_false',
   ];
 
   private ConfigFactoryInterface $configFactory;
