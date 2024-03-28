@@ -97,7 +97,7 @@ msgstr "Herunterladen"
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Open clearing"
-msgstr "Verwendungsnachweise öffnen"
+msgstr "Verwendungsnachweis öffnen"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:42
@@ -417,7 +417,7 @@ msgstr "Erstellt"
 
 #: src/Element/CiviremoteFundingClearingHistoryCreate.php:39
 msgid "Clearing Started"
-msgstr "Verwendungsnachweise gestartet"
+msgstr "Verwendungsnachweis gestartet"
 
 #: src/Entity/FundingFile.php:54
 msgid "Referenced file"
