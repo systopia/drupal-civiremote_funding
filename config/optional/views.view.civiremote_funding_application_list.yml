@@ -820,6 +820,71 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        application_process_status:
+          id: application_process_status
+          table: cmrf_views_civiremote_funding_caseinfo
+          field: application_process_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_optionlist
+          operator: in
+          value:
+            all: all
+            new: new
+            draft: draft
+            withdrawn: withdrawn
+            applied: applied
+            review: review
+            rejected: rejected
+            eligible: eligible
+            complete: complete
+            rework-requested: rework-requested
+            rework: rework
+            rework-review-requested: rework-review-requested
+            rework-review: rework-review
+          group: 1
+          exposed: true
+          expose:
+            operator_id: application_process_status_op
+            label: Status
+            description: ''
+            use_operator: false
+            operator: application_process_status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: application_process_status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              Kernfunktionen: '0'
+              CiviMail: '0'
+              CiviContribute: '0'
+              CiviAdmin: '0'
+              CiviEvent: '0'
+              CiviMember: '0'
+              civi_api: '0'
+              civiremote_remote_user: '0'
+              civiremote__ivi_emote__unding: '0'
+              civi_funding: '0'
+              civiremote_civiremote_funding: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: table
         options:
