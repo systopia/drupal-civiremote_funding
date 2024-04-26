@@ -23,6 +23,7 @@ use Drupal\civiremote_funding\Breadcrumb\BreadcrumbRouteAnalyzer;
 use Drupal\civiremote_funding\File\FundingFileDownloadHook;
 use Drupal\civiremote_funding\File\FundingFileManager;
 use Drupal\civiremote_funding\Install\DashboardBlockInstaller;
+use Drupal\civiremote_funding\Plugin\views\field\LanguageAwareNumericField;
 use Drupal\civiremote_funding\Views\ApplicationProcessDropButton;
 use Drupal\civiremote_funding\ViewTranslator;
 use Drupal\Core\Breadcrumb\Breadcrumb;
@@ -31,6 +32,15 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\file\FileInterface;
 use Drupal\views\Plugin\views\field\Dropbutton;
 use Drupal\views\ViewExecutable;
+
+/**
+ * @phpstan-param array<string, array<string, mixed>> $plugins
+ *
+ * Implements hook_views_plugins_field_alter().
+ */
+function civiremote_funding_views_plugins_field_alter(array &$plugins): void {
+  $plugins['numeric']['class'] = LanguageAwareNumericField::class;
+}
 
 function civiremote_funding_views_pre_build(ViewExecutable $view): void {
   if (!in_array($view->id(), ['civiremote_funding_application_list', 'civiremote_funding_combined_application_process_list'], TRUE)) {
