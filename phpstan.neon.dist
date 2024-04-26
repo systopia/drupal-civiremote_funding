@@ -50,4 +50,16 @@ parameters:
 		-
 			message: '/ never returns [^\s]+ so it can be removed from the return type.$/'
 			path: '*/tests/src/Unit/File/Entity/*Mock.php'
+
+		# LanguageAwareNumericField contains code from Drupal.
+		- '/^Method Drupal\\civiremote_funding\\Plugin\\views\\field\\LanguageAwareNumericField::[^\s]+ has parameter [^\s]+ with no type specified.$/'
+		- '/^Method Drupal\\civiremote_funding\\Plugin\\views\\field\\LanguageAwareNumericField::[^\s]+ has parameter [^\s]+ with no value type specified in iterable type array.$/'
+		- '/^Method Drupal\\civiremote_funding\\Plugin\\views\\field\\LanguageAwareNumericField::[^\s]+ return type has no value type specified in iterable type array.$/'
+		- '/^Method Drupal\\civiremote_funding\\Plugin\\views\\field\\LanguageAwareNumericField::render\(\) never returns/'
+		-
+			message: '/^Construct empty\(\) is not allowed. Use more strict comparison.$/'
+			path: '*/src/Plugin/views/field/LanguageAwareNumericField.php'
+		-
+			message: '/^Concat: Do not cast objects magically, please use `__toString` here, Drupal\\views\\Render\\ViewsRenderPipelineMarkup and string found.$/'
+			path: '*/src/Plugin/views/field/LanguageAwareNumericField.php'
 	tmpDir: .phpstan
