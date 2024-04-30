@@ -762,8 +762,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
+            remember_roles: null
           is_grouped: false
           group_info:
             label: ''
@@ -800,13 +799,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              civicrm_api: '0'
-              civiremote_remote_user: '0'
-              civiremote__ivi_emote__unding: '0'
+            remember_roles: null
             placeholder: ''
           is_grouped: false
           group_info:
@@ -857,21 +850,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              Kernfunktionen: '0'
-              CiviMail: '0'
-              CiviContribute: '0'
-              CiviAdmin: '0'
-              CiviEvent: '0'
-              CiviMember: '0'
-              civi_api: '0'
-              civiremote_remote_user: '0'
-              civiremote__ivi_emote__unding: '0'
-              civi_funding: '0'
-              civiremote_civiremote_funding: '0'
+            remember_roles: null
             reduce: false
           is_grouped: false
           group_info:
