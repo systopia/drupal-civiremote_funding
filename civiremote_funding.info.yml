@@ -10,4 +10,4 @@ dependencies:
   - json_forms
 'interface translation project': civiremote_funding
 'interface translation server pattern': modules/custom/%project/translations/%language.po
-version: 0.3.x-dev
+version: 0.3.4
