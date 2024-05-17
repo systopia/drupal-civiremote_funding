@@ -42,6 +42,9 @@ function civiremote_funding_views_plugins_field_alter(array &$plugins): void {
   $plugins['numeric']['class'] = LanguageAwareNumericField::class;
 }
 
+/**
+ * Implements hook_views_pre_build().
+ */
 function civiremote_funding_views_pre_build(ViewExecutable $view): void {
   if (!in_array($view->id(), ['civiremote_funding_application_list', 'civiremote_funding_combined_application_process_list'], TRUE)) {
     return;
