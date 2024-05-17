@@ -32,12 +32,15 @@ use Drupal\views\ResultRow;
  */
 final class ApplicationProcessDropButton extends Dropbutton {
 
+  private Dropbutton $dropbutton;
+
   private FundingApi $fundingApi;
 
   private ?int $applicationProcessId = NULL;
 
   public function __construct(FundingApi $fundingApi, Dropbutton $dropbutton) {
     $this->fundingApi = $fundingApi;
+    $this->dropbutton = $dropbutton;
     parent::__construct($dropbutton->configuration, $dropbutton->getPluginId(), $dropbutton->getPluginDefinition());
     // @phpstan-ignore-next-line
     if (NULL !== $dropbutton->view) {
@@ -49,6 +52,8 @@ final class ApplicationProcessDropButton extends Dropbutton {
    * {@inheritDoc}
    */
   public function render(ResultRow $values) {
+    $this->applicationProcessId = NULL;
+
     // @phpstan-ignore-next-line
     foreach ($values as $key => $value) {
       if (str_ends_with($key, '_application_process_id')) {
@@ -58,12 +63,11 @@ final class ApplicationProcessDropButton extends Dropbutton {
       }
     }
 
-    try {
-      return parent::render($values);
+    if (get_class($this->dropbutton) !== Dropbutton::class) {
+      $this->dropbutton->render($values);
     }
-    finally {
-      $this->applicationProcessId = NULL;
-    }
+
+    return parent::render($values);
   }
 
   /**
@@ -74,7 +78,7 @@ final class ApplicationProcessDropButton extends Dropbutton {
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
   protected function getLinks(): array {
-    $links = parent::getLinks();
+    $links = $this->dropbutton->getLinks();
     if (NULL === $this->applicationProcessId) {
       // Should not happen.
       return $links;
