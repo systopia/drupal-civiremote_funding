@@ -24,6 +24,7 @@ use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\civiremote_funding\Form\FundingCaseForm;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -43,7 +44,7 @@ final class FundingCaseController extends ControllerBase {
   /**
    * @return array<int|string, mixed>
    */
-  public function content(int $fundingCaseId): array {
+  public function content(Request $request, int $fundingCaseId): array {
     $fundingCase = $this->fundingApi->getFundingCase($fundingCaseId);
     if (NULL === $fundingCase) {
       throw new NotFoundHttpException();
@@ -74,7 +75,11 @@ final class FundingCaseController extends ControllerBase {
             ['@type' => $fundingCaseType->getApplicationProcessLabel()]
           ),
         ],
-        '#url' => Url::fromRoute('civiremote_funding.case_application_add', ['fundingCaseId' => $fundingCaseId]),
+        '#url' => Url::fromRoute(
+          'civiremote_funding.case_application_add',
+          ['fundingCaseId' => $fundingCaseId],
+          ['query' => ['destination' => $request->getRequestUri()]]
+        ),
       ];
     }
 
