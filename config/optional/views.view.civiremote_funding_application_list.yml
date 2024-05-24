@@ -4,6 +4,7 @@ dependencies:
   module:
     - cmrf_views
     - user
+    - views_current_path
 id: civiremote_funding_application_list
 label: 'CiviCRM Funding Application List (non-combined)'
 module: views
@@ -643,6 +644,63 @@ display:
           format_language_aware: true
           format_style: 2
           currency: '{{funding_program_currency}}'
+        current_path:
+          id: current_path
+          table: views
+          field: current_path
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: current_path
+          label: 'Current path'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          path_format: raw-relative
+          query_string_support: bypass-query-string
+          query_params_filter: {  }
+          query_params_filter_with_value: {  }
+          query_params_renaming: {  }
+          query_params_trim: 0
+          query_params_lower: 0
+          cache_user: 0
         application_process_is_eligible_1:
           id: application_process_is_eligible_1
           table: cmrf_views_civiremote_funding_caseinfo
@@ -657,7 +715,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: 'civiremote/funding/application/{{application_process_id}}/clearing'
+            path: 'civiremote/funding/application/{{application_process_id}}/clearing?destination={{current_path}}'
             absolute: false
             external: false
             replace_spaces: false
@@ -710,7 +768,7 @@ display:
             alter_text: true
             text: 'Open application'
             make_link: true
-            path: 'civiremote/funding/application/{{ application_process_id }}'
+            path: 'civiremote/funding/application/{{ application_process_id }}?destination={{current_path}}'
             absolute: false
             external: false
             replace_spaces: false
@@ -759,7 +817,7 @@ display:
             alter_text: true
             text: 'Show history'
             make_link: true
-            path: 'civiremote/funding/application/{{ application_process_id }}/history'
+            path: 'civiremote/funding/application/{{ application_process_id }}/history?destination={{current_path}}'
             absolute: false
             external: false
             replace_spaces: false
@@ -843,11 +901,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          destination: true
+          destination: false
           fields:
+            application_process_is_eligible_1: application_process_is_eligible_1
             nothing: nothing
             nothing_1: nothing_1
-            application_process_is_eligible_1: application_process_is_eligible_1
             funding_program_currency: '0'
             application_process_id: '0'
             funding_case_id: '0'
@@ -855,8 +913,11 @@ display:
             funding_program_title: '0'
             application_process_title: '0'
             application_process_status: '0'
-            application_process_amount_requested: '0'
             application_process_modification_date: '0'
+            application_process_amount_requested: '0'
+            clearing_process_amount_cleared: '0'
+            clearing_process_amount_admitted: '0'
+            current_path: '0'
       pager:
         type: full
         options:
