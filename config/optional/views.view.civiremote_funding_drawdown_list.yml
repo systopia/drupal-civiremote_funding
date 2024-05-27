@@ -138,8 +138,8 @@ display:
           label: Amount
           exclude: false
           alter:
-            alter_text: true
-            text: '{{ amount }} {{currency}}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -184,6 +184,9 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
+          format_language_aware: true
+          format_style: 2
+          currency: '{{currency}}'
         status:
           id: status
           table: cmrf_views_civiremote_funding_drawdown

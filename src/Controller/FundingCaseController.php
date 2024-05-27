@@ -65,6 +65,14 @@ final class FundingCaseController extends ControllerBase {
       '#type' => 'container',
     ];
 
+    $content['apply_note'] = [
+      '#markup' => '<p>' . $this->t(
+        'Please do not forget to apply the combined application if everything is recorded or after additions.'
+      ) . '</p>',
+    ];
+
+    $content['form'] = $this->formBuilder()->getForm(FundingCaseForm::class);
+
     if (in_array('application_create', $fundingCase->getPermissions(), TRUE)) {
       $content['add_link'] = [
         '#type' => 'link',
@@ -93,8 +101,6 @@ final class FundingCaseController extends ControllerBase {
       ],
       '#embed' => TRUE,
     ];
-
-    $content['form'] = $this->formBuilder()->getForm(FundingCaseForm::class);
 
     return $content;
   }
