@@ -586,7 +586,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          path_format: raw-relative
+          path_format: alias-internal
           query_string_support: bypass-query-string
           query_params_filter: {  }
           query_params_filter_with_value: {  }
