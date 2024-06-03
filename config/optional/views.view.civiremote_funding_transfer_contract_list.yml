@@ -964,7 +964,7 @@ display:
         type: views_query
         options: {  }
       relationships: {  }
-      use_ajax: true
+      use_ajax: false
       header: {  }
       footer: {  }
       display_comment: ''
