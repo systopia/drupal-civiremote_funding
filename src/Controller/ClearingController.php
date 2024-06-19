@@ -20,10 +20,12 @@ declare(strict_types=1);
 
 namespace Drupal\civiremote_funding\Controller;
 
+use Drupal\civiremote_funding\Api\Exception\ApiCallUnauthorizedException;
 use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\civiremote_funding\Form\ClearingForm;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 final class ClearingController extends ControllerBase {
 
@@ -37,7 +39,13 @@ final class ClearingController extends ControllerBase {
    * @return array<int|string, mixed>
    */
   public function formByApplicationProcessId(Request $request, int $applicationProcessId): array {
-    $clearingProcess = $this->fundingApi->getOrCreateClearingProcess($applicationProcessId);
+    try {
+      $clearingProcess = $this->fundingApi->getOrCreateClearingProcess($applicationProcessId);
+    }
+    catch (ApiCallUnauthorizedException $e) {
+      throw new AccessDeniedHttpException($e->getMessage(), $e, $e->getCode());
+    }
+
     $request->attributes->set('clearingProcessId', $clearingProcess->getId());
 
     $info = $this->fundingApi->getFundingCaseInfoByApplicationProcessId(

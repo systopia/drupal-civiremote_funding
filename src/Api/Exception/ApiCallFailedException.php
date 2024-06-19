@@ -22,24 +22,49 @@ namespace Drupal\civiremote_funding\Api\Exception;
 
 use CMRF\Core\Call;
 
-final class ApiCallFailedException extends \RuntimeException implements ExceptionInterface {
+/**
+ * @phpstan-type api3ErrorReplyT array{
+ *   error_message: string,
+ *   is_error: 1,
+ * }
+ *
+ * @phpstan-type api4ErrorReplyT array{
+ *   error_message: string,
+ *   error_code: int|string,
+ *   status: int,
+ * }
+ */
+class ApiCallFailedException extends \RuntimeException implements ExceptionInterface {
 
   private Call $call;
 
   public static function fromCall(Call $call): self {
-    /** @phpstan-var array{error_message: string, error_code: int|string} $reply */
+    /** @phpstan-var api3ErrorReplyT|api4ErrorReplyT $reply */
     $reply = $call->getReply();
 
-    return new self($call, $reply['error_message'], (int) $reply['error_code']);
+    if (403 === ($reply['status'] ?? NULL)) {
+      return new ApiCallUnauthorizedException($call, $reply['error_message'], (int) $reply['error_code']);
+    }
+
+    return new self($call, $reply['error_message'], (int) ($reply['error_code'] ?? 0));
   }
 
-  public function __construct(Call $call, string $message = '', int $code = 0, \Throwable $previous = NULL) {
+  final public function __construct(Call $call, string $message = '', int $code = 0, \Throwable $previous = NULL) {
     parent::__construct($message, $code, $previous);
     $this->call = $call;
   }
 
   public function getCall(): Call {
     return $this->call;
+  }
+
+  /**
+   * @return int|null
+   *   The status code returned in the CiviCRM APIv4 reply. NULL for APIv3
+   *   requests.
+   */
+  public function getStatusCode(): ?int {
+    return $this->call->getReply()['status'] ?? NULL;
   }
 
 }

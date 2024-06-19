@@ -442,6 +442,9 @@ class FundingApi {
     return FormSubmitResponse::fromApiResultValue($result['values']);
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getOrCreateClearingProcess(int $applicationProcessId): ClearingProcess {
     $result = $this->apiClient->executeV4('RemoteFundingClearingProcess', 'getOrCreate', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),

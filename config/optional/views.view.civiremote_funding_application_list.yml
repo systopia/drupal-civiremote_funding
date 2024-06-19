@@ -799,10 +799,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-        application_process_is_eligible_1:
-          id: application_process_is_eligible_1
+        CAN_open_clearing:
+          id: CAN_open_clearing
           table: cmrf_views_civiremote_funding_caseinfo
-          field: application_process_is_eligible
+          field: CAN_open_clearing
           relationship: none
           group_type: group
           admin_label: ''
@@ -905,7 +905,7 @@ display:
           fields:
             nothing: nothing
             nothing_1: nothing_1
-            application_process_is_eligible_1: application_process_is_eligible_1
+            CAN_open_clearing: CAN_open_clearing
             funding_program_currency: '0'
             application_process_id: '0'
             funding_case_id: '0'
