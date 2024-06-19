@@ -796,10 +796,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-        is_eligible:
-          id: is_eligible
+        CAN_open_clearing:
+          id: CAN_open_clearing
           table: cmrf_views_civiremote_funding_application_process
-          field: is_eligible
+          field: CAN_open_clearing
           relationship: none
           group_type: group
           admin_label: ''
@@ -837,7 +837,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -902,14 +902,19 @@ display:
           fields:
             nothing_1: nothing_1
             nothing: nothing
-            is_eligible: is_eligible
+            CAN_open_clearing: CAN_open_clearing
             id: '0'
             funding_case_id: '0'
+            currency: '0'
             title: '0'
             identifier: '0'
             status: '0'
             creation_date: '0'
             modification_date: '0'
+            amount_requested: '0'
+            amount_cleared: '0'
+            amount_admitted: '0'
+            current_path: '0'
       pager:
         type: full
         options:
