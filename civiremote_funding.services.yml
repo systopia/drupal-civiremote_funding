@@ -68,6 +68,12 @@ services:
     class: Drupal\civiremote_funding\Controller\ClearingController
     public: true
 
+  Drupal\civiremote_funding\Controller\ChooseFundingProgramController:
+    class: Drupal\civiremote_funding\Controller\ChooseFundingProgramController
+    arguments:
+      $urlGenerator: '@url_generator'
+    public: true
+
   Drupal\civiremote_funding\Controller\FundingCaseController:
     class: Drupal\civiremote_funding\Controller\FundingCaseController
     public: true

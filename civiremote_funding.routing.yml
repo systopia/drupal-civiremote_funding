@@ -11,7 +11,7 @@ civiremote_funding.dashboard:
 civiremote_funding.choose_funding_program_form:
   path: '/civiremote/funding/application/add'
   defaults:
-    _form: 'Drupal\civiremote_funding\Form\ChooseFundingProgramForm'
+    _controller: 'Drupal\civiremote_funding\Controller\ChooseFundingProgramController::form'
   options:
     no_cache: TRUE
   requirements:
