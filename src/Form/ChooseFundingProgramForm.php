@@ -20,7 +20,6 @@ declare(strict_types=1);
 
 namespace Drupal\civiremote_funding\Form;
 
-use Drupal\civiremote_funding\Api\DTO\FundingProgram;
 use Drupal\civiremote_funding\Api\Exception\ApiCallFailedException;
 use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\Core\Form\FormBase;
@@ -50,18 +49,10 @@ final class ChooseFundingProgramForm extends FormBase {
     return 'funding_choose_funding_program';
   }
 
-  public function buildForm(array $form, FormStateInterface $form_state): array {
-    try {
-      $fundingProgramOptions = $this->getFundingProgramOptions();
-    }
-    catch (ApiCallFailedException $e) {
-      $this->messenger()->addError(
-        $this->t('Failed to load available funding programs: @error', ['@error' => $e->getMessage()])
-      );
-
-      return [];
-    }
-
+  /**
+   * @param array<int, string> $fundingProgramOptions
+   */
+  public function buildForm(array $form, FormStateInterface $form_state, array $fundingProgramOptions = []): array {
     return [
       'fundingProgramId' => [
         '#type' => 'select',
@@ -102,33 +93,6 @@ final class ChooseFundingProgramForm extends FormBase {
       // @todo Support funding programs with multiple funding case types.
       $this->redirectToApplicationForm($fundingProgramId, $fundingCaseTypes[0]->getId(), $formState);
     }
-  }
-
-  /**
-   * @return array<int, string>
-   *
-   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
-   */
-  private function getFundingProgramOptions(): array {
-    $options = [];
-    foreach ($this->fundingApi->getFundingPrograms() as $fundingProgram) {
-      if ($this->isNewApplicationPossible($fundingProgram)) {
-        $options[$fundingProgram->getId()] = $fundingProgram->getTitle();
-      }
-    }
-
-    return $options;
-  }
-
-  private function isInRequestPeriod(FundingProgram $fundingProgram): bool {
-    $now = new \DateTime(date('Y-m-d H:i:s'));
-
-    return $now > $fundingProgram->getRequestsStartDate() && $now < $fundingProgram->getRequestsEndDate();
-  }
-
-  private function isNewApplicationPossible(FundingProgram $fundingProgram): bool {
-    return \in_array('application_create', $fundingProgram->getPermissions(), TRUE) &&
-      $this->isInRequestPeriod($fundingProgram);
   }
 
   private function redirectToApplicationForm(
