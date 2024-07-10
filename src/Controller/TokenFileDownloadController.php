@@ -43,12 +43,14 @@ final class TokenFileDownloadController extends ControllerBase {
 
     /** @var \Drupal\file\FileInterface $file */
     $file = $fundingFile->getFile();
-    if (!is_file($file->getFileUri())) {
+    /** @var string $fileUri */
+    $fileUri = $file->getFileUri();
+    if (!is_file($fileUri)) {
       throw new NotFoundHttpException();
     }
 
     return new BinaryFileResponse(
-      $file->getFileUri(),
+      $fileUri,
       Response::HTTP_OK,
       ['Content-Type' => $file->getMimeType()],
       FALSE,

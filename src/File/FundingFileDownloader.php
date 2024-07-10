@@ -71,6 +71,7 @@ class FundingFileDownloader {
   public function download(FundingFileInterface $fundingFile): void {
     Assertion::notEmpty($fundingFile->getCiviUri());
     Assertion::notNull($fundingFile->getFile());
+    Assertion::notNull($fundingFile->getFile()->getFileUri());
 
     try {
       $response = $this->fundingFileHttpClient->get($fundingFile);
@@ -111,6 +112,7 @@ class FundingFileDownloader {
         FileSystemInterface::EXISTS_REPLACE
       );
 
+      Assertion::notNull($file->getFileUri());
       $file->setMimeType($this->mimeTypeGuesser->guessMimeType($file->getFileUri()) ?? 'application/octet-stream');
       $this->fileStorage->save($file);
       $fundingFile->setLastModified($response->getHeaderLine('Last-Modified'));

@@ -24,11 +24,10 @@ parameters:
 		# Note paths are prefixed with ""*/" to work with inspections in PHPStorm because of:
 		# https://youtrack.jetbrains.com/issue/WI-63891/PHPStan-ignoreErrors-configuration-isnt-working-with-inspections
 		- '/^Method Drupal\\Core\\Form\\FormBuilderInterface::getForm\(\) invoked with \d+ parameters, 1 required.$/'
-		- '/^Parameter #1 \$form \(array<int\|string, mixed>\) of method [^\s]+::(build|validate|submit)Form\(\) should be contravariant with parameter \$form \(array\) of method Drupal\\Core\\Form\\(FormInterface|FormBase)::(build|validate|submit)Form\(\)$/'
 		- '#^Method Drupal\\civiremote_funding\\Form\\[^\s]+Form::(buildForm|submitForm)\(\) has parameter \$form with no value type specified in iterable type array.$#'
 		- '#^Method Drupal\\civiremote_funding\\Form\\[^\s]+Form::buildForm\(\) return type has no value type specified in iterable type array.$#'
 		# Happens in classes implementing ContainerInjectionInterface::create()
-		- '/ constructor expects [^\s]+, object\|null given.$/'
+		- '/ constructor expects [^\s]+, object given.$/'
 		-
 			message: '/^Parameter #1 \$value of static method Drupal\\civiremote_funding\\Api\\[^:]+::fromApiResultValue\(\) expects array\{.+\}, array<int\|string, mixed> given.$/'
 			path: */Api/FundingApi.php

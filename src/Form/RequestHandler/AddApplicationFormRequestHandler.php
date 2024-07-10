@@ -39,7 +39,6 @@ final class AddApplicationFormRequestHandler implements FormRequestHandlerInterf
   public function getForm(Request $request): FundingForm {
     return $this->fundingApi->getAddApplicationForm(
       $this->getFundingCaseId($request),
-      // @phpstan-ignore-next-line
       $request->query->has('copyDataFromId') ? (int) $request->query->get('copyDataFromId') : NULL,
     );
   }
