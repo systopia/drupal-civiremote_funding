@@ -20,8 +20,11 @@ declare(strict_types=1);
 
 namespace Drupal\civiremote_funding\Plugin\Block;
 
+use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @Block(
@@ -30,7 +33,34 @@ use Drupal\Core\Url;
  *   category = @Translation("CiviRemote Funding"),
  * )
  */
-final class CiviremoteFundingDashboardGroupApplications extends BlockBase {
+final class CiviremoteFundingDashboardGroupApplications extends BlockBase implements ContainerFactoryPluginInterface {
+
+  private FundingApi $fundingApi;
+
+  /**
+   * {@inheritDoc}
+   *
+   * @param array<int|string, mixed> $configuration
+   * @param mixed $pluginDefinition
+   */
+  public function __construct(array $configuration, string $pluginId, $pluginDefinition, FundingApi $fundingApi) {
+    parent::__construct($configuration, $pluginId, $pluginDefinition);
+    $this->fundingApi = $fundingApi;
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * @param array<int|string, mixed> $configuration
+   */
+  public static function create(ContainerInterface $container, array $configuration, $pluginId, $pluginDefinition) {
+    return new static(
+      $configuration,
+      $pluginId,
+      $pluginDefinition,
+      $container->get(FundingApi::class)
+    );
+  }
 
   /**
    * {@inheritDoc}
@@ -57,6 +87,7 @@ final class CiviremoteFundingDashboardGroupApplications extends BlockBase {
           '#content' => [
             '#markup' => '<div>' . $this->t('Manage current combined applications') . '</div>',
           ],
+          '#access_callback' => fn() => $this->areCombinedApplicationsPossible(),
         ],
         [
           '#type' => 'civiremote_funding_dashboard_element',
@@ -68,6 +99,19 @@ final class CiviremoteFundingDashboardGroupApplications extends BlockBase {
         ],
       ],
     ];
+  }
+
+  private function areCombinedApplicationsPossible(): bool {
+    foreach ($this->fundingApi->getFundingPrograms() as $fundingProgram) {
+      $fundingCaseTypes = $this->fundingApi->getFundingCaseTypesByFundingProgramId($fundingProgram->getId());
+      foreach ($fundingCaseTypes as $fundingCaseType) {
+        if ($fundingCaseType->getIsCombinedApplication()) {
+          return TRUE;
+        }
+      }
+    }
+
+    return FALSE;
   }
 
 }
