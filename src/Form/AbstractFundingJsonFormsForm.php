@@ -38,7 +38,8 @@ abstract class AbstractFundingJsonFormsForm extends AbstractJsonFormsForm {
 
   protected FormResponseHandlerInterface $formResponseHandler;
 
-  public function __construct(FormArrayFactoryInterface $formArrayFactory,
+  public function __construct(
+    FormArrayFactoryInterface $formArrayFactory,
     FormValidatorInterface $formValidator,
     FormValidationMapperInterface $formValidationMapper,
     FormRequestHandlerInterface $formRequestHandler,
@@ -53,7 +54,8 @@ abstract class AbstractFundingJsonFormsForm extends AbstractJsonFormsForm {
     return 'funding_form';
   }
 
-  public function buildForm(array $form,
+  public function buildForm(
+    array $form,
     FormStateInterface $form_state,
     \stdClass $jsonSchema = NULL,
     \stdClass $uiSchema = NULL,
