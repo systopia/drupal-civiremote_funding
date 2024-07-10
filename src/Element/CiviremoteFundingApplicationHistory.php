@@ -119,6 +119,8 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
    * @phpstan-param array<string, \Drupal\civiremote_funding\Api\DTO\Option> $clearingStatusOptions
    *
    * @phpstan-return array<string, mixed>
+   *
+   * phpcs:disable Generic.Metrics.CyclomaticComplexity.TooHigh
    */
   private static function createActivityArray(
     ApplicationProcessActivity $activity,
@@ -126,6 +128,7 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
     array $clearingStatusOptions,
     bool $withIcon
   ): array {
+    // phpcs:enable
     switch ($activity->getActivityTypeName()) {
       case 'funding_application_comment_external':
         return [
