@@ -29,6 +29,11 @@
             "phpstan/extension-installer": true
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.4-dev"
+        }
+    },
     "repositories": [
         {
             "type": "vcs",
