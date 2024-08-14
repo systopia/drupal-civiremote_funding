@@ -20,6 +20,7 @@ declare(strict_types=1);
 
 namespace Drupal\civiremote_funding\Plugin\Block;
 
+use Drupal\civiremote_funding\Access\RemoteContactIdProviderInterface;
 use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -37,15 +38,24 @@ final class CiviremoteFundingDashboardGroupApplications extends BlockBase implem
 
   private FundingApi $fundingApi;
 
+  private RemoteContactIdProviderInterface $remoteContactIdProvider;
+
   /**
    * {@inheritDoc}
    *
    * @param array<int|string, mixed> $configuration
    * @param mixed $pluginDefinition
    */
-  public function __construct(array $configuration, string $pluginId, $pluginDefinition, FundingApi $fundingApi) {
+  public function __construct(
+    array $configuration,
+    string $pluginId,
+    $pluginDefinition,
+    FundingApi $fundingApi,
+    RemoteContactIdProviderInterface $remoteContactIdProvider
+  ) {
     parent::__construct($configuration, $pluginId, $pluginDefinition);
     $this->fundingApi = $fundingApi;
+    $this->remoteContactIdProvider = $remoteContactIdProvider;
   }
 
   /**
@@ -58,7 +68,8 @@ final class CiviremoteFundingDashboardGroupApplications extends BlockBase implem
       $configuration,
       $pluginId,
       $pluginDefinition,
-      $container->get(FundingApi::class)
+      $container->get(FundingApi::class),
+      $container->get(RemoteContactIdProviderInterface::class)
     );
   }
 
@@ -102,6 +113,12 @@ final class CiviremoteFundingDashboardGroupApplications extends BlockBase implem
   }
 
   private function areCombinedApplicationsPossible(): bool {
+    if (!$this->remoteContactIdProvider->hasRemoteContactId()) {
+      // Should not happen normally.
+      // Loading the initial site should not fail, though.
+      return FALSE;
+    }
+
     foreach ($this->fundingApi->getFundingPrograms() as $fundingProgram) {
       $fundingCaseTypes = $this->fundingApi->getFundingCaseTypesByFundingProgramId($fundingProgram->getId());
       foreach ($fundingCaseTypes as $fundingCaseType) {
