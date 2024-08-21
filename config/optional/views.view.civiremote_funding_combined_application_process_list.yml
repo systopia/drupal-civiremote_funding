@@ -1,4 +1,4 @@
-langcode: en
+langcode: de
 status: true
 dependencies:
   module:
@@ -196,61 +196,6 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-        title:
-          id: title
-          table: cmrf_views_civiremote_funding_application_process
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: cmrf_views_standard
-          label: Title
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
         identifier:
           id: identifier
           table: cmrf_views_civiremote_funding_application_process
@@ -306,6 +251,113 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
+        title:
+          id: title
+          table: cmrf_views_civiremote_funding_application_process
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_standard
+          label: Title
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+        start_date:
+          id: start_date
+          table: cmrf_views_civiremote_funding_application_process
+          field: start_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_date
+          label: 'Beginn der Maßnahme'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d.m.o
+          timezone: ''
         status:
           id: status
           table: cmrf_views_civiremote_funding_application_process
@@ -1038,7 +1090,164 @@ display:
             fail: 'not found'
           validate_options: {  }
           must_not_be: false
-      filters: {  }
+      filters:
+        status:
+          id: status
+          table: cmrf_views_civiremote_funding_application_process
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_optionlist
+          operator: in
+          value:
+            all: all
+            new: new
+            draft: draft
+            withdrawn: withdrawn
+            applied: applied
+            review: review
+            rejected: rejected
+            eligible: eligible
+            complete: complete
+            rework-requested: rework-requested
+            rework: rework
+            rework-review-requested: rework-review-requested
+            rework-review: rework-review
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        title:
+          id: title
+          table: cmrf_views_civiremote_funding_application_process
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_text
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Titel
+            description: ''
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              Kernfunktionen: '0'
+              civiremote_remote_user: '0'
+              civiremote_civiremote_funding: '0'
+              pruefer_in: '0'
+              CiviAdmin: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        status_1:
+          id: status_1
+          table: cmrf_views_civiremote_funding_application_process
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_optionlist
+          operator: in
+          value:
+            all: all
+            new: new
+            draft: draft
+            withdrawn: withdrawn
+            applied: applied
+            review: review
+            rejected: rejected
+            eligible: eligible
+            complete: complete
+            rework-requested: rework-requested
+            rework: rework
+            rework-review-requested: rework-review-requested
+            rework-review: rework-review
+          group: 1
+          exposed: true
+          expose:
+            operator_id: status_1_op
+            label: Status
+            description: ''
+            use_operator: false
+            operator: status_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: application_process_status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              Kernfunktionen: '0'
+              civiremote_remote_user: '0'
+              civiremote_civiremote_funding: '0'
+              pruefer_in: '0'
+              CiviAdmin: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: table
         options:
@@ -1094,14 +1303,14 @@ display:
               empty_column: false
               responsive: ''
             identifier:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             status:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
