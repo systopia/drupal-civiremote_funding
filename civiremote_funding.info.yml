@@ -11,4 +11,4 @@ dependencies:
   - views_current_path # Requires this patch: https://git.drupalcode.org/project/views_current_path/-/merge_requests/8.patch
 'interface translation project': civiremote_funding
 'interface translation server pattern': modules/custom/%project/translations/%language.po
-version: 0.4.3
+version: 0.4.4-dev
