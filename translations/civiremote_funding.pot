@@ -78,7 +78,7 @@ msgid "Open clearing"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
-#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:42
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:83
 msgid "Funding Applications"
 msgstr ""
 
@@ -123,6 +123,13 @@ msgstr ""
 
 #: civiremote_funding.info.yml
 msgid "Drupal frontend for funding applications of CiviCRM Funding Manager."
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+#: config/optional/views.view.civiremote_funding_combined_case_list.yml
+#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
+msgid "Current path"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
@@ -274,7 +281,7 @@ msgstr ""
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
-#: src/Form/ChooseFundingProgramForm.php:68
+#: src/Form/ChooseFundingProgramForm.php:59
 msgid "Funding Program"
 msgstr ""
 
@@ -318,6 +325,20 @@ msgstr ""
 msgid "Application History"
 msgstr ""
 
+#: src/Controller/ChooseFundingProgramController.php:52
+msgid "Failed to load available funding programs: @error"
+msgstr ""
+
+#: src/Controller/ChooseFundingProgramController.php:67
+#: src/Form/ChooseFundingProgramForm.php:83
+msgid "Failed to load funding case types: @error"
+msgstr ""
+
+#: src/Controller/ChooseFundingProgramController.php:74
+#: src/Form/ChooseFundingProgramForm.php:90
+msgid "No funding case type available in the selected funding program."
+msgstr ""
+
 #: src/Controller/DashboardController.php:34
 msgid "Dashboard"
 msgstr ""
@@ -326,11 +347,11 @@ msgstr ""
 msgid "CiviRemote Funding"
 msgstr ""
 
-#: src/Controller/FundingCaseController.php:69
+#: src/Controller/FundingCaseController.php:70
 msgid "Please do not forget to apply the combined application if everything is recorded or after additions."
 msgstr ""
 
-#: src/Controller/FundingCaseController.php:79
+#: src/Controller/FundingCaseController.php:82
 msgid "Add @type"
 msgstr ""
 
@@ -375,8 +396,16 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
+#: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:42
+msgid "Status: @status"
+msgstr ""
+
 #: src/Element/CiviremoteFundingClearingHistoryCreate.php:39
 msgid "Clearing Started"
+msgstr ""
+
+#: src/Element/CiviremoteFundingClearingHistoryStatusChange.php:42
+msgid "Clearing Status: @status"
 msgstr ""
 
 #: src/Entity/FundingFile.php:54
@@ -399,32 +428,20 @@ msgstr ""
 msgid "The time that the entity was last edited."
 msgstr ""
 
-#: src/Form/AbstractFundingJsonFormsForm.php:67
+#: src/Form/AbstractFundingJsonFormsForm.php:69
 msgid "Loading form failed: @error"
 msgstr ""
 
-#: src/Form/AbstractFundingJsonFormsForm.php:105
+#: src/Form/AbstractFundingJsonFormsForm.php:107
 msgid "Error validating form: @error"
 msgstr ""
 
-#: src/Form/AbstractFundingJsonFormsForm.php:129
+#: src/Form/AbstractFundingJsonFormsForm.php:131
 msgid "Submitting form failed: @error"
 msgstr ""
 
-#: src/Form/ChooseFundingProgramForm.php:59
-msgid "Failed to load available funding programs: @error"
-msgstr ""
-
-#: src/Form/ChooseFundingProgramForm.php:75
+#: src/Form/ChooseFundingProgramForm.php:66
 msgid "Next"
-msgstr ""
-
-#: src/Form/ChooseFundingProgramForm.php:92
-msgid "Failed to load funding case types: @error"
-msgstr ""
-
-#: src/Form/ChooseFundingProgramForm.php:99
-msgid "No funding case type available in the selected funding program."
 msgstr ""
 
 #: src/Form/NewDrawdownForm.php:80
@@ -451,27 +468,27 @@ msgstr ""
 msgid "Validation failed."
 msgstr ""
 
-#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:47
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:88
 msgid "My Applications"
 msgstr ""
 
-#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:50
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:91
 msgid "Manage current funding processes"
 msgstr ""
 
-#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:55
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:96
 msgid "My Combined Applications"
 msgstr ""
 
-#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:58
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:99
 msgid "Manage current combined applications"
 msgstr ""
 
-#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:63
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:105
 msgid "New Application"
 msgstr ""
 
-#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:66
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:108
 msgid "Place a new application"
 msgstr ""
 
@@ -503,6 +520,6 @@ msgstr ""
 msgid "3-letter ISO 4217 currency code. (Replacement patterns are allowed.)"
 msgstr ""
 
-#: src/Views/ApplicationProcessDropButton.php:89
+#: src/Views/ApplicationProcessDropButton.php:93
 msgid "Create: @label"
 msgstr ""
