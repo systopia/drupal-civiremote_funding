@@ -39,7 +39,7 @@ final class CiviremoteFundingClearingHistoryStatusChange extends RenderElement {
       // Array mapping status to \Drupal\civiremote_funding\Api\DTO\Option.
       // Instance of \Drupal\civiremote_funding\Api\DTO\Option.
       '#status_option' => NULL,
-      '#title' => 'Clearing Status: @status',
+      '#title' => $this->t('Clearing Status: @status'),
       '#status_label' => NULL,
       '#source_contact_title' => $this->t('Performed by'),
       '#pre_render' => [
