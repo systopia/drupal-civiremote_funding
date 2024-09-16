@@ -57,7 +57,15 @@ final class CiviremoteFundingApplicationHistoryStatusChange extends RenderElemen
     /** @var \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter */
     $dateFormatter = \Drupal::service('date.formatter');
 
-    Assertion::string($element['#title']);
+    if (is_scalar($element['#title']) ||
+      (is_object($element['#title']) && method_exists($element['#title'], '__toString'))
+    ) {
+      $element['#title'] = (string) $element['#title'];
+    }
+    else {
+      throw new \InvalidArgumentException('Expected string for "#title", got ' . gettype($element['#title']));
+    }
+
     Assertion::isInstanceOf($element['#activity'], ApplicationProcessActivity::class);
     $activity = $element['#activity'];
 
