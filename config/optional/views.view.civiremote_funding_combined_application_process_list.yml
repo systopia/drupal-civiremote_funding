@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   module:
@@ -196,15 +196,15 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-        identifier:
-          id: identifier
+        title:
+          id: title
           table: cmrf_views_civiremote_funding_application_process
-          field: identifier
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: cmrf_views_standard
-          label: Identifier
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -251,15 +251,15 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-        title:
-          id: title
+        identifier:
+          id: identifier
           table: cmrf_views_civiremote_funding_application_process
-          field: title
+          field: identifier
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: cmrf_views_standard
-          label: Title
+          label: Identifier
           exclude: false
           alter:
             alter_text: false
@@ -1038,59 +1038,7 @@ display:
             fail: 'not found'
           validate_options: {  }
           must_not_be: false
-      filters:
-        status:
-          id: status
-          table: cmrf_views_civiremote_funding_application_process
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: cmrf_views_filter_optionlist
-          operator: in
-          value:
-            all: all
-            new: new
-            draft: draft
-            withdrawn: withdrawn
-            applied: applied
-            review: review
-            rejected: rejected
-            eligible: eligible
-            complete: complete
-            rework-requested: rework-requested
-            rework: rework
-            rework-review-requested: rework-review-requested
-            rework-review: rework-review
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+      filters: {  }
       style:
         type: table
         options:
@@ -1146,14 +1094,14 @@ display:
               empty_column: false
               responsive: ''
             identifier:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             status:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1258,24 +1206,27 @@ display:
       tags: {  }
   data_export_1:
     id: data_export_1
-    display_title: Datenexport
+    display_title: 'Data export'
     display_plugin: data_export
     position: 3
     display_options:
       style:
-        type: data_export
+        type: excel_export
         options:
           formats:
             xlsx: xlsx
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
-            utf8_bom: '0'
-            use_serializer_encode_only: false
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
       row:
         type: data_field
         options:
@@ -1307,6 +1258,7 @@ display:
             dropbutton:
               alias: ''
               raw_output: false
+      display_description: ''
       display_extenders: {  }
       path: civiremote/funding/case/%/case.xlsx
       displays:

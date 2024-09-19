@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   module:
@@ -1052,10 +1052,57 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
+        application_process_status:
+          id: application_process_status
+          table: cmrf_views_civiremote_funding_caseinfo
+          field: application_process_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_optionlist
+          operator: in
+          value:
+            all: all
+            new: new
+            draft: draft
+            withdrawn: withdrawn
+            applied: applied
+            review: review
+            rejected: rejected
+            eligible: eligible
+            complete: complete
+            rework-requested: rework-requested
+            rework: rework
+            rework-review-requested: rework-review-requested
+            rework-review: rework-review
+          group: 1
+          exposed: true
+          expose:
+            operator_id: application_process_status_op
+            label: Status
+            description: ''
+            use_operator: false
+            operator: application_process_status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: application_process_status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles: null
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: table
         options:
@@ -1090,7 +1137,7 @@ display:
               empty_column: false
               responsive: ''
             application_process_id:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1098,7 +1145,7 @@ display:
               responsive: ''
             funding_case_id:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -1111,21 +1158,21 @@ display:
               empty_column: false
               responsive: ''
             funding_program_title:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             application_process_title:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             application_process_status:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
