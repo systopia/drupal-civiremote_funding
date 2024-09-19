@@ -1255,12 +1255,9 @@ display:
             amount_admitted:
               alias: ''
               raw_output: true
-            dropbutton:
-              alias: ''
-              raw_output: false
       display_description: ''
       display_extenders: {  }
-      path: civiremote/funding/case/%/case.xlsx
+      path: civiremote/funding/case/%/combined-application.xlsx
       displays:
         embed_1: embed_1
         default: '0'
