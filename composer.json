@@ -62,7 +62,9 @@
         "custom/civiremote": "^1.0@beta",
         "drupal/cmrf_core": "^2.1@beta",
         "drupal/json_forms": "~0.1",
-        "drupal/views_current_path": "^3.0"
+        "drupal/views_current_path": "^3.0",
+        "drupal/views_data_export": "^1.4",
+        "drupal/xls_serialization": "^1.4"
     },
     "require-dev": {
         "drupal/core": "^9.5 || ^10",
