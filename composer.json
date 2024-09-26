@@ -64,7 +64,7 @@
         "drupal/json_forms": "~0.1",
         "drupal/views_current_path": "^3.0",
         "drupal/views_data_export": "^1.4",
-        "drupal/xls_serialization": "^1.4"
+        "drupal/xls_serialization": "^1.3"
     },
     "require-dev": {
         "drupal/core": "^9.5 || ^10",
