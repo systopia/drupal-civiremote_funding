@@ -55,7 +55,14 @@ final class ChooseFundingProgramController extends ControllerBase {
       return [];
     }
 
-    if (1 === count($fundingProgramOptions)) {
+    $fundingProgramOptionsCount = count($fundingProgramOptions);
+    if (0 === $fundingProgramOptionsCount) {
+      $this->messenger()->addStatus($this->t('Currently there is no funding program for new applications.'));
+
+      return [];
+    }
+
+    if (1 === $fundingProgramOptionsCount) {
       $fundingProgramId = key($fundingProgramOptions);
       try {
         $fundingCaseTypes = $this->fundingApi->getFundingCaseTypesByFundingProgramId(

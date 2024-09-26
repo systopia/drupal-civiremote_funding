@@ -329,12 +329,16 @@ msgstr ""
 msgid "Failed to load available funding programs: @error"
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:67
+#: src/Controller/ChooseFundingProgramController.php:60
+msgid "Currently there is no funding program for new applications."
+msgstr ""
+
+#: src/Controller/ChooseFundingProgramController.php:74
 #: src/Form/ChooseFundingProgramForm.php:83
 msgid "Failed to load funding case types: @error"
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:74
+#: src/Controller/ChooseFundingProgramController.php:81
 #: src/Form/ChooseFundingProgramForm.php:90
 msgid "No funding case type available in the selected funding program."
 msgstr ""
