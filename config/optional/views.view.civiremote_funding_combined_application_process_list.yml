@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   module:
@@ -357,7 +357,7 @@ display:
           hide_alter_empty: true
           date_format: custom
           custom_date_format: d.m.o
-          timezone: ''
+          timezone: Europe/Berlin
         status:
           id: status
           table: cmrf_views_civiremote_funding_application_process
@@ -1090,164 +1090,7 @@ display:
             fail: 'not found'
           validate_options: {  }
           must_not_be: false
-      filters:
-        status:
-          id: status
-          table: cmrf_views_civiremote_funding_application_process
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: cmrf_views_filter_optionlist
-          operator: in
-          value:
-            all: all
-            new: new
-            draft: draft
-            withdrawn: withdrawn
-            applied: applied
-            review: review
-            rejected: rejected
-            eligible: eligible
-            complete: complete
-            rework-requested: rework-requested
-            rework: rework
-            rework-review-requested: rework-review-requested
-            rework-review: rework-review
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        title:
-          id: title
-          table: cmrf_views_civiremote_funding_application_process
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: cmrf_views_filter_text
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: title_op
-            label: Titel
-            description: ''
-            use_operator: false
-            operator: title_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: title
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              Kernfunktionen: '0'
-              civiremote_remote_user: '0'
-              civiremote_civiremote_funding: '0'
-              pruefer_in: '0'
-              CiviAdmin: '0'
-              administrator: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        status_1:
-          id: status_1
-          table: cmrf_views_civiremote_funding_application_process
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: cmrf_views_filter_optionlist
-          operator: in
-          value:
-            all: all
-            new: new
-            draft: draft
-            withdrawn: withdrawn
-            applied: applied
-            review: review
-            rejected: rejected
-            eligible: eligible
-            complete: complete
-            rework-requested: rework-requested
-            rework: rework
-            rework-review-requested: rework-review-requested
-            rework-review: rework-review
-          group: 1
-          exposed: true
-          expose:
-            operator_id: status_1_op
-            label: Status
-            description: ''
-            use_operator: false
-            operator: status_1_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: application_process_status
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              Kernfunktionen: '0'
-              civiremote_remote_user: '0'
-              civiremote_civiremote_funding: '0'
-              pruefer_in: '0'
-              CiviAdmin: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+      filters: {  }
       style:
         type: table
         options:
@@ -1258,15 +1101,15 @@ display:
             id: id
             funding_case_id: funding_case_id
             currency: currency
-            title: title
             identifier: identifier
+            title: title
+            start_date: start_date
             status: status
             creation_date: creation_date
             modification_date: modification_date
             amount_requested: amount_requested
             amount_cleared: amount_cleared
             amount_admitted: amount_admitted
-            start_date: start_date
             current_path: current_path
             nothing_1: nothing_1
             nothing: nothing
@@ -1295,6 +1138,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            identifier:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -1302,9 +1152,9 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            identifier:
+            start_date:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -1318,14 +1168,14 @@ display:
               responsive: ''
             creation_date:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             modification_date:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -1346,13 +1196,6 @@ display:
               responsive: ''
             amount_admitted:
               sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            start_date:
-              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
