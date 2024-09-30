@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   module:
@@ -1318,7 +1318,7 @@ display:
               responsive: ''
             application_process_start_date:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
