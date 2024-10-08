@@ -369,7 +369,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: cmrf_views_date
-          label: 'Beginn der Maßnahme'
+          label: 'Start Date Activity'
           exclude: false
           alter:
             alter_text: false
@@ -410,8 +410,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: custom
-          custom_date_format: d.m.o
+          date_format: short
+          custom_date_format: ''
           timezone: ''
         application_process_status:
           id: application_process_status
@@ -1118,7 +1118,7 @@ display:
           exposed: true
           expose:
             operator_id: application_process_title_op
-            label: Titel
+            label: Title
             description: ''
             use_operator: false
             operator: application_process_title_op
@@ -1128,15 +1128,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              Kernfunktionen: '0'
-              civiremote_remote_user: '0'
-              civiremote_civiremote_funding: '0'
-              pruefer_in: '0'
-              CiviAdmin: '0'
-              administrator: '0'
+            remember_roles: null
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1187,15 +1179,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              authenticated: '0'
-              Kernfunktionen: '0'
-              civiremote_remote_user: '0'
-              civiremote_civiremote_funding: '0'
-              pruefer_in: '0'
-              CiviAdmin: '0'
-              administrator: '0'
+            remember_roles: null
             reduce: false
           is_grouped: false
           group_info:
