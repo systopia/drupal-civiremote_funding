@@ -47,13 +47,16 @@ class RemotePageProxy {
   }
 
   /**
+   * @param int|null $timeoutSeconds
+   *   Timeout in seconds to use. (NULL means default timeout.)
+   *
    * @throws \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException
    * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
    * @throws \Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException
    */
-  public function get(string $uri): Response {
+  public function get(string $uri, ?int $timeoutSeconds = NULL): Response {
     try {
-      $remoteResponse = $this->client->request('GET', $uri);
+      $remoteResponse = $this->client->request('GET', $uri, ['timeout' => $timeoutSeconds]);
     }
     catch (GuzzleException $e) {
       $this->logger->error(sprintf('Loading "%s" from CiviCRM failed: %s', $uri, $e->getMessage()));
