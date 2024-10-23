@@ -43,7 +43,7 @@ final class ApplicationTemplateRenderController extends ControllerBase {
   public function render(int $applicationProcessId, int $templateId): Response {
     $uri = $this->getDownloadUri($applicationProcessId, $templateId);
 
-    return $this->remotePageProxy->get($uri);
+    return $this->remotePageProxy->get($uri, 20);
   }
 
   private function getDownloadUri(int $applicationProcessId, int $templateId): string {
