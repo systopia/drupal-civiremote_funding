@@ -314,7 +314,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: cmrf_views_date
-          label: 'Start Date Activity'
+          label: 'Activity Start Date'
           exclude: false
           alter:
             alter_text: false

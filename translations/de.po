@@ -35,7 +35,7 @@ msgstr "Titel"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
-msgid "Start Date Activity"
+msgid "Activity Start Date"
 msgstr "Beginn der Maßnahme"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
