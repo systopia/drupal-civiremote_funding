@@ -1239,7 +1239,7 @@ display:
               responsive: ''
             funding_case_id:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
