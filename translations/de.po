@@ -285,7 +285,6 @@ msgstr "Währung"
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
-#: src/Form/ChooseFundingProgramForm.php:59
 msgid "Funding Program"
 msgstr "Förderprogramm"
 
@@ -451,6 +450,10 @@ msgstr "Fehler bei der Formularvalidierung: @error"
 #: src/Form/AbstractFundingJsonFormsForm.php:131
 msgid "Submitting form failed: @error"
 msgstr "Senden des Formulars fehlgeschlagen: @error"
+
+#: src/Form/ChooseFundingProgramForm.php:59
+msgid "Select Funding Program"
+msgstr "Förderprogramm auswählen"
 
 #: src/Form/ChooseFundingProgramForm.php:66
 msgid "Next"

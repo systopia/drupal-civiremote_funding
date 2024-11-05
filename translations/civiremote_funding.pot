@@ -281,7 +281,6 @@ msgstr ""
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
-#: src/Form/ChooseFundingProgramForm.php:59
 msgid "Funding Program"
 msgstr ""
 
@@ -442,6 +441,10 @@ msgstr ""
 
 #: src/Form/AbstractFundingJsonFormsForm.php:131
 msgid "Submitting form failed: @error"
+msgstr ""
+
+#: src/Form/ChooseFundingProgramForm.php:59
+msgid "Select Funding Program"
 msgstr ""
 
 #: src/Form/ChooseFundingProgramForm.php:66
