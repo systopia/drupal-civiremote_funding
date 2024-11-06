@@ -33,6 +33,11 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Activity Start Date"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
 msgid "Status"
