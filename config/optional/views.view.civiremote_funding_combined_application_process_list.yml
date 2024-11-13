@@ -967,7 +967,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          order: ASC
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
@@ -1038,7 +1038,46 @@ display:
             fail: 'not found'
           validate_options: {  }
           must_not_be: false
-      filters: {  }
+      filters:
+        status:
+          id: status
+          table: cmrf_views_civiremote_funding_application_process
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_optionlist
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: status_op
+            label: Status
+            description: ''
+            use_operator: false
+            operator: status_op
+            operator_limit_selection: false
+            operator_list:
+              'not in': 'not in'
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles: null
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: table
         options:
