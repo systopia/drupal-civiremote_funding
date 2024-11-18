@@ -1314,13 +1314,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            current_path:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             nothing:
               align: ''
               separator: ''
