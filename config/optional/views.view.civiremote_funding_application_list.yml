@@ -1302,7 +1302,14 @@ display:
               responsive: ''
             application_process_start_date:
               sortable: true
-              default_sort_order: desc
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            current_path:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
