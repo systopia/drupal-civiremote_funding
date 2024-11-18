@@ -58,6 +58,23 @@ function civiremote_funding_views_pre_build(ViewExecutable $view): void {
 }
 
 /**
+ * Implements hook hook_form_FORM_ID_alter().
+ *
+ * @phpstan-param array<int|string, mixed> $form
+ */
+function civiremote_funding_form_views_exposed_form_alter(array &$form): void {
+  if ($form['#id'] === 'views-exposed-form-civiremote-funding-combined-application-process-list-embed-1') {
+    // Drupal uses the first URL of View display as URL for the filter form. So
+    // #action has the URL of the data export display, thus it has to be
+    // corrected. The approach to use a page in the View together with an
+    // area plugin leads to problems with the application process label (on the
+    // dropbutton) and the breadcrumbs.
+    $request = \Drupal::request();
+    $form['#action'] = $request->getSchemeAndHttpHost() . $request->getBaseUrl() . $request->getPathInfo();
+  }
+}
+
+/**
  * Implements hook_rebuild().
  */
 function civiremote_funding_rebuild(): void {
