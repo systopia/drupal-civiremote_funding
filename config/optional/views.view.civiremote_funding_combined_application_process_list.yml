@@ -196,61 +196,6 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-        title:
-          id: title
-          table: cmrf_views_civiremote_funding_application_process
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: cmrf_views_standard
-          label: Title
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
         identifier:
           id: identifier
           table: cmrf_views_civiremote_funding_application_process
@@ -306,6 +251,113 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
+        title:
+          id: title
+          table: cmrf_views_civiremote_funding_application_process
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_standard
+          label: Title
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+        start_date:
+          id: start_date
+          table: cmrf_views_civiremote_funding_application_process
+          field: start_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_date
+          label: 'Activity Start Date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: short
+          custom_date_format: ''
+          timezone: ''
         status:
           id: status
           table: cmrf_views_civiremote_funding_application_process
@@ -1088,15 +1140,15 @@ display:
             id: id
             funding_case_id: funding_case_id
             currency: currency
-            title: title
             identifier: identifier
+            title: title
+            start_date: start_date
             status: status
             creation_date: creation_date
             modification_date: modification_date
             amount_requested: amount_requested
             amount_cleared: amount_cleared
             amount_admitted: amount_admitted
-            start_date: start_date
             current_path: current_path
             nothing_1: nothing_1
             nothing: nothing
@@ -1113,13 +1165,20 @@ display:
               responsive: ''
             funding_case_id:
               sortable: false
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             currency:
               sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            identifier:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1132,15 +1191,15 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            identifier:
-              sortable: false
-              default_sort_order: asc
+            start_date:
+              sortable: true
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             status:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1148,14 +1207,14 @@ display:
               responsive: ''
             creation_date:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             modification_date:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -1176,13 +1235,6 @@ display:
               responsive: ''
             amount_admitted:
               sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            start_date:
-              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''

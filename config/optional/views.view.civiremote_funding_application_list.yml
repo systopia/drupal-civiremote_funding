@@ -361,6 +361,58 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
+        application_process_start_date:
+          id: application_process_start_date
+          table: cmrf_views_civiremote_funding_caseinfo
+          field: application_process_start_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_date
+          label: 'Activity Start Date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: short
+          custom_date_format: ''
+          timezone: ''
         application_process_status:
           id: application_process_status
           table: cmrf_views_civiremote_funding_caseinfo
@@ -1052,6 +1104,44 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        application_process_title:
+          id: application_process_title
+          table: cmrf_views_civiremote_funding_caseinfo
+          field: application_process_title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_text
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: application_process_title_op
+            label: Title
+            description: ''
+            use_operator: false
+            operator: application_process_title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: application_process_title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles: null
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         application_process_status:
           id: application_process_status
           table: cmrf_views_civiremote_funding_caseinfo
@@ -1103,6 +1193,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: table
         options:
@@ -1137,7 +1231,7 @@ display:
               empty_column: false
               responsive: ''
             application_process_id:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1158,21 +1252,21 @@ display:
               empty_column: false
               responsive: ''
             funding_program_title:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             application_process_title:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             application_process_status:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
