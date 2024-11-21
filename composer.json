@@ -37,19 +37,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/systopia/civiremote"
+            "url": "https://github.com/systopia/civiremote.git"
         },
         {
             "type": "vcs",
-            "url": "git@github.com:systopia/drupal-json_forms.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/systopia/opis-json-schema-ext"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/systopia/expression-language-ext"
+            "url": "https://github.com/systopia/drupal-json_forms.git"
         },
         {
             "type": "composer",
