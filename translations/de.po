@@ -11,8 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-"X-Poedit-KeywordsList: t;title;label;description;text;submit_button;"
-"type_custom_true\n"
+"X-Poedit-KeywordsList: t;title;label;description;text;submit_button;type_custom_true\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: config\n"
 "X-Poedit-SearchPath-1: src\n"
@@ -20,8 +19,7 @@ msgstr ""
 "X-Poedit-SearchPath-3: civiremote_funding.module\n"
 "X-Poedit-SearchPath-4: civiremote_funding.permissions.yml\n"
 "X-Poedit-SearchPath-5: civiremote_funding.routing.yml\n"
-"X-Poedit-SearchPathExcluded-0: config/optional/cmrf_views.cmrf_dataset.*."
-"yml\n"
+"X-Poedit-SearchPathExcluded-0: config/optional/cmrf_views.cmrf_dataset.*.yml\n"
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
@@ -32,6 +30,10 @@ msgstr "Ausgezahlter Betrag"
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Title"
 msgstr "Titel"
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "Subject"
+msgstr "Betreff"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
@@ -79,6 +81,18 @@ msgstr "Herunterladen"
 msgid "Open clearing"
 msgstr "Verwendungsnachweis öffnen"
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid ""
+"{% if activity_type_id__name == 'funding_application_process_task' and "
+"funding_case_task__funding_case_id__funding_case_type_id__is_combined_application %}Open "
+"{{ funding_case_task__funding_case_id__funding_case_type_id__application_process_label }}"
+"{% endif %}"
+msgstr ""
+"{% if activity_type_id__name == 'funding_application_process_task' and "
+"funding_case_task__funding_case_id__funding_case_type_id__is_combined_application %}"
+"{{ funding_case_task__funding_case_id__funding_case_type_id__application_process_label }} "
+"öffnen{% endif %}"
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:83
 msgid "Funding Applications"
@@ -119,6 +133,10 @@ msgstr ""
 msgid "CiviCRM Funding Case List (combined application)"
 msgstr "CiviCRM Förderfallliste (Sammelantrag)"
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "CiviCRM Funding Task List"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 msgid "CiviCRM Funding Application List (non-combined)"
 msgstr "CiviCRM Förderantragsliste (kein Sammelantrag)"
@@ -130,6 +148,16 @@ msgstr "CiviRemote Funding nur Datum"
 #: civiremote_funding.info.yml
 msgid "Drupal frontend for funding applications of CiviCRM Funding Manager."
 msgstr ""
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid ""
+"{% if activity_type_id__name == 'funding_application_process_task' and not "
+"funding_case_task__funding_case_id__funding_case_type_id__is_combined_application %}Open "
+"application{% endif %}"
+msgstr ""
+"{% if activity_type_id__name == 'funding_application_process_task' and not "
+"funding_case_task__funding_case_id__funding_case_type_id__is_combined_application %}"
+"Antrag öffnen{% endif %}"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
@@ -170,6 +198,7 @@ msgstr ""
 msgid "CiviCRM Funding Drawdown List"
 msgstr "CiviCRM Mittelabrufliste"
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
@@ -198,6 +227,12 @@ msgstr "Alle"
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 msgid "CiviCRM Funding Transfer Contract"
 msgstr "CiviCRM Weiterleitungsvertrag"
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid ""
+"{% if activity_type_id__name == 'funding_case_task' %}Open combined application{% endif %}"
+msgstr ""
+"{% if activity_type_id__name == 'funding_case_task' %}Sammelantrag öffnen{% endif %}"
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Open {{arguments.null}}"
@@ -278,8 +313,8 @@ msgstr "Budget"
 
 #: config/schema/civiremote_funding.schema.yml
 msgid ""
-"Allowed file extensions for uploaded files, separated by space. Leave empty "
-"to allow all file extensions."
+"Allowed file extensions for uploaded files, separated by space. Leave empty to allow all "
+"file extensions."
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
@@ -298,6 +333,10 @@ msgstr "Währung"
 msgid "Funding Program"
 msgstr "Förderprogramm"
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "Tasks"
+msgstr "Aufgaben"
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 msgid "Link to application history"
 msgstr ""
@@ -306,10 +345,15 @@ msgstr ""
 msgid "Grants access to CiviCRM Funding via CiviRemote."
 msgstr ""
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Modification Date"
 msgstr "Änderungsdatum"
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "Affected Identifier"
+msgstr "Betroffene Nummer"
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "CiviCRM Funding Combined Application Process List"
@@ -329,6 +373,13 @@ msgstr "Erstellungsdatum"
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:47
 msgid "Transfer Contracts"
 msgstr "Weiterleitungsverträge"
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid ""
+"{% if activity_type_id__name == 'funding_clearing_process_task' %}Open clearing{% endif %}"
+msgstr ""
+"{% if activity_type_id__name == 'funding_clearing_process_task' %}Verwendungsnachweis "
+"öffnen{% endif %}"
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Funding Case ID"
@@ -368,17 +419,15 @@ msgstr "Übersicht"
 msgid "CiviRemote Funding"
 msgstr ""
 
-#: src/Controller/FundingCaseController.php:70
-#: src/Plugin/views/area/FundingCaseArea.php:105
+#: src/Controller/FundingCaseController.php:70 src/Plugin/views/area/FundingCaseArea.php:105
 msgid ""
-"Please do not forget to apply the combined application if everything is "
-"recorded or after additions."
+"Please do not forget to apply the combined application if everything is recorded or after "
+"additions."
 msgstr ""
-"Bitte nicht vergessen, den Sammelantrag zu beantragen, wenn alles erfasst "
-"wurde oder nach Ergänzungen."
+"Bitte nicht vergessen, den Sammelantrag zu beantragen, wenn alles erfasst wurde oder nach "
+"Ergänzungen."
 
-#: src/Controller/FundingCaseController.php:82
-#: src/Plugin/views/area/FundingCaseArea.php:115
+#: src/Controller/FundingCaseController.php:82 src/Plugin/views/area/FundingCaseArea.php:115
 msgid "Add @type"
 msgstr "@type hinzufügen"
 
