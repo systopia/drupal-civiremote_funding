@@ -225,8 +225,7 @@ msgstr "CiviCRM Weiterleitungsvertrag"
 
 #: config/optional/views.view.civicrm_funding_task_list.yml
 msgid ""
-"{% if activity_type_id__name == 'funding_case_task' %}Open combined application{% endif "
-"%}"
+"{% if activity_type_id__name == 'funding_case_task' %}Open combined application{% endif %}"
 msgstr ""
 "{% if activity_type_id__name == 'funding_case_task' %}Sammelantrag öffnen{% endif %}"
 
@@ -330,6 +329,8 @@ msgid "Funding Program"
 msgstr "Förderprogramm"
 
 #: config/optional/views.view.civicrm_funding_task_list.yml
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:42
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:47
 msgid "Tasks"
 msgstr "Aufgaben"
 
@@ -368,8 +369,7 @@ msgstr "Weiterleitungsverträge"
 
 #: config/optional/views.view.civicrm_funding_task_list.yml
 msgid ""
-"{% if activity_type_id__name == 'funding_clearing_process_task' %}Open clearing{% endif "
-"%}"
+"{% if activity_type_id__name == 'funding_clearing_process_task' %}Open clearing{% endif %}"
 msgstr ""
 "{% if activity_type_id__name == 'funding_clearing_process_task' %}Verwendungsnachweis "
 "öffnen{% endif %}"
@@ -412,17 +412,15 @@ msgstr "Übersicht"
 msgid "CiviRemote Funding"
 msgstr ""
 
-#: src/Controller/FundingCaseController.php:70
-#: src/Plugin/views/area/FundingCaseArea.php:105
+#: src/Controller/FundingCaseController.php:70 src/Plugin/views/area/FundingCaseArea.php:105
 msgid ""
-"Please do not forget to apply the combined application if everything is recorded or "
-"after additions."
+"Please do not forget to apply the combined application if everything is recorded or after "
+"additions."
 msgstr ""
-"Bitte nicht vergessen, den Sammelantrag zu beantragen, wenn alles erfasst wurde oder "
-"nach Ergänzungen."
+"Bitte nicht vergessen, den Sammelantrag zu beantragen, wenn alles erfasst wurde oder nach "
+"Ergänzungen."
 
-#: src/Controller/FundingCaseController.php:82
-#: src/Plugin/views/area/FundingCaseArea.php:115
+#: src/Controller/FundingCaseController.php:82 src/Plugin/views/area/FundingCaseArea.php:115
 msgid "Add @type"
 msgstr "@type hinzufügen"
 
@@ -574,6 +572,10 @@ msgstr "Bewilligungen"
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:50
 msgid "Download transfer contracts and manage drawdowns"
 msgstr "Weiterleitungsverträge herunterladen und Mittelabrufe verwalten"
+
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:50
+msgid "Pending tasks"
+msgstr "Ausstehende Aufgaben"
 
 #: src/Plugin/views/field/LanguageAwareNumericField.php:103
 msgid "Format language aware"
