@@ -326,6 +326,8 @@ msgid "Funding Program"
 msgstr "Förderprogramm"
 
 #: config/optional/views.view.civicrm_funding_task_list.yml
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:42
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:47
 msgid "Tasks"
 msgstr "Aufgaben"
 
@@ -567,6 +569,10 @@ msgstr "Bewilligungen"
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:50
 msgid "Download transfer contracts and manage drawdowns"
 msgstr "Weiterleitungsverträge herunterladen und Mittelabrufe verwalten"
+
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:50
+msgid "Pending tasks"
+msgstr "Ausstehende Aufgaben"
 
 #: src/Plugin/views/field/LanguageAwareNumericField.php:103
 msgid "Format language aware"
