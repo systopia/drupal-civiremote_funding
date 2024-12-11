@@ -250,7 +250,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: numeric
-          label: 'Beantragter Betrag'
+          label: 'Amount Requested'
           exclude: false
           alter:
             alter_text: false

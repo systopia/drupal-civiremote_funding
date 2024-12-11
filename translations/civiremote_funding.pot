@@ -33,11 +33,6 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
-msgid "Activity Start Date"
-msgstr ""
-
-#: config/optional/views.view.civiremote_funding_application_list.yml
-#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
 msgid "Status"
@@ -115,10 +110,6 @@ msgid "File clean up delay (seconds)"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
-msgid "Beantragter Betrag"
-msgstr ""
-
-#: config/optional/views.view.civiremote_funding_combined_case_list.yml
 msgid "CiviCRM Funding Case List (combined application)"
 msgstr ""
 
@@ -157,6 +148,7 @@ msgid "Acception Date"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+#: config/optional/views.view.civiremote_funding_combined_case_list.yml
 msgid "Amount Requested"
 msgstr ""
 
@@ -211,6 +203,11 @@ msgstr ""
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
 msgid "Amount Admitted"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Activity Start Date"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
@@ -356,10 +353,12 @@ msgid "CiviRemote Funding"
 msgstr ""
 
 #: src/Controller/FundingCaseController.php:70
+#: src/Plugin/views/area/FundingCaseArea.php:105
 msgid "Please do not forget to apply the combined application if everything is recorded or after additions."
 msgstr ""
 
 #: src/Controller/FundingCaseController.php:82
+#: src/Plugin/views/area/FundingCaseArea.php:115
 msgid "Add @type"
 msgstr ""
 
