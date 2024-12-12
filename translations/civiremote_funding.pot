@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-"X-Poedit-KeywordsList: t;title;label;description;text;submit_button;type_custom_true\n"
+"X-Poedit-KeywordsList: t;title;label;description;text;submit_button;type_custom_true;pattern\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: config\n"
 "X-Poedit-SearchPath-1: src\n"
@@ -119,6 +119,10 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 msgid "CiviCRM Funding Application List (non-combined)"
+msgstr ""
+
+#: config/install/core.date_format.civiremote_funding_date_only.yml
+msgid "CiviRemote Funding date only"
 msgstr ""
 
 #: civiremote_funding.info.yml
@@ -305,6 +309,10 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "CiviCRM Funding Combined Application Process List"
+msgstr ""
+
+#: config/install/core.date_format.civiremote_funding_date_only.yml
+msgid "d M Y"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
