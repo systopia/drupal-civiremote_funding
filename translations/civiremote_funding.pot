@@ -82,6 +82,10 @@ msgstr ""
 msgid "Funding Applications"
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Clearing Status"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
 msgid "payout_process_id"
