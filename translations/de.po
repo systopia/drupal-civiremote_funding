@@ -123,6 +123,10 @@ msgstr "CiviCRM Förderfallliste (Sammelantrag)"
 msgid "CiviCRM Funding Application List (non-combined)"
 msgstr "CiviCRM Förderantragsliste (kein Sammelantrag)"
 
+#: config/install/core.date_format.civiremote_funding_date_only.yml
+msgid "CiviRemote Funding date only"
+msgstr "CiviRemote Funding nur Datum"
+
 #: civiremote_funding.info.yml
 msgid "Drupal frontend for funding applications of CiviCRM Funding Manager."
 msgstr ""
@@ -310,6 +314,10 @@ msgstr "Änderungsdatum"
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "CiviCRM Funding Combined Application Process List"
 msgstr "CiviCRM Sammelförderantragsliste"
+
+#: config/install/core.date_format.civiremote_funding_date_only.yml
+msgid "d M Y"
+msgstr "d.m.Y"
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: civiremote_funding_date_only
+label: 'CiviRemote Funding date only'
+locked: false
+pattern: 'd M Y'
