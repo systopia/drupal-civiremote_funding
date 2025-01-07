@@ -2389,22 +2389,22 @@ display:
             amount_requested:
               alias: ''
               raw_output: true
-            funding_clearing_process__amount_cleared:
+            amount_cleared:
               alias: ''
               raw_output: true
-            funding_clearing_process__amount_admitted:
+            amount_admitted:
               alias: ''
               raw_output: true
             funding_clearing_process__status:
-              alias: ''
-              raw_output: false
-            dropbutton:
               alias: ''
               raw_output: false
       defaults:
         fields: false
       display_extenders: {  }
       path: civiremote/funding/application.xlsx
+      displays:
+        page_1: page_1
+        default: '0'
       filename: ''
       automatic_download: false
       store_in_public_file_directory: false
