@@ -21,11 +21,11 @@ declare(strict_types=1);
 namespace Drupal\civiremote_funding\Api;
 
 use Drupal\civiremote_funding\Access\RemoteContactIdProviderInterface;
+use Drupal\civiremote_funding\Api\DTO\ApplicationProcess;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessActivity;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessTemplate;
 use Drupal\civiremote_funding\Api\DTO\ClearingProcess;
 use Drupal\civiremote_funding\Api\DTO\FundingCase;
-use Drupal\civiremote_funding\Api\DTO\FundingCaseInfo;
 use Drupal\civiremote_funding\Api\DTO\FundingCaseType;
 use Drupal\civiremote_funding\Api\DTO\FundingProgram;
 use Drupal\civiremote_funding\Api\DTO\PayoutProcess;
@@ -112,18 +112,6 @@ class FundingApi {
     return FormSubmitResponse::fromApiResultValue($result['values']);
   }
 
-  /**
-   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
-   */
-  public function getFundingCaseInfoByApplicationProcessId(int $applicationProcessId): ?FundingCaseInfo {
-    $result = $this->apiClient->executeV4('RemoteFundingCaseInfo', 'get', [
-      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
-      'where' => [['application_process_id', '=', $applicationProcessId]],
-    ]);
-
-    return FundingCaseInfo::oneOrNullFromApiResult($result);
-  }
-
   public function getFundingCaseType(int $fundingCaseTypeId): ?FundingCaseType {
     $result = $this->apiClient->executeV4('RemoteFundingCaseType', 'get', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
@@ -183,6 +171,21 @@ class FundingApi {
     ]);
 
     return ApplicationProcessActivity::allFromArrays($result['values']);
+  }
+
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function getApplicationProcess(int $applicationProcessId): ?ApplicationProcess {
+    $result = $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'get', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'where' => [
+        ['id', '=', $applicationProcessId],
+      ],
+    ]);
+
+    // @phpstan-ignore argument.type
+    return ApplicationProcess::oneOrNullFromApiResult($result);
   }
 
   public function getApplicationTemplateRenderUri(int $applicationProcessId, int $templateId): string {
