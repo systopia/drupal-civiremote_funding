@@ -48,17 +48,15 @@ final class ClearingController extends ControllerBase {
 
     $request->attributes->set('clearingProcessId', $clearingProcess->getId());
 
-    $info = $this->fundingApi->getFundingCaseInfoByApplicationProcessId(
-      $applicationProcessId,
-    );
+    $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId);
 
     $form = $this->formBuilder()->getForm(ClearingForm::class);
 
     // Add identifier to beginning of the form if not already in the title.
-    if (NULL !== $info && !str_contains($form['#title'], $info->getApplicationProcesIdentifier())) {
+    if (NULL !== $applicationProcess && !str_contains($form['#title'], $applicationProcess->getIdentifier())) {
       $form = array_merge([
         '_identifier' => [
-          '#plain_text' => $info->getApplicationProcesIdentifier(),
+          '#plain_text' => $applicationProcess->getIdentifier(),
         ],
       ], $form);
     }

@@ -40,15 +40,15 @@ final class ApplicationHistoryController extends ControllerBase {
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
   public function content(int $applicationProcessId, Request $request): array {
-    $info = $this->fundingApi->getFundingCaseInfoByApplicationProcessId($applicationProcessId);
-    if (NULL === $info) {
+    $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId);
+    if (NULL === $applicationProcess) {
       throw new NotFoundHttpException();
     }
 
     return [
       '#type' => 'civiremote_funding_application_history',
       '#title' => $this->t('Application History'),
-      '#application_title' => $info->getApplicationProcessTitle(),
+      '#application_title' => $applicationProcess->getTitle(),
       '#back_link_destination' => DestinationUtil::getDestinationWithoutBasePath($request),
       '#activities' => $this->fundingApi->getApplicationActivities($applicationProcessId),
       '#status_options' => $this->fundingApi->getApplicationStatusOptions($applicationProcessId),
