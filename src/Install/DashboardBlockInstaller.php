@@ -71,6 +71,28 @@ final class DashboardBlockInstaller {
       ],
     ]);
     $block->save();
+
+    $block = Block::create([
+      'id' => 'civiremote_funding_dashboard_group_tasks',
+      'theme' => $themeName,
+      'region' => 'content',
+      'weight' => 2,
+      'plugin' => 'civiremote_funding_dashboard_group_tasks',
+      'settings' => [
+        'id' => 'civiremote_funding_dashboard_group_tasks',
+        'label' => 'CiviRemote Funding Dashboard Group "Tasks"',
+        'label_display' => 'visible',
+        'provider' => 'civiremote_funding',
+      ],
+      'visibility' => [
+        'request_path' => [
+          'id' => 'request_path',
+          'negate' => FALSE,
+          'pages' => $dashboardPath,
+        ],
+      ],
+    ]);
+    $block->save();
   }
 
 }
