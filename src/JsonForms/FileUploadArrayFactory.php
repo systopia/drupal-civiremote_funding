@@ -25,6 +25,7 @@ use Drupal\civiremote_funding\Entity\FundingFileInterface;
 use Drupal\civiremote_funding\File\FundingFileManager;
 use Drupal\civiremote_funding\JsonForms\Callbacks\FileUploadCallback;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Element\ManagedFile;
 use Drupal\json_forms\Form\AbstractConcreteFormArrayFactory;
 use Drupal\json_forms\Form\Control\UrlArrayFactory;
 use Drupal\json_forms\Form\Control\Util\BasicFormPropertiesFactory;
@@ -48,6 +49,31 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
   }
 
   /**
+   * @phpstan-param array<mixed> $element
+   * @phpstan-param array<mixed> $completeForm
+   *
+   * @phpstan-return array<mixed>
+   */
+  public static function processElement(array $element, FormStateInterface $formState, array &$completeForm): array {
+    // #validate is set to an empty array in ManagedFile::processManagedFile()
+    // to prevent validation. However, this doesn't prevent the default
+    // validation. https://www.drupal.org/project/drupal/issues/3503297.
+    $element = ManagedFile::processManagedFile($element, $formState, $completeForm);
+    if (isset($element['upload_button'])) {
+      $element['upload_button']['#validate'] = [static::class . '::noValidate'];
+    }
+
+    if (isset($element['remove_button'])) {
+      $element['remove_button']['#validate'] = [static::class . '::noValidate'];
+    }
+
+    return $element;
+  }
+
+  public static function noValidate(): void {
+  }
+
+  /**
    * {@inheritDoc}
    */
   public function createFormArray(
@@ -61,6 +87,9 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
       '#type' => 'managed_file',
       '#upload_location' => FundingFileInterface::UPLOAD_LOCATION,
       '#upload_validators' => [],
+      '#process' => [
+        [static::class, 'processElement'],
+      ],
     ] + BasicFormPropertiesFactory::createFieldProperties($definition, $formState);
 
     if (NULL !== $this->validFileExtensions) {
