@@ -11,6 +11,7 @@ dependencies:
   - views_current_path # Requires this patch: https://git.drupalcode.org/project/views_current_path/-/merge_requests/8.patch
   - views_data_export
   - xls_serialization
+  - views_aggregator
 'interface translation project': civiremote_funding
 'interface translation server pattern': modules/custom/%project/translations/%language.po
 version: 0.6.4-dev
