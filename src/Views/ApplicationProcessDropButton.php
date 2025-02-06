@@ -21,7 +21,6 @@ declare(strict_types=1);
 
 namespace Drupal\civiremote_funding\Views;
 
-use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\Core\Url;
 use Drupal\views\Plugin\views\field\Dropbutton;
 use Drupal\views\ResultRow;
@@ -32,14 +31,18 @@ use Drupal\views\ResultRow;
  */
 final class ApplicationProcessDropButton extends Dropbutton {
 
-  private Dropbutton $dropbutton;
+  /**
+   * @var array<int, list<\Drupal\civiremote_funding\Api\DTO\ApplicationProcessTemplate>>
+   *   Mapping of application process IDs to ApplicationProcessTemplate
+   *   instances. Set in civiremote_funding_views_post_execute().
+   */
+  public static $templates = [];
 
-  private FundingApi $fundingApi;
+  private Dropbutton $dropbutton;
 
   private ?int $applicationProcessId = NULL;
 
-  public function __construct(FundingApi $fundingApi, Dropbutton $dropbutton) {
-    $this->fundingApi = $fundingApi;
+  public function __construct(Dropbutton $dropbutton) {
     $this->dropbutton = $dropbutton;
     parent::__construct($dropbutton->configuration, $dropbutton->getPluginId(), $dropbutton->getPluginDefinition());
     // @phpstan-ignore-next-line
@@ -84,7 +87,7 @@ final class ApplicationProcessDropButton extends Dropbutton {
       return $links;
     }
 
-    foreach ($this->fundingApi->getApplicationTemplates($this->applicationProcessId) as $template) {
+    foreach (self::$templates[$this->applicationProcessId] as $template) {
       $links[] = [
         'url' => Url::fromRoute('civiremote_funding.application_template_render', [
           'applicationProcessId' => $this->applicationProcessId,

@@ -200,17 +200,23 @@ class FundingApi {
   }
 
   /**
-   * @phpstan-return list<ApplicationProcessTemplate>
+   * @phpstan-param list<int> $applicationProcessIds
+   *
+   * @phpstan-return array<int, list<ApplicationProcessTemplate>>
+   *   Mapping of application process IDs to ApplicationProcessTemplate objects.
    *
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
-  public function getApplicationTemplates(int $applicationProcessId): array {
+  public function getApplicationTemplates(array $applicationProcessIds): array {
     $result = $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'getTemplates', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
-      'applicationProcessId' => $applicationProcessId,
+      'applicationProcessIds' => $applicationProcessIds,
     ]);
 
-    return ApplicationProcessTemplate::allFromArrays($result['values']);
+    return array_map(
+      fn($templates) => ApplicationProcessTemplate::allFromArrays($templates),
+      $result['values']
+    );
   }
 
   /**

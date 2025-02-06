@@ -43,18 +43,32 @@ function civiremote_funding_views_plugins_field_alter(array &$plugins): void {
 }
 
 /**
- * Implements hook_views_pre_build().
+ * Implements hook_views_post_execute().
  */
-function civiremote_funding_views_pre_build(ViewExecutable $view): void {
+function civiremote_funding_views_post_execute(ViewExecutable $view): void {
   if (!in_array($view->id(), ['civiremote_funding_application_list', 'civiremote_funding_combined_application_process_list'], TRUE)) {
     return;
   }
 
   if (($view->field['dropbutton'] ?? NULL) instanceof Dropbutton) {
-    /** @var \Drupal\civiremote_funding\Api\FundingApi $fundingApi */
-    $fundingApi = \Drupal::service(FundingApi::class);
-    $view->field['dropbutton'] = new ApplicationProcessDropButton($fundingApi, $view->field['dropbutton']);
+    $view->field['dropbutton'] = new ApplicationProcessDropButton($view->field['dropbutton']);
   }
+
+  $applicationProcessIds = [];
+  foreach ($view->result as $row) {
+    // @phpstan-ignore-next-line
+    foreach ($row as $key => $value) {
+      if (str_ends_with($key, '_application_process_id')) {
+        $applicationProcessIds[] = $value;
+        break;
+      }
+    }
+  }
+
+  /** @var \Drupal\civiremote_funding\Api\FundingApi $fundingApi */
+  $fundingApi = \Drupal::service(FundingApi::class);
+  // Fetch all templates in one API request for performance reasons.
+  ApplicationProcessDropButton::$templates = $fundingApi->getApplicationTemplates($applicationProcessIds);
 }
 
 /**
