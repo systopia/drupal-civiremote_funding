@@ -74,6 +74,28 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
   }
 
   /**
+   * @param array<int|string, mixed> $element
+   * @param mixed $input
+   *
+   * @return mixed
+   */
+  public static function valueCallback(array &$element, $input, FormStateInterface $formState) {
+    if (isset($input['fids'])
+      && $input['fids'] === $formState->get(array_merge($element['#parents'], ['initial_file_id']))
+    ) {
+      // If the given file ID matches the initial file ID we accept it without
+      // access check because it might have been uploaded by a different user.
+      // Actually access has already been checked because the file ID results
+      // from form data returned by CiviCRM.
+      $input['fids'] = [$input['fids']];
+
+      return $input;
+    }
+
+    return ManagedFile::valueCallback($element, $input, $formState);
+  }
+
+  /**
    * {@inheritDoc}
    */
   public function createFormArray(
@@ -90,6 +112,7 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
       '#process' => [
         [static::class, 'processElement'],
       ],
+      '#value_callback' => [static::class, 'valueCallback'],
     ] + BasicFormPropertiesFactory::createFieldProperties($definition, $formState);
 
     if (NULL !== $this->validFileExtensions) {
@@ -98,11 +121,15 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
     }
 
     if (is_string($form['#default_value'] ?? NULL)) {
-      $form['#default_value'] = $this->getValueForCiviUri($form['#default_value']);
+      $initialFileId = $this->getFileIdForCiviUri($form['#default_value']);
+      $form['#default_value'] = [$initialFileId];
+      $formState->set(array_merge($form['#parents'], ['initial_file_id']), $initialFileId);
     }
 
     if (is_string($form['#value'] ?? NULL)) {
-      $form['#value'] = $this->getValueForCiviUri($form['#value']);
+      $initialFileId = $this->getFileIdForCiviUri($form['#value']);
+      $form['#value'] = [$initialFileId];
+      $formState->set(array_merge($form['#parents'], ['initial_file_id']), $initialFileId);
     }
 
     FormCallbackRegistrator::registerPreSchemaValidationCallback(
@@ -129,15 +156,12 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
     $this->validFileExtensions = $validFileExtensions;
   }
 
-  /**
-   * @phpstan-return array<string>
-   */
-  private function getValueForCiviUri(string $uri): array {
+  private function getFileIdForCiviUri(string $uri): string {
     $fundingFile = $this->fundingFileManager->loadOrCreateByCiviUri($uri);
     /** @var string $fileId */
     $fileId = $fundingFile->getFileId();
 
-    return [$fileId];
+    return $fileId;
   }
 
 }
