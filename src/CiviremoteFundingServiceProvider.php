@@ -40,6 +40,7 @@ final class CiviremoteFundingServiceProvider implements ServiceProviderInterface
     );
 
     $container->getDefinition(FileUploadArrayFactory::class)
+      ->setArgument('$requestStack', new Reference('request_stack'))
       ->setConfigurator(new Reference(FileUploadArrayFactoryConfigurator::class));
   }
 
