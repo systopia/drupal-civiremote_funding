@@ -182,7 +182,7 @@ function civiremote_funding_file_download(string $uri): array {
   /** @var \Drupal\civiremote_funding\File\FundingFileDownloadHook $fundingFileDownloadHook */
   $fundingFileDownloadHook = \Drupal::service(FundingFileDownloadHook::class);
 
-  return $fundingFileDownloadHook($uri);
+  return $fundingFileDownloadHook($uri, \Drupal::request());
 }
 
 /**

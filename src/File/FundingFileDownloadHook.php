@@ -20,6 +20,8 @@ declare(strict_types=1);
 
 namespace Drupal\civiremote_funding\File;
 
+use Symfony\Component\HttpFoundation\Request;
+
 final class FundingFileDownloadHook {
 
   private FundingFileDownloader $fundingFileDownloader;
@@ -39,9 +41,13 @@ final class FundingFileDownloadHook {
    * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
    * @throws \Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException
    */
-  public function __invoke(string $uri): array {
+  public function __invoke(string $uri, Request $request): array {
     $fundingFile = $this->fundingFileManager->loadByFileUri($uri);
     if (NULL === $fundingFile) {
+      return [];
+    }
+
+    if (TRUE !== $request->getSession()->get('civiremote_funding.accessFile:' . $fundingFile->getFileId())) {
       return [];
     }
 

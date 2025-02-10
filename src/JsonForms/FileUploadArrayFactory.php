@@ -33,15 +33,19 @@ use Drupal\json_forms\Form\FormArrayFactoryInterface;
 use Drupal\json_forms\Form\Util\FormCallbackRegistrator;
 use Drupal\json_forms\JsonForms\Definition\Control\ControlDefinition;
 use Drupal\json_forms\JsonForms\Definition\DefinitionInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
 
   private FundingFileManager $fundingFileManager;
 
+  private RequestStack $requestStack;
+
   private ?string $validFileExtensions = NULL;
 
-  public function __construct(FundingFileManager $fundingFileManager) {
+  public function __construct(FundingFileManager $fundingFileManager, RequestStack $requestStack) {
     $this->fundingFileManager = $fundingFileManager;
+    $this->requestStack = $requestStack;
   }
 
   public static function getPriority(): int {
@@ -160,6 +164,9 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
     $fundingFile = $this->fundingFileManager->loadOrCreateByCiviUri($uri);
     /** @var string $fileId */
     $fileId = $fundingFile->getFileId();
+
+    $session = $this->requestStack->getSession();
+    $session->set("civiremote_funding.accessFile:$fileId", TRUE);
 
     return $fileId;
   }
