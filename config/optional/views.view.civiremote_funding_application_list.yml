@@ -1222,9 +1222,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: table
+        type: views_aggregator_plugin_style_table
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
           columns:
@@ -1254,6 +1253,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             currency:
               sortable: false
               default_sort_order: asc
@@ -1261,6 +1267,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             identifier:
               sortable: true
               default_sort_order: asc
@@ -1268,6 +1281,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             funding_case_id__funding_program_id__title:
               sortable: false
               default_sort_order: asc
@@ -1275,6 +1295,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -1282,6 +1309,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             start_date:
               sortable: true
               default_sort_order: asc
@@ -1289,6 +1323,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             status:
               sortable: true
               default_sort_order: asc
@@ -1296,6 +1337,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             modification_date:
               sortable: true
               default_sort_order: asc
@@ -1303,6 +1351,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             amount_requested:
               sortable: false
               default_sort_order: asc
@@ -1310,6 +1365,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: true
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             amount_cleared:
               sortable: false
               default_sort_order: asc
@@ -1317,6 +1379,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: true
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             amount_admitted:
               sortable: false
               default_sort_order: asc
@@ -1324,6 +1393,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: true
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             funding_clearing_process__status:
               sortable: false
               default_sort_order: asc
@@ -1331,6 +1407,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             current_path:
               sortable: false
               default_sort_order: asc
@@ -1338,16 +1421,37 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             nothing:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             nothing_1:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             CAN_open_clearing:
               sortable: false
               default_sort_order: asc
@@ -1355,6 +1459,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             dropbutton:
               sortable: false
               default_sort_order: asc
@@ -1362,12 +1473,33 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
           override: true
           sticky: true
           summary: ''
           empty_table: false
           caption: ''
           description: ''
+          group_aggregation:
+            group_aggregation_results: '0'
+            grouping_field_class: ''
+            result_label_prefix: ''
+            result_label_suffix: ''
+            grouping_row_class: ''
+          column_aggregation:
+            totals_row_position:
+              2: 2
+              1: 0
+              3: 0
+            totals_per_page: '1'
+            precision: '2'
+            totals_row_class: ''
       row:
         type: fields
         options:
@@ -2426,295 +2558,9 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      style:
-        type: views_aggregator_plugin_style_table
-        options:
-          row_class: ''
-          default_row_class: true
-          columns:
-            id: id
-            currency: currency
-            identifier: identifier
-            funding_case_id__funding_program_id__title: funding_case_id__funding_program_id__title
-            title: title
-            start_date: start_date
-            status: status
-            modification_date: modification_date
-            amount_requested: amount_requested
-            amount_cleared: amount_cleared
-            amount_admitted: amount_admitted
-            funding_clearing_process__status: funding_clearing_process__status
-            current_path: current_path
-            nothing: nothing
-            nothing_1: nothing_1
-            CAN_open_clearing: CAN_open_clearing
-            dropbutton: dropbutton
-          default: '-1'
-          info:
-            id:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            currency:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            identifier:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            funding_case_id__funding_program_id__title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            title:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            start_date:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            status:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            modification_date:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            amount_requested:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: true
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            amount_cleared:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: true
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            amount_admitted:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: true
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            funding_clearing_process__status:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            current_path:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            nothing:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            nothing_1:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            CAN_open_clearing:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            dropbutton:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-          override: true
-          sticky: true
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
-          group_aggregation:
-            group_aggregation_results: '0'
-            grouping_field_class: ''
-            result_label_prefix: ''
-            result_label_suffix: ''
-            grouping_row_class: ''
-          column_aggregation:
-            totals_row_position:
-              2: 2
-              1: 0
-              3: 0
-            totals_per_page: '1'
-            precision: '2'
-            totals_row_class: ''
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
       defaults:
-        style: false
-        row: false
+        style: true
+        row: true
       display_extenders: {  }
       path: civiremote/funding/application
     cache_metadata:
