@@ -112,9 +112,9 @@ final class ChooseFundingProgramController extends ControllerBase {
   }
 
   private function isInRequestPeriod(FundingProgram $fundingProgram): bool {
-    $now = new \DateTime(date('Y-m-d H:i:s'));
+    $today = new \DateTime(date('Y-m-d'));
 
-    return $now > $fundingProgram->getRequestsStartDate() && $now < $fundingProgram->getRequestsEndDate();
+    return $today >= $fundingProgram->getRequestsStartDate() && $today <= $fundingProgram->getRequestsEndDate();
   }
 
   private function isNewApplicationPossible(FundingProgram $fundingProgram): bool {
