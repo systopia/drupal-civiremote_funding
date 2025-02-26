@@ -31,6 +31,7 @@ use Drupal\file\FileInterface;
  *   label = @Translation("CiviRemote Funding file entity"),
  *   handlers = {
  *     "storage" = "Drupal\civiremote_funding\File\FundingFileStorage",
+ *     "storage_schema" = "Drupal\civiremote_funding\Entity\Sql\CiviremoteFundingContentEntityStorageSchema",
  *   },
  *   base_table = "civiremote_funding_file",
  *   entity_keys = {
@@ -40,6 +41,10 @@ use Drupal\file\FileInterface;
  *     "token" = "token",
  *     "civi_uri" = "civi_uri",
  *   },
+ *   unique_fields = {
+ *     "token",
+ *     "civi_uri",
+ *   }
  * )
  */
 final class FundingFile extends ContentEntityBase implements FundingFileInterface {
