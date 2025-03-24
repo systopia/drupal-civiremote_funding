@@ -98,7 +98,7 @@ class FundingFileManager {
       return $fundingFile;
     }
 
-    $filename = basename($civiUri);
+    $filename = rawurldecode(basename($civiUri));
     Assertion::notEmpty($filename);
     $fileUri = FundingFileInterface::DOWNLOAD_LOCATION . $filename;
     $downloadDir = dirname($fileUri);
