@@ -11,3 +11,8 @@ application_history:
     js/application/history.js: {}
   dependencies:
     - core/once
+
+file_field:
+  css:
+    theme:
+      css/file_field.css: {}
