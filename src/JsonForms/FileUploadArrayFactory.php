@@ -117,6 +117,12 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
         [static::class, 'processElement'],
       ],
       '#value_callback' => [static::class, 'valueCallback'],
+      '#attributes' => [
+        'class' => ['civiremote-funding-file'],
+      ],
+      '#attached' => [
+        'library' => ['civiremote_funding/file_field']
+      ]
     ] + BasicFormPropertiesFactory::createFieldProperties($definition, $formState);
 
     if (NULL !== $this->validFileExtensions) {
