@@ -60,7 +60,7 @@
         "php": "^7.4 || ^8",
         "beberlei/assert": "*",
         "custom/civiremote": "^1.0@beta",
-        "drupal/cmrf_core": "^2.1@beta",
+        "drupal/cmrf_core": "^2.1.2",
         "drupal/json_forms": "~0.1",
         "drupal/views_current_path": "^3.0",
         "drupal/views_data_export": "^1.4",

@@ -31,6 +31,10 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "Subject"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
@@ -77,6 +81,10 @@ msgstr ""
 msgid "Open clearing"
 msgstr ""
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "{% if activity_type_id__name == 'funding_application_process_task' and funding_case_task__funding_case_id__funding_case_type_id__is_combined_application %}Open {{ funding_case_task__funding_case_id__funding_case_type_id__application_process_label }}{% endif %}"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:83
 msgid "Funding Applications"
@@ -117,6 +125,10 @@ msgstr ""
 msgid "CiviCRM Funding Case List (combined application)"
 msgstr ""
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "CiviCRM Funding Task List"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 msgid "CiviCRM Funding Application List (non-combined)"
 msgstr ""
@@ -127,6 +139,10 @@ msgstr ""
 
 #: civiremote_funding.info.yml
 msgid "Drupal frontend for funding applications of CiviCRM Funding Manager."
+msgstr ""
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "{% if activity_type_id__name == 'funding_application_process_task' and not funding_case_task__funding_case_id__funding_case_type_id__is_combined_application %}Open application{% endif %}"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
@@ -168,6 +184,7 @@ msgstr ""
 msgid "CiviCRM Funding Drawdown List"
 msgstr ""
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
@@ -195,6 +212,10 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 msgid "CiviCRM Funding Transfer Contract"
+msgstr ""
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "{% if activity_type_id__name == 'funding_case_task' %}Open combined application{% endif %}"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
@@ -294,6 +315,12 @@ msgstr ""
 msgid "Funding Program"
 msgstr ""
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:42
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:47
+msgid "Tasks"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 msgid "Link to application history"
 msgstr ""
@@ -302,9 +329,14 @@ msgstr ""
 msgid "Grants access to CiviCRM Funding via CiviRemote."
 msgstr ""
 
+#: config/optional/views.view.civicrm_funding_task_list.yml
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Modification Date"
+msgstr ""
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "Affected Identifier"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
@@ -324,6 +356,10 @@ msgstr ""
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:47
 msgid "Transfer Contracts"
+msgstr ""
+
+#: config/optional/views.view.civicrm_funding_task_list.yml
+msgid "{% if activity_type_id__name == 'funding_clearing_process_task' %}Open clearing{% endif %}"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
@@ -521,6 +557,10 @@ msgstr ""
 
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:50
 msgid "Download transfer contracts and manage drawdowns"
+msgstr ""
+
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:50
+msgid "Pending tasks"
 msgstr ""
 
 #: src/Plugin/views/field/LanguageAwareNumericField.php:103
