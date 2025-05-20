@@ -659,15 +659,15 @@ display:
           query_params_trim: 0
           query_params_lower: 0
           cache_user: 0
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
+        CAN_view_contract:
+          id: CAN_view_contract
+          table: cmrf_views_civiremote_funding_transfer_contract
+          field: CAN_view_contract
           relationship: none
           group_type: group
-          admin_label: 'Global: Custom text (Download)'
-          plugin_id: custom
-          label: 'Link to download transfer contract'
+          admin_label: 'Link to download transfer contract'
+          plugin_id: boolean
+          label: ''
           exclude: true
           alter:
             alter_text: true
@@ -700,14 +700,18 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
+          hide_empty: true
+          empty_zero: true
+          hide_alter_empty: true
+          type: boolean
+          type_custom_true: ''
+          type_custom_false: ''
+          not: false
         CAN_create_drawdown:
           id: CAN_create_drawdown
           table: cmrf_views_civiremote_funding_transfer_contract
@@ -861,7 +865,7 @@ display:
           hide_alter_empty: true
           destination: false
           fields:
-            nothing: nothing
+            CAN_view_contract: CAN_view_contract
             CAN_create_drawdown: CAN_create_drawdown
             nothing_1: nothing_1
             funding_case_id: '0'
@@ -879,6 +883,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0

@@ -47,7 +47,9 @@ final class TransferContractDownloadController {
 
   private function getDownloadUri(int $fundingCaseId): string {
     $fundingCase = $this->fundingApi->getFundingCase($fundingCaseId);
-    if (NULL === $fundingCase || NULL === $fundingCase->getTransferContractUri()) {
+    if (NULL === $fundingCase || NULL === $fundingCase->getTransferContractUri()
+      || !in_array('contract_view', $fundingCase->getPermissions(), TRUE)
+    ) {
       throw new NotFoundHttpException();
     }
 
