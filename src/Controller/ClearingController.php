@@ -39,20 +39,24 @@ final class ClearingController extends ControllerBase {
    * @return array<int|string, mixed>
    */
   public function formByApplicationProcessId(Request $request, int $applicationProcessId): array {
-    try {
-      $clearingProcess = $this->fundingApi->getOrCreateClearingProcess($applicationProcessId);
+    $clearingProcessId = $request->getSession()->get("$applicationProcessId:clearingProcessId");
+
+    if (NULL === $clearingProcessId) {
+      try {
+        $clearingProcess = $this->fundingApi->getOrCreateClearingProcess($applicationProcessId);
+        $clearingProcessId = $clearingProcess->getId();
+        $request->getSession()->set("$applicationProcessId:clearingProcessId", $clearingProcessId);
+      }
+      catch (ApiCallUnauthorizedException $e) {
+        throw new AccessDeniedHttpException($e->getMessage(), $e, $e->getCode());
+      }
     }
-    catch (ApiCallUnauthorizedException $e) {
-      throw new AccessDeniedHttpException($e->getMessage(), $e, $e->getCode());
-    }
 
-    $request->attributes->set('clearingProcessId', $clearingProcess->getId());
-
-    $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId);
-
+    $request->attributes->set('clearingProcessId', $clearingProcessId);
     $form = $this->formBuilder()->getForm(ClearingForm::class);
 
     // Add identifier to beginning of the form if not already in the title.
+    $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId);
     if (NULL !== $applicationProcess && !str_contains($form['#title'], $applicationProcess->getIdentifier())) {
       $form = array_merge([
         '_identifier' => [

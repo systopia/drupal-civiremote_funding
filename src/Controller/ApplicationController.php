@@ -36,10 +36,10 @@ final class ApplicationController extends ControllerBase {
    * @return array<int|string, mixed>
    */
   public function form(int $applicationProcessId): array {
-    $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId,);
     $form = $this->formBuilder()->getForm(ApplicationForm::class);
 
     // Add identifier to beginning of the form if not already in the title.
+    $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId,);
     if (NULL !== $applicationProcess && !str_contains($form['#title'], $applicationProcess->getIdentifier())) {
       $form = array_merge([
         '_identifier' => [

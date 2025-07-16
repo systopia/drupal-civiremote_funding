@@ -24,6 +24,7 @@ use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\civiremote_funding\Form\NewApplicationForm;
 use Drupal\civiremote_funding\Form\NewFundingCaseForm;
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class NewApplicationController extends ControllerBase {
@@ -37,13 +38,19 @@ final class NewApplicationController extends ControllerBase {
   /**
    * @return array<int|string, mixed>
    */
-  public function form(int $fundingCaseTypeId): array {
-    $fundingCaseType = $this->fundingApi->getFundingCaseType($fundingCaseTypeId);
-    if (NULL === $fundingCaseType) {
-      throw new NotFoundHttpException();
+  public function form(int $fundingCaseTypeId, Request $request): array {
+    $combinedApplication = $request->getSession()->get("$fundingCaseTypeId:combinedApplication");
+
+    if (!is_bool($combinedApplication)) {
+      $fundingCaseType = $this->fundingApi->getFundingCaseType($fundingCaseTypeId);
+      if (NULL === $fundingCaseType) {
+        throw new NotFoundHttpException();
+      }
+      $combinedApplication = $fundingCaseType->getIsCombinedApplication();
+      $request->getSession()->set("$fundingCaseTypeId:combinedApplication", $combinedApplication);
     }
 
-    if ($fundingCaseType->getIsCombinedApplication()) {
+    if ($combinedApplication) {
       return $this->formBuilder()->getForm(NewFundingCaseForm::class);
     }
 
