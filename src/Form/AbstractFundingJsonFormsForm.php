@@ -72,6 +72,12 @@ abstract class AbstractFundingJsonFormsForm extends AbstractJsonFormsForm {
       $form_state->set('jsonSchema', $fundingForm->getJsonSchema());
       $form_state->set('uiSchema', $fundingForm->getUiSchema());
       $form_state->setTemporary($fundingForm->getData());
+
+      if (!$this->getRequest()->isMethodSafe()) {
+        // Cache form state so the form specification hasn't to be rebuilt on
+        // every AJAX request. (Drupal prevents caching on safe methods.)
+        $form_state->setCached();
+      }
     }
 
     $form = $this->buildJsonFormsForm(
