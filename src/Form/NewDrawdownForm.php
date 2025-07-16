@@ -99,6 +99,7 @@ final class NewDrawdownForm extends FormBase {
         '#step' => 0.01,
         '#min' => 0,
         '#max' => $transferContract->getAmountAvailable(),
+        '#attached' => ['library' => ['json_forms/number_input']],
       ],
       'actions' => [
         'submit' => [
