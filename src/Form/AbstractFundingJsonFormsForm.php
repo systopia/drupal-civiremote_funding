@@ -87,12 +87,6 @@ abstract class AbstractFundingJsonFormsForm extends AbstractJsonFormsForm {
     // @phpstan-ignore-next-line
     $form['#attributes']['class'][] = 'civiremote-funding-form';
 
-    if (!$form_state->isCached() && !$this->getRequest()->isMethodSafe()) {
-      // Cache form state so the form specification hasn't to be rebuilt on
-      // every AJAX request. (Drupal prevents caching on safe methods.)
-      $form_state->setCached();
-    }
-
     return $form;
   }
 
