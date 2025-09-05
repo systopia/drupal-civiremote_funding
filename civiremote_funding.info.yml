@@ -2,8 +2,8 @@ name: CiviRemote Funding
 type: module
 description: Drupal frontend for funding applications of CiviCRM Funding Manager.
 package: CiviCRM
-core_version_requirement: ^9.5 || ^10
-php: 7.4
+core_version_requirement: ^10.2 || ^11
+php: 8.1
 dependencies:
   - cmrf_views
   - civiremote

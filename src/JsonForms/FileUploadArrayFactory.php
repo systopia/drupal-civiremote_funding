@@ -24,15 +24,18 @@ use Assert\Assertion;
 use Drupal\civiremote_funding\Entity\FundingFileInterface;
 use Drupal\civiremote_funding\File\FundingFileManager;
 use Drupal\civiremote_funding\JsonForms\Callbacks\FileUploadCallback;
+use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Element\ManagedFile;
 use Drupal\json_forms\Form\AbstractConcreteFormArrayFactory;
+use Drupal\json_forms\Form\Control\Callbacks\RecalculateCallback;
 use Drupal\json_forms\Form\Control\UrlArrayFactory;
 use Drupal\json_forms\Form\Control\Util\BasicFormPropertiesFactory;
 use Drupal\json_forms\Form\FormArrayFactoryInterface;
 use Drupal\json_forms\Form\Util\FormCallbackRegistrator;
 use Drupal\json_forms\JsonForms\Definition\Control\ControlDefinition;
 use Drupal\json_forms\JsonForms\Definition\DefinitionInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
@@ -71,6 +74,17 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
       $element['remove_button']['#validate'] = [static::class . '::noValidate'];
     }
 
+    if ('change' === ($element['#ajax']['event'] ?? NULL)) {
+      // Recalculate callback is registered. Though this has to be done
+      // different here.
+      if (isset($element['upload_button'])) {
+        $element['upload_button']['#ajax']['callback'] = [static::class, 'uploadAjaxCallback'];
+      }
+      if (isset($element['remove_button'])) {
+        $element['remove_button']['#ajax']['callback'] = [static::class, 'uploadAjaxCallback'];
+      }
+    }
+
     return $element;
   }
 
@@ -100,6 +114,20 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
   }
 
   /**
+   * @param array<string, mixed> $form
+   */
+  public static function uploadAjaxCallback(
+    array &$form,
+    FormStateInterface &$formState,
+    Request $request
+  ): AjaxResponse {
+    $response = ManagedFile::uploadAjaxCallback($form, $formState, $request);
+    RecalculateCallback::addAjaxCommands($response, $formState);
+
+    return $response;
+  }
+
+  /**
    * {@inheritDoc}
    */
   public function createFormArray(
@@ -117,17 +145,19 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
         [static::class, 'processElement'],
       ],
       '#value_callback' => [static::class, 'valueCallback'],
-      '#attributes' => [
-        'class' => ['civiremote-funding-file'],
-      ],
       '#attached' => [
-        'library' => ['civiremote_funding/file_field'],
+        'library' => [
+          'file/drupal.file',
+          'civiremote_funding/file_field',
+        ],
       ],
     ] + BasicFormPropertiesFactory::createFieldProperties($definition, $formState);
+    // @phpstan-ignore-next-line
+    $form['#attributes']['class'][] = 'civiremote-funding-file';
 
     if (NULL !== $this->validFileExtensions) {
       // @phpstan-ignore-next-line
-      $form['#upload_validators']['file_validate_extensions'] = [$this->validFileExtensions];
+      $form['#upload_validators']['FileExtension'] = ['extensions' => $this->validFileExtensions];
     }
 
     if (is_string($form['#default_value'] ?? NULL)) {
