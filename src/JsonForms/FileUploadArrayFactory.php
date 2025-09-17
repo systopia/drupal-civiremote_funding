@@ -65,7 +65,6 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
     // #validate is set to an empty array in ManagedFile::processManagedFile()
     // to prevent validation. However, this doesn't prevent the default
     // validation. https://www.drupal.org/project/drupal/issues/3503297.
-    $element = ManagedFile::processManagedFile($element, $formState, $completeForm);
     if (isset($element['upload_button'])) {
       $element['upload_button']['#validate'] = [static::class . '::noValidate'];
     }
@@ -141,9 +140,6 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
       '#type' => 'managed_file',
       '#upload_location' => FundingFileInterface::UPLOAD_LOCATION,
       '#upload_validators' => [],
-      '#process' => [
-        [static::class, 'processElement'],
-      ],
       '#value_callback' => [static::class, 'valueCallback'],
       '#attached' => [
         'library' => [
@@ -152,6 +148,7 @@ final class FileUploadArrayFactory extends AbstractConcreteFormArrayFactory {
         ],
       ],
     ] + BasicFormPropertiesFactory::createFieldProperties($definition, $formState);
+    $form['properties']['#process'] = [static::class . '::processElement'];
     // @phpstan-ignore-next-line
     $form['#attributes']['class'][] = 'civiremote-funding-file';
 
