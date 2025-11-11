@@ -248,7 +248,6 @@ msgid "Activity Start Date"
 msgstr "Beginn der Maßnahme"
 
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
-#: src/Form/NewDrawdownForm.php:96
 msgid "Amount"
 msgstr "Betrag"
 
@@ -282,7 +281,7 @@ msgid "List of CiviCRM funding applications (non-combined)  via remote API"
 msgstr "Liste der CiviCRM Förderanträge (keine Sammelanträge) via Remote API"
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
-#: src/Form/NewDrawdownForm.php:91
+#: src/Form/NewDrawdownForm.php:101
 msgid "Transfer Contract"
 msgstr "Weiterleitungsvertrag"
 
@@ -514,23 +513,31 @@ msgstr "Förderprogramm auswählen"
 msgid "Next"
 msgstr "Weiter"
 
-#: src/Form/NewDrawdownForm.php:80
+#: src/Form/NewDrawdownForm.php:87
 msgid "API request failed: @error"
 msgstr "API-Anfrage fehlgeschlagen: @error"
 
-#: src/Form/NewDrawdownForm.php:88
+#: src/Form/NewDrawdownForm.php:98
 msgid "Create Drawdown"
 msgstr "Mittelabruf erstellen"
 
 #: src/Form/NewDrawdownForm.php:106
+msgid "Amount in @currency"
+msgstr "Betrag in @currency"
+
+#: src/Form/NewDrawdownForm.php:109
+msgid "(Available: @amountAvailable)"
+msgstr "(Verfügbar: @amountAvailable)"
+
+#: src/Form/NewDrawdownForm.php:120
 msgid "Submit"
 msgstr "Absenden"
 
-#: src/Form/NewDrawdownForm.php:119
+#: src/Form/NewDrawdownForm.php:133
 msgid "Drawdown created."
 msgstr "Mittelabruf erstellt."
 
-#: src/Form/NewDrawdownForm.php:126
+#: src/Form/NewDrawdownForm.php:140
 msgid "Failed to create drawdown: @error"
 msgstr "Erstellung des Mittelabrufs fehlgeschlagen: @error"
 

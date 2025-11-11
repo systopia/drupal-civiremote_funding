@@ -232,7 +232,6 @@ msgid "Activity Start Date"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_drawdown_list.yml
-#: src/Form/NewDrawdownForm.php:96
 msgid "Amount"
 msgstr ""
 
@@ -266,7 +265,7 @@ msgid "List of CiviCRM funding applications (non-combined)  via remote API"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
-#: src/Form/NewDrawdownForm.php:91
+#: src/Form/NewDrawdownForm.php:101
 msgid "Transfer Contract"
 msgstr ""
 
@@ -489,23 +488,31 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:80
+#: src/Form/NewDrawdownForm.php:87
 msgid "API request failed: @error"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:88
+#: src/Form/NewDrawdownForm.php:98
 msgid "Create Drawdown"
 msgstr ""
 
 #: src/Form/NewDrawdownForm.php:106
+msgid "Amount in @currency"
+msgstr ""
+
+#: src/Form/NewDrawdownForm.php:109
+msgid "(Available: @amountAvailable)"
+msgstr ""
+
+#: src/Form/NewDrawdownForm.php:120
 msgid "Submit"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:119
+#: src/Form/NewDrawdownForm.php:133
 msgid "Drawdown created."
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:126
+#: src/Form/NewDrawdownForm.php:140
 msgid "Failed to create drawdown: @error"
 msgstr ""
 
