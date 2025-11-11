@@ -25,6 +25,7 @@ use Drupal\civiremote_funding\Api\Exception\ApiCallFailedException;
 use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -32,10 +33,13 @@ final class NewDrawdownForm extends FormBase {
 
   protected FundingApi $fundingApi;
 
+  protected LanguageManagerInterface $languageManager;
+
   protected int $payoutProcessId = -1;
 
-  public function __construct(FundingApi $fundingApi) {
+  public function __construct(FundingApi $fundingApi, LanguageManagerInterface $languageManager) {
     $this->fundingApi = $fundingApi;
+    $this->languageManager = $languageManager;
   }
 
   /**
@@ -44,7 +48,10 @@ final class NewDrawdownForm extends FormBase {
    * @return static
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get(FundingApi::class));
+    return new static(
+      $container->get(FundingApi::class),
+      $container->get('language_manager')
+    );
   }
 
   public function getFormId(): string {
@@ -83,6 +90,9 @@ final class NewDrawdownForm extends FormBase {
       return [];
     }
 
+    $numberFormatter = new \NumberFormatter($this->languageManager->getCurrentLanguage()->getId(), \NumberFormatter::CURRENCY);
+    $amountAvailableFormatted = $numberFormatter->formatCurrency($transferContract->getAmountAvailable(), $transferContract->getCurrency());
+
     return [
       '#attributes' => ['class' => ['civiremote-funding-form']],
       '#title' => $this->t('Create Drawdown'),
@@ -93,9 +103,12 @@ final class NewDrawdownForm extends FormBase {
       ],
       'amount' => [
         '#type' => 'number',
-        '#title' => $this->t('Amount'),
+        '#title' => $this->t('Amount in @currency', ['@currency' => $transferContract->getCurrency()]),
         '#required' => TRUE,
-        '#field_suffix' => $transferContract->getCurrency(),
+        '#field_suffix' => $this->t(
+          '(Available: @amountAvailable)',
+          ['@amountAvailable' => $amountAvailableFormatted]
+        ),
         '#step' => 0.01,
         '#min' => 0,
         '#max' => $transferContract->getAmountAvailable(),
