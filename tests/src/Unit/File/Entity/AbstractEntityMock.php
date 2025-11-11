@@ -29,7 +29,7 @@ abstract class AbstractEntityMock implements EntityInterface {
   /**
    * {@inheritDoc}
    */
-  public function access($operation, AccountInterface $account = NULL, $return_as_object = FALSE) {
+  public function access($operation, ?AccountInterface $account = NULL, $return_as_object = FALSE) {
     throw new \BadMethodCallException('Not implemented');
   }
 
@@ -120,7 +120,7 @@ abstract class AbstractEntityMock implements EntityInterface {
   /**
    * {@inheritDoc}
    */
-  public static function loadMultiple(array $ids = NULL) {
+  public static function loadMultiple(?array $ids = NULL) {
     throw new \BadMethodCallException('Not implemented');
   }
 
