@@ -115,7 +115,6 @@ services:
     class: Drupal\civiremote_funding\Form\ResponseHandler\FormResponseHandlerAction
     arguments:
       $messenger: '@messenger'
-      $requestStack: '@request_stack'
 
   Drupal\civiremote_funding\Form\ResponseHandler\FormResponseHandlerInterface:
     class: Drupal\civiremote_funding\Form\ResponseHandler\FormResponseHandlerChain

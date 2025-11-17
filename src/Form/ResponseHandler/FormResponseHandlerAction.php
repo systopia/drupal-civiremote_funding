@@ -20,13 +20,12 @@ declare(strict_types=1);
 
 namespace Drupal\civiremote_funding\Form\ResponseHandler;
 
-use Assert\Assertion;
 use Drupal\civiremote_funding\Api\Form\FormSubmitResponse;
 use Drupal\civiremote_funding\FundingRedirectResponse;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Request;
 
 class FormResponseHandlerAction implements FormResponseHandlerInterface {
 
@@ -34,14 +33,15 @@ class FormResponseHandlerAction implements FormResponseHandlerInterface {
 
   private MessengerInterface $messenger;
 
-  private RequestStack $requestStack;
-
-  public function __construct(MessengerInterface $messenger, RequestStack $requestStack) {
+  public function __construct(MessengerInterface $messenger) {
     $this->messenger = $messenger;
-    $this->requestStack = $requestStack;
   }
 
-  public function handleSubmitResponse(FormSubmitResponse $submitResponse, FormStateInterface $formState): void {
+  public function handleSubmitResponse(
+    Request $request,
+    FormSubmitResponse $submitResponse,
+    FormStateInterface $formState
+  ): void {
     if ('showValidation' === $submitResponse->getAction()) {
       // We cannot add errors at this stage, though this actually cannot happen
       // because we have called the remote validation in the validation step.
@@ -69,8 +69,6 @@ class FormResponseHandlerAction implements FormResponseHandlerInterface {
         }
       }
       elseif ('reloadForm' === $submitResponse->getAction()) {
-        $request = $this->requestStack->getCurrentRequest();
-        Assertion::notNull($request);
         $redirectUrl = $request->getUri();
         // @phpstan-ignore-next-line
         $redirectUrl = rtrim(preg_replace('/copyDataFromId=[0-9]+&?/', '', $redirectUrl), '&?');
