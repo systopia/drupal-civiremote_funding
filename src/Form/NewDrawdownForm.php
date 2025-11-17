@@ -90,8 +90,13 @@ final class NewDrawdownForm extends FormBase {
       return [];
     }
 
-    $numberFormatter = new \NumberFormatter($this->languageManager->getCurrentLanguage()->getId(), \NumberFormatter::CURRENCY);
-    $amountAvailableFormatted = $numberFormatter->formatCurrency($transferContract->getAmountAvailable(), $transferContract->getCurrency());
+    $numberFormatter = new \NumberFormatter(
+      $this->languageManager->getCurrentLanguage()->getId(), \NumberFormatter::CURRENCY
+    );
+    $amountAvailableFormatted = $numberFormatter->formatCurrency(
+      $transferContract->getAmountAvailable(),
+      $transferContract->getCurrency()
+    );
 
     return [
       '#attributes' => ['class' => ['civiremote-funding-form']],
