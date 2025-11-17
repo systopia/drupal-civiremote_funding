@@ -25,6 +25,7 @@ use Drupal\civiremote_funding\File\FundingFileManager;
 use Drupal\civiremote_funding\JsonForms\Callbacks\FileUploadCallback;
 use Drupal\Core\Form\FormStateInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class FormResponseHandlerFiles implements FormResponseHandlerInterface {
 
@@ -40,7 +41,11 @@ class FormResponseHandlerFiles implements FormResponseHandlerInterface {
     $this->logger = $logger;
   }
 
-  public function handleSubmitResponse(FormSubmitResponse $submitResponse, FormStateInterface $formState): void {
+  public function handleSubmitResponse(
+    Request $request,
+    FormSubmitResponse $submitResponse,
+    FormStateInterface $formState
+  ): void {
     $fundingFilesByUri = $this->getFundingFilesByUri($formState);
 
     foreach ($submitResponse->getFiles() as $submittedUri => $civiUri) {

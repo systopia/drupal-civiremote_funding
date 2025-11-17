@@ -134,7 +134,7 @@ abstract class AbstractFundingJsonFormsForm extends AbstractJsonFormsForm {
       return;
     }
 
-    $this->formResponseHandler->handleSubmitResponse($submitResponse, $formState);
+    $this->formResponseHandler->handleSubmitResponse($this->getRequest(), $submitResponse, $formState);
   }
 
   /**
