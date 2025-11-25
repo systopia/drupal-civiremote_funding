@@ -578,6 +578,116 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
+        funding_case_task__external_url:
+          id: funding_case_task__external_url
+          table: cmrf_views_civiremote_funding_task
+          field: funding_case_task__external_url
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_standard
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+        funding_case_task__external_url_label:
+          id: funding_case_task__external_url_label
+          table: cmrf_views_civiremote_funding_task
+          field: funding_case_task__external_url_label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_standard
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
         current_path:
           id: current_path
           table: views
@@ -635,6 +745,55 @@ display:
           query_params_trim: 0
           query_params_lower: 0
           cache_user: 0
+        nothing_4:
+          id: nothing_4
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'Link to external URL'
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if funding_case_task__external_url != '' %}{{ funding_case_task__external_url_label }}{% endif %}"
+            make_link: true
+            path: '{{ funding_case_task__external_url }}'
+            absolute: false
+            external: true
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: _blank
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: false
         nothing:
           id: nothing
           table: views
@@ -837,7 +996,7 @@ display:
           field: dropbutton
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: "Actions (Note: Dropbutton doesn't support links to external URLs)"
           plugin_id: dropbutton
           label: ''
           exclude: false
@@ -889,13 +1048,17 @@ display:
             source_record_id: '0'
             funding_application_process_task__application_process_id: '0'
             subject: '0'
+            funding_case_task__due_date: '0'
             modified_date: '0'
             funding_case_task__affected_identifier: '0'
             activity_type_id__name: '0'
             funding_case_task__funding_case_id: '0'
             funding_case_task__funding_case_id__funding_case_type_id__is_combined_application: '0'
             funding_case_task__funding_case_id__funding_case_type_id__application_process_label: '0'
+            funding_case_task__external_url: '0'
+            funding_case_task__external_url_label: '0'
             current_path: '0'
+            nothing_4: '0'
       pager:
         type: full
         options:
