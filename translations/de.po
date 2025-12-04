@@ -281,7 +281,7 @@ msgid "List of CiviCRM funding applications (non-combined)  via remote API"
 msgstr "Liste der CiviCRM Förderanträge (keine Sammelanträge) via Remote API"
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
-#: src/Form/NewDrawdownForm.php:101
+#: src/Form/NewDrawdownForm.php:106
 msgid "Transfer Contract"
 msgstr "Weiterleitungsvertrag"
 
@@ -378,6 +378,14 @@ msgstr "Förderfall ID"
 msgid "Link to create drawdown form"
 msgstr ""
 
+#: src/Controller/ApplicationController.php:68
+msgid "Application"
+msgstr "Antrag"
+
+#: src/Controller/ApplicationController.php:69 src/Controller/ClearingController.php:85
+msgid "History"
+msgstr "Verlauf"
+
 #: src/Controller/ApplicationHistoryController.php:50
 msgid "Application History"
 msgstr "Antragsverlauf"
@@ -399,6 +407,10 @@ msgstr "Laden der Förderfalltypen fehlgeschlagen: @error"
 #: src/Form/ChooseFundingProgramForm.php:90
 msgid "No funding case type available in the selected funding program."
 msgstr "Kein Förderfalltyp im gewählten Förderprogramm verfügbar."
+
+#: src/Controller/ClearingController.php:84
+msgid "Clearing"
+msgstr "Verwendungsnachweis"
 
 #: src/Controller/DashboardController.php:34
 msgid "Dashboard"
@@ -517,27 +529,27 @@ msgstr "Weiter"
 msgid "API request failed: @error"
 msgstr "API-Anfrage fehlgeschlagen: @error"
 
-#: src/Form/NewDrawdownForm.php:98
+#: src/Form/NewDrawdownForm.php:103
 msgid "Create Drawdown"
 msgstr "Mittelabruf erstellen"
 
-#: src/Form/NewDrawdownForm.php:106
+#: src/Form/NewDrawdownForm.php:111
 msgid "Amount in @currency"
 msgstr "Betrag in @currency"
 
-#: src/Form/NewDrawdownForm.php:109
+#: src/Form/NewDrawdownForm.php:114
 msgid "(Available: @amountAvailable)"
 msgstr "(Verfügbar: @amountAvailable)"
 
-#: src/Form/NewDrawdownForm.php:120
+#: src/Form/NewDrawdownForm.php:125
 msgid "Submit"
 msgstr "Absenden"
 
-#: src/Form/NewDrawdownForm.php:133
+#: src/Form/NewDrawdownForm.php:138
 msgid "Drawdown created."
 msgstr "Mittelabruf erstellt."
 
-#: src/Form/NewDrawdownForm.php:140
+#: src/Form/NewDrawdownForm.php:145
 msgid "Failed to create drawdown: @error"
 msgstr "Erstellung des Mittelabrufs fehlgeschlagen: @error"
 

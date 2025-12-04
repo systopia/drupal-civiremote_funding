@@ -55,17 +55,39 @@ final class ClearingController extends ControllerBase {
     $request->attributes->set('clearingProcessId', $clearingProcessId);
     $form = $this->formBuilder()->getForm(ClearingForm::class);
 
-    // Add identifier to beginning of the form if not already in the title.
+    $container = [
+      '#title' => $form['#title'],
+      '#type' => 'container',
+    ];
+
     $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId);
-    if (NULL !== $applicationProcess && !str_contains($form['#title'], $applicationProcess->getIdentifier())) {
-      $form = array_merge([
-        '_identifier' => [
-          '#plain_text' => $applicationProcess->getIdentifier(),
-        ],
-      ], $form);
+    if (NULL !== $applicationProcess) {
+      // Add identifier if not already in the title. title.
+      if (!str_contains($container['#title'], $applicationProcess->getIdentifier())) {
+        $container['identifier'] = ['#markup' => '<h2>' . $applicationProcess->getIdentifier() . '</h2>'];
+      }
+
+      $history = [
+        '#type' => 'civiremote_funding_application_history',
+        '#activities' => $this->fundingApi->getApplicationActivities($applicationProcessId),
+        '#status_options' => $this->fundingApi->getApplicationStatusOptions($applicationProcessId),
+        '#clearing_status_options' => $this->fundingApi->getClearingStatusOptions(),
+      ];
+    }
+    else {
+      $history = [];
     }
 
-    return $form;
+    $container['tabs'] = [
+      '#theme' => 'tabby_tabs',
+      '#labels' => [
+        $this->t('Clearing'),
+        $this->t('History'),
+      ],
+      '#content' => [$form, $history],
+    ];
+
+    return $container;
   }
 
   public function title(int $applicationProcessId): ?string {
