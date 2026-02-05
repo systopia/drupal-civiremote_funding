@@ -74,6 +74,10 @@ services:
       $urlGenerator: '@url_generator'
     public: true
 
+  Drupal\civiremote_funding\Controller\DrawdownSubmitConfirmationDownloadController:
+    class: Drupal\civiremote_funding\Controller\DrawdownSubmitConfirmationDownloadController
+    public: true
+
   Drupal\civiremote_funding\Controller\FundingCaseController:
     class: Drupal\civiremote_funding\Controller\FundingCaseController
     public: true

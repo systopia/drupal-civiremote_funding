@@ -25,6 +25,7 @@ use Drupal\civiremote_funding\Api\DTO\ApplicationProcess;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessActivity;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessTemplate;
 use Drupal\civiremote_funding\Api\DTO\ClearingProcess;
+use Drupal\civiremote_funding\Api\DTO\Drawdown;
 use Drupal\civiremote_funding\Api\DTO\FundingCase;
 use Drupal\civiremote_funding\Api\DTO\FundingCaseType;
 use Drupal\civiremote_funding\Api\DTO\FundingProgram;
@@ -48,6 +49,9 @@ class FundingApi {
     $this->remoteContactIdProvider = $remoteContactIdProvider;
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getFundingCase(int $fundingCaseId): ?FundingCase {
     $result = $this->apiClient->executeV4('RemoteFundingCase', 'get', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
@@ -112,6 +116,9 @@ class FundingApi {
     return FormSubmitResponse::fromApiResultValue($result['values']);
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getFundingCaseType(int $fundingCaseTypeId): ?FundingCaseType {
     $result = $this->apiClient->executeV4('RemoteFundingCaseType', 'get', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
@@ -137,6 +144,9 @@ class FundingApi {
     return FundingCaseType::allFromArrays($result['values']);
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getFundingProgram(int $fundingProgramId): ?FundingProgram {
     $result = $this->apiClient->executeV4('RemoteFundingProgram', 'get', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
@@ -184,10 +194,12 @@ class FundingApi {
       ],
     ]);
 
-    // @phpstan-ignore argument.type
     return ApplicationProcess::oneOrNullFromApiResult($result);
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getApplicationTemplateRenderUri(int $applicationProcessId, int $templateId): string {
     $result = $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'getTemplateRenderUri', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
@@ -213,7 +225,9 @@ class FundingApi {
       'applicationProcessIds' => $applicationProcessIds,
     ]);
 
+    // @phpstan-ignore return.type
     return array_map(
+      // @phpstan-ignore argument.type
       fn($templates) => ApplicationProcessTemplate::allFromArrays($templates),
       $result['values']
     );
@@ -234,6 +248,9 @@ class FundingApi {
     );
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getAddApplicationForm(int $fundingCaseId, ?int $copyDataFromId = NULL): FundingForm {
     $result = $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'getAddForm', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
@@ -410,6 +427,22 @@ class FundingApi {
     ]);
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function getDrawdown(int $drawdownId): ?Drawdown {
+    $result = $this->apiClient->executeV4('RemoteFundingDrawdown', 'get', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'select' => ['*', 'submit_confirmation_document_uri'],
+      'where' => [['id', '=', $drawdownId]],
+    ]);
+
+    return Drawdown::oneOrNullFromApiResult($result);
+  }
+
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getFundingCaseUpdateForm(int $fundingCaseId): FundingForm {
     $result = $this->apiClient->executeV4('RemoteFundingCase', 'getUpdateForm', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
@@ -478,6 +511,9 @@ class FundingApi {
     );
   }
 
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
   public function getClearingForm(int $clearingProcessId): FundingForm {
     $result = $this->apiClient->executeV4('RemoteFundingClearingProcess', 'getForm', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
