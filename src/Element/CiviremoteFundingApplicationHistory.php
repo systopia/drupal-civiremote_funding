@@ -43,7 +43,7 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
       '#clearing_status_options' => [],
       '#unknown_status_label' => $this->t('Unknown'),
       '#theme' => 'civiremote_funding_application_history',
-      '#application_title' => '',
+      '#application_title' => NULL,
       // Optional path of back link (without base path,
       // https://www.drupal.org/project/drupal/issues/2582295)
       '#back_link_destination' => NULL,
@@ -70,9 +70,12 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
     $element['#attached']['library'][] = 'fontawesome/fontawesome.svg.shim';
     $element['#attached']['library'][] = 'fontawesome/fontawesome.webfonts.shim';
 
-    $element['application_title'] = [
-      '#plain_text' => $element['#application_title'],
-    ];
+    if (NULL !== $element['#application_title']) {
+      $element['application_title'] = [
+        '#plain_text' => $element['#application_title'],
+      ];
+    }
+
     if (NULL !== $element['#back_link_destination']) {
       $element['back_link'] = [
         '#type' => 'link',
@@ -80,6 +83,7 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
         '#url' => Url::fromUserInput($element['#back_link_destination'], ['absolute' => TRUE]),
       ];
     }
+
     $element['filter'] = [
       '#type' => 'fieldset',
       '#title' => $element['#filter_title'],

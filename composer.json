@@ -45,14 +45,6 @@
             "url": "git@github.com:systopia/drupal-json_forms.git"
         },
         {
-            "type": "vcs",
-            "url": "https://github.com/systopia/opis-json-schema-ext"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/systopia/expression-language-ext"
-        },
-        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
@@ -63,6 +55,7 @@
         "custom/civiremote": "^1.1",
         "drupal/cmrf_core": "^2.1.2",
         "drupal/json_forms": "~0.7",
+        "drupal/tabby": "^1.0",
         "drupal/views_current_path": "^3.0",
         "drupal/views_data_export": "^1.4",
         "drupal/xls_serialization": "^1.3"

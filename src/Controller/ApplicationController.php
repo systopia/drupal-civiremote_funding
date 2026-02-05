@@ -23,6 +23,7 @@ namespace Drupal\civiremote_funding\Controller;
 use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\civiremote_funding\Form\ApplicationForm;
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\Request;
 
 final class ApplicationController extends ControllerBase {
 
@@ -35,26 +36,48 @@ final class ApplicationController extends ControllerBase {
   /**
    * @return array<int|string, mixed>
    */
-  public function form(int $applicationProcessId): array {
+  public function form(int $applicationProcessId, Request $request): array {
     $form = $this->formBuilder()->getForm(ApplicationForm::class);
 
-    // Add identifier to beginning of the form if not already in the title.
+    $container = [
+      '#title' => $form['#title'],
+      '#type' => 'container',
+    ];
+
     $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId,);
-    if (NULL !== $applicationProcess && !str_contains($form['#title'], $applicationProcess->getIdentifier())) {
-      $form = array_merge([
-        '_identifier' => [
-          '#plain_text' => $applicationProcess->getIdentifier(),
-        ],
-      ], $form);
+    if (NULL !== $applicationProcess) {
+      // Add identifier if not already in the title.
+      if (!str_contains($container['#title'], $applicationProcess->getIdentifier())) {
+        $container['identifier'] = ['#markup' => '<h2>' . $applicationProcess->getIdentifier() . '</h2>'];
+      }
+
+      $history = [
+        '#type' => 'civiremote_funding_application_history',
+        '#activities' => $this->fundingApi->getApplicationActivities($applicationProcessId),
+        '#status_options' => $this->fundingApi->getApplicationStatusOptions($applicationProcessId),
+        '#clearing_status_options' => $this->fundingApi->getClearingStatusOptions(),
+      ];
+    }
+    else {
+      $history = [];
     }
 
-    return $form;
+    $container['tabs'] = [
+      '#theme' => 'tabby_tabs',
+      '#labels' => [
+        $this->t('Application'),
+        $this->t('History'),
+      ],
+      '#content' => [$form, $history],
+    ];
+
+    return $container;
   }
 
   public function title(int $applicationProcessId): ?string {
-    $info = $this->fundingApi->getApplicationProcess($applicationProcessId);
+    $applicationProcess = $this->fundingApi->getApplicationProcess($applicationProcessId);
 
-    return NULL === $info ? NULL : $info->getIdentifier();
+    return $applicationProcess?->getIdentifier();
   }
 
 }

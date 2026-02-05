@@ -265,7 +265,7 @@ msgid "List of CiviCRM funding applications (non-combined)  via remote API"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
-#: src/Form/NewDrawdownForm.php:101
+#: src/Form/NewDrawdownForm.php:106
 msgid "Transfer Contract"
 msgstr ""
 
@@ -357,6 +357,15 @@ msgstr ""
 msgid "Link to create drawdown form"
 msgstr ""
 
+#: src/Controller/ApplicationController.php:68
+msgid "Application"
+msgstr ""
+
+#: src/Controller/ApplicationController.php:69
+#: src/Controller/ClearingController.php:85
+msgid "History"
+msgstr ""
+
 #: src/Controller/ApplicationHistoryController.php:50
 msgid "Application History"
 msgstr ""
@@ -377,6 +386,10 @@ msgstr ""
 #: src/Controller/ChooseFundingProgramController.php:81
 #: src/Form/ChooseFundingProgramForm.php:90
 msgid "No funding case type available in the selected funding program."
+msgstr ""
+
+#: src/Controller/ClearingController.php:84
+msgid "Clearing"
 msgstr ""
 
 #: src/Controller/DashboardController.php:34
@@ -492,27 +505,27 @@ msgstr ""
 msgid "API request failed: @error"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:98
+#: src/Form/NewDrawdownForm.php:103
 msgid "Create Drawdown"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:106
+#: src/Form/NewDrawdownForm.php:111
 msgid "Amount in @currency"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:109
+#: src/Form/NewDrawdownForm.php:114
 msgid "(Available: @amountAvailable)"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:120
+#: src/Form/NewDrawdownForm.php:125
 msgid "Submit"
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:133
+#: src/Form/NewDrawdownForm.php:138
 msgid "Drawdown created."
 msgstr ""
 
-#: src/Form/NewDrawdownForm.php:140
+#: src/Form/NewDrawdownForm.php:145
 msgid "Failed to create drawdown: @error"
 msgstr ""
 
