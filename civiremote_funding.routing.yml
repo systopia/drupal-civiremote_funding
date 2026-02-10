@@ -151,6 +151,18 @@ civiremote_funding.case_application_clearing:
   requirements:
     _permission: 'civiremote_funding: access'
 
+civiremote_funding.drawdown_submit_confirmation_download:
+  path: '/civiremote/funding/drawdown/{drawdownId}/submit-confirmation/download'
+  defaults:
+    _controller: 'Drupal\civiremote_funding\Controller\DrawdownSubmitConfirmationDownloadController:download'
+  options:
+    no_cache: TRUE
+    parameters:
+      drawdownId:
+        type: int
+  requirements:
+    _permission: 'civiremote_funding: access'
+
 civiremote_funding.token_file_download:
   path: '/civiremote/funding/file/{token}/{filename}'
   defaults:

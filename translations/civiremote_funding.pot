@@ -121,6 +121,10 @@ msgstr ""
 msgid "CiviCRM Funding Application List (non-combined)"
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_task_list.yml
+msgid "{% if funding_case_task__external_url != '' %}{{ funding_case_task__external_url_label }}{% endif %}"
+msgstr ""
+
 #: config/install/core.date_format.civiremote_funding_date_only.yml
 msgid "CiviRemote Funding date only"
 msgstr ""
@@ -298,6 +302,10 @@ msgstr ""
 #: src/Plugin/views/field/LanguageAwareNumericField.php:114
 #: src/Plugin/views/field/LanguageAwareNumericField.php:127
 msgid "Currency"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_drawdown_list.yml
+msgid "Download submit confirmation"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
