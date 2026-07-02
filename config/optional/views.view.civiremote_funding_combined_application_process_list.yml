@@ -1030,6 +1030,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -1146,6 +1147,44 @@ display:
           validate_options: {  }
           must_not_be: false
       filters:
+        identifier:
+          id: identifier
+          table: cmrf_views_civiremote_funding_application_process
+          field: identifier
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_filter_text
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: identifier_op
+            label: Identifier
+            description: ''
+            use_operator: false
+            operator: identifier_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: identifier
+            required: false
+            remember: false
+            multiple: false
+            remember_roles: null
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         title:
           id: title
           table: cmrf_views_civiremote_funding_application_process
@@ -1170,15 +1209,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              civicrm_api: '0'
-              civiremote_remote_user: '0'
-              civiremote_civiremote_funding: '0'
-              civiremote_civiremote_bsh_funding_coordinator: '0'
-              koordinator: '0'
+            remember_roles: null
             placeholder: ''
           is_grouped: false
           group_info:
@@ -2503,7 +2534,7 @@ display:
         default: '0'
       filename: ''
       automatic_download: false
-      store_in_public_file_directory: false
+      export_filesystem: private
       custom_redirect_path: false
       redirect_to_display: none
       include_query_params: false
