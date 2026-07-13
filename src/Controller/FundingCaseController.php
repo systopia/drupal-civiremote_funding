@@ -73,7 +73,8 @@ final class FundingCaseController extends ControllerBase {
 
     $content['form'] = $this->formBuilder()->getForm(FundingCaseForm::class);
 
-    if (in_array('application_create', $fundingCase->getPermissions(), TRUE)) {
+    $initialActions = $this->fundingApi->getAllowedApplicationProcessActionsInitialByFundingCase($fundingCase->getId());
+    if ([] !== $initialActions) {
       $content['add_link'] = [
         '#type' => 'link',
         '#title' => [
