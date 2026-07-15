@@ -555,4 +555,20 @@ class FundingApi {
     return FormSubmitResponse::fromApiResultValue($result['values']);
   }
 
+  /**
+   * @return array<string, array{label: string, confirm: string|null}>
+   *   Map of action names to button labels and confirm messages.
+   *
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function getAllowedApplicationProcessActionsInitialByFundingCase(int $fundingCaseId): array {
+    $result = $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'getAllowedActionsInitialByFundingCase', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'fundingCaseIds' => [$fundingCaseId],
+    ]);
+
+    // @phpstan-ignore return.type
+    return $result['values'][$fundingCaseId];
+  }
+
 }
