@@ -52,13 +52,27 @@ final class ChooseFundingProgramForm extends FormBase {
   /**
    * @param array<int, string> $fundingProgramOptions
    */
-  public function buildForm(array $form, FormStateInterface $form_state, array $fundingProgramOptions = []): array {
+  public function buildForm(
+    array $form,
+    FormStateInterface $form_state,
+    array $fundingProgramOptions = [],
+    ?int $fundingCaseTypeId = NULL,
+    ?int $copyDataFromId = NULL
+  ): array {
     return [
       'fundingProgramId' => [
         '#type' => 'select',
         '#title' => $this->t('Select Funding Program'),
         '#options' => $fundingProgramOptions,
         '#required' => TRUE,
+      ],
+      'fundingCaseTypeId' => [
+        '#type' => 'value',
+        '#value' => $fundingCaseTypeId,
+      ],
+      'copyDataFromId' => [
+        '#type' => 'value',
+        '#value' => $copyDataFromId,
       ],
       'actions' => [
         'submit' => [
@@ -73,37 +87,49 @@ final class ChooseFundingProgramForm extends FormBase {
     /** @phpstan-var numeric-string $fundingProgramIdStr */
     $fundingProgramIdStr = $formState->getValue('fundingProgramId');
     $fundingProgramId = (int) $fundingProgramIdStr;
-    try {
-      $fundingCaseTypes = $this->fundingApi->getFundingCaseTypesByFundingProgramId(
-        $fundingProgramId
-      );
-    }
-    catch (ApiCallFailedException $e) {
-      $this->messenger()->addError(
-        $this->t('Failed to load funding case types: @error', ['@error' => $e->getMessage()])
-      );
+    /** @var int|null $fundingCaseTypeId */
+    $fundingCaseTypeId = $formState->getValue('fundingCaseTypeId');
+    if (NULL === $fundingCaseTypeId) {
+      try {
+        $fundingCaseTypes = $this->fundingApi->getFundingCaseTypesByFundingProgramId(
+          $fundingProgramId
+        );
+      }
+      catch (ApiCallFailedException $e) {
+        $this->messenger()->addError(
+          $this->t('Failed to load funding case types: @error', ['@error' => $e->getMessage()])
+        );
 
-      return;
-    }
+        return;
+      }
 
-    if (0 === count($fundingCaseTypes)) {
-      $this->messenger()->addError($this->t('No funding case type available in the selected funding program.'));
-    }
-    else {
+      if (0 === count($fundingCaseTypes)) {
+        $this->messenger()->addError($this->t('No funding case type available in the selected funding program.'));
+      }
+
       // @todo Support funding programs with multiple funding case types.
-      $this->redirectToApplicationForm($fundingProgramId, $fundingCaseTypes[0]->getId(), $formState);
+      $fundingCaseTypeId = $fundingCaseTypes[0]->getId();
     }
+
+    /** @var int|null $copyDataFromId */
+    $copyDataFromId = $formState->getValue('copyDataFromId');
+    $this->redirectToApplicationForm($fundingProgramId, $fundingCaseTypeId, $copyDataFromId, $formState);
   }
 
   private function redirectToApplicationForm(
     int $fundingProgramId,
     int $fundingCaseTypeId,
+    ?int $copyDataFromId,
     FormStateInterface $formState
   ): void {
+    $query = [];
+    if (NULL !== $copyDataFromId) {
+      $query['copyDataFromId'] = $copyDataFromId;
+    }
     $formState->setRedirect('civiremote_funding.new_application_form', [
       'fundingProgramId' => $fundingProgramId,
       'fundingCaseTypeId' => $fundingCaseTypeId,
-    ]);
+    ], ['query' => $query]);
   }
 
 }

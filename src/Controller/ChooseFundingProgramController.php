@@ -27,6 +27,9 @@ use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\civiremote_funding\Form\ChooseFundingProgramForm;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class ChooseFundingProgramController extends ControllerBase {
@@ -43,9 +46,32 @@ final class ChooseFundingProgramController extends ControllerBase {
   /**
    * @return array<int|string, mixed>|RedirectResponse
    */
-  public function form() {
+  public function form(Request $request) {
+    $copyDataFromId = $request->query->get('copyDataFromId');
+
     try {
-      $fundingProgramOptions = $this->getFundingProgramOptions();
+      if (NULL === $copyDataFromId) {
+        $fundingCaseTypeId = NULL;
+      }
+      else {
+        if ((int) $copyDataFromId != $copyDataFromId) {
+          throw new BadRequestHttpException('copyDataFromId is not an integer');
+        }
+
+        $copyDataFromId = (int) $copyDataFromId;
+        $applicationProcess = $this->fundingApi->getApplicationProcess(
+          $copyDataFromId,
+          ['funding_case_id.funding_case_type_id']
+        );
+        if (NULL === $applicationProcess) {
+          throw new NotFoundHttpException("Application process with ID $copyDataFromId not found");
+        }
+
+        $fundingCaseTypeId = $applicationProcess->get('funding_case_id.funding_case_type_id');
+        assert(is_int($fundingCaseTypeId));
+      }
+
+      $fundingProgramOptions = $this->getFundingProgramOptions($fundingCaseTypeId);
     }
     catch (ApiCallFailedException $e) {
       $this->messenger()->addError(
@@ -77,6 +103,13 @@ final class ChooseFundingProgramController extends ControllerBase {
         return [];
       }
 
+      if (NULL !== $fundingCaseTypeId) {
+        $fundingCaseTypes = array_filter(
+          $fundingCaseTypes,
+          fn($fundingCaseType) => $fundingCaseType->getId() === $fundingCaseTypeId
+        );
+      }
+
       if (0 === count($fundingCaseTypes)) {
         $this->messenger()->addError($this->t('No funding case type available in the selected funding program.'));
 
@@ -84,15 +117,26 @@ final class ChooseFundingProgramController extends ControllerBase {
       }
 
       // @todo Support funding programs with multiple funding case types.
-      $url = $this->urlGenerator->generate('civiremote_funding.new_application_form', [
-        'fundingProgramId' => $fundingProgramId,
-        'fundingCaseTypeId' => $fundingCaseTypes[0]->getId(),
-      ]);
+      $url = $this->urlGenerator->generate(
+        'civiremote_funding.new_application_form',
+        [
+          'fundingProgramId' => $fundingProgramId,
+          'fundingCaseTypeId' => $fundingCaseTypes[0]->getId(),
+        ],
+      );
+      if (NULL !== $copyDataFromId) {
+        $url .= '?copyDataFromId=' . $copyDataFromId;
+      }
 
       return new RedirectResponse($url);
     }
 
-    return $this->formBuilder()->getForm(ChooseFundingProgramForm::class, $fundingProgramOptions);
+    return $this->formBuilder()->getForm(
+      ChooseFundingProgramForm::class,
+      $fundingProgramOptions,
+      $fundingCaseTypeId,
+      $copyDataFromId
+    );
   }
 
   /**
@@ -100,10 +144,10 @@ final class ChooseFundingProgramController extends ControllerBase {
    *
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
-  private function getFundingProgramOptions(): array {
+  private function getFundingProgramOptions(?int $fundingCaseTypeId): array {
     $options = [];
     foreach ($this->fundingApi->getFundingPrograms() as $fundingProgram) {
-      if ($this->isNewApplicationPossible($fundingProgram)) {
+      if ($this->isNewApplicationPossible($fundingProgram, $fundingCaseTypeId)) {
         $options[$fundingProgram->getId()] = $fundingProgram->getTitle();
       }
     }
@@ -117,9 +161,22 @@ final class ChooseFundingProgramController extends ControllerBase {
     return $today >= $fundingProgram->getRequestsStartDate() && $today <= $fundingProgram->getRequestsEndDate();
   }
 
-  private function isNewApplicationPossible(FundingProgram $fundingProgram): bool {
-    return \in_array('application_create', $fundingProgram->getPermissions(), TRUE) &&
-      $this->isInRequestPeriod($fundingProgram);
+  private function isNewApplicationPossible(FundingProgram $fundingProgram, ?int $fundingCaseTypeId): bool {
+    if (
+      !\in_array('application_create', $fundingProgram->getPermissions(), TRUE)
+      || !$this->isInRequestPeriod($fundingProgram)
+    ) {
+      return FALSE;
+    }
+
+    if (NULL === $fundingCaseTypeId) {
+      return TRUE;
+    }
+
+    $fundingCaseTypes = $this->fundingApi->getFundingCaseTypesByFundingProgramId($fundingProgram->getId());
+    $fundingCaseTypes = array_filter($fundingCaseTypes, fn ($fundingCaseType) => $fundingCaseType->getId() === $fundingCaseTypeId);
+
+    return [] !== $fundingCaseTypes;
   }
 
 }

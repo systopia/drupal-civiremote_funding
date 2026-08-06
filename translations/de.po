@@ -56,6 +56,10 @@ msgstr "Mittelabrufe"
 msgid "Amount Approved"
 msgstr "Bewilligter Betrag"
 
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Copy into existing combined application"
+msgstr "In existierenden Sammelantrag kopieren"
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
@@ -211,6 +215,10 @@ msgstr "Anwenden"
 msgid "title"
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Copy into new combined application"
+msgstr "In neuen Sammelantrag kopieren"
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Show history"
@@ -285,6 +293,10 @@ msgstr "Verfügbarer Betrag"
 #: config/optional/views.view.civiremote_funding_application_list.yml
 msgid "List of CiviCRM funding applications (non-combined)  via remote API"
 msgstr "Liste der CiviCRM Förderanträge (keine Sammelanträge) via Remote API"
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
+msgid "Copy application"
+msgstr "Antrag kopieren"
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: src/Form/NewDrawdownForm.php:106
@@ -400,21 +412,29 @@ msgstr "Verlauf"
 msgid "Application History"
 msgstr "Antragsverlauf"
 
-#: src/Controller/ChooseFundingProgramController.php:52
+#: src/Controller/ChooseFundingCaseController.php:68
+msgid "Failed to load funding cases: @error"
+msgstr "Laden der Förderfalle fehlgeschlagen: @error"
+
+#: src/Controller/ChooseFundingCaseController.php:76
+msgid "No matching funding cases found."
+msgstr "Keine passenden Förderfälle gefunden."
+
+#: src/Controller/ChooseFundingProgramController.php:78
 msgid "Failed to load available funding programs: @error"
 msgstr "Laden der verfügbaren Förderprogramme fehlgeschlagen: @error"
 
-#: src/Controller/ChooseFundingProgramController.php:60
+#: src/Controller/ChooseFundingProgramController.php:86
 msgid "Currently there is no funding program for new applications."
 msgstr "Momentan gibt es kein Förderprogramm für neue Anträge."
 
-#: src/Controller/ChooseFundingProgramController.php:74
-#: src/Form/ChooseFundingProgramForm.php:83
+#: src/Controller/ChooseFundingProgramController.php:100
+#: src/Form/ChooseFundingProgramForm.php:100
 msgid "Failed to load funding case types: @error"
 msgstr "Laden der Förderfalltypen fehlgeschlagen: @error"
 
-#: src/Controller/ChooseFundingProgramController.php:81
-#: src/Form/ChooseFundingProgramForm.php:90
+#: src/Controller/ChooseFundingProgramController.php:114
+#: src/Form/ChooseFundingProgramForm.php:107
 msgid "No funding case type available in the selected funding program."
 msgstr "Kein Förderfalltyp im gewählten Förderprogramm verfügbar."
 
@@ -540,13 +560,17 @@ msgstr "Fehler bei der Formularvalidierung: @error"
 msgid "Submitting form failed: @error"
 msgstr "Senden des Formulars fehlgeschlagen: @error"
 
-#: src/Form/ChooseFundingProgramForm.php:59
-msgid "Select Funding Program"
-msgstr "Förderprogramm auswählen"
+#: src/Form/ChooseFundingCaseForm.php:63
+msgid "Select Funding Case"
+msgstr "Förderfall auswählen"
 
-#: src/Form/ChooseFundingProgramForm.php:66
+#: src/Form/ChooseFundingCaseForm.php:74 src/Form/ChooseFundingProgramForm.php:80
 msgid "Next"
 msgstr "Weiter"
+
+#: src/Form/ChooseFundingProgramForm.php:65
+msgid "Select Funding Program"
+msgstr "Förderprogramm auswählen"
 
 #: src/Form/NewDrawdownForm.php:87
 msgid "API request failed: @error"

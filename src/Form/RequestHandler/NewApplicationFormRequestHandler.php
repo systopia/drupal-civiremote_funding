@@ -43,6 +43,7 @@ final class NewApplicationFormRequestHandler implements FormRequestHandlerInterf
     return $this->fundingApi->getNewApplicationForm(
       $this->getFundingProgramId($routeMatch),
       $this->getFundingCaseTypeId($routeMatch),
+      $this->getCopyDataFromId($request),
     );
   }
 
@@ -64,6 +65,17 @@ final class NewApplicationFormRequestHandler implements FormRequestHandlerInterf
       $this->getFundingCaseTypeId($routeMatch),
       $data,
     );
+  }
+
+  private function getCopyDataFromId(Request $request): ?int {
+    $copyDataFromId = $request->query->get('copyDataFromId');
+    if (NULL === $copyDataFromId) {
+      return NULL;
+    }
+
+    Assertion::integerish($copyDataFromId);
+
+    return (int) $copyDataFromId;
   }
 
   private function getFundingCaseTypeId(RouteMatchInterface $routeMatch): int {
