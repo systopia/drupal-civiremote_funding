@@ -6,6 +6,7 @@ dependencies:
     - rest
     - serialization
     - user
+    - views_aggregator
     - views_current_path
     - views_data_export
     - xls_serialization
@@ -1305,9 +1306,8 @@ display:
         groups:
           1: AND
       style:
-        type: table
+        type: views_aggregator_plugin_style_table
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
           columns:
@@ -1318,6 +1318,7 @@ display:
             title: title
             start_date: start_date
             status: status
+            funding_clearing_process__status: funding_clearing_process__status
             creation_date: creation_date
             modification_date: modification_date
             amount_requested: amount_requested
@@ -1337,6 +1338,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             funding_case_id:
               sortable: false
               default_sort_order: desc
@@ -1344,6 +1352,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             currency:
               sortable: false
               default_sort_order: asc
@@ -1351,6 +1366,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             identifier:
               sortable: true
               default_sort_order: asc
@@ -1358,6 +1380,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -1365,6 +1394,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             start_date:
               sortable: true
               default_sort_order: desc
@@ -1372,6 +1408,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             status:
               sortable: true
               default_sort_order: asc
@@ -1379,6 +1422,27 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
+            funding_clearing_process__status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             creation_date:
               sortable: true
               default_sort_order: desc
@@ -1386,6 +1450,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             modification_date:
               sortable: true
               default_sort_order: desc
@@ -1393,6 +1464,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             amount_requested:
               sortable: false
               default_sort_order: asc
@@ -1400,6 +1478,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: true
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             amount_cleared:
               sortable: false
               default_sort_order: asc
@@ -1407,6 +1492,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: true
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             amount_admitted:
               sortable: false
               default_sort_order: asc
@@ -1414,6 +1506,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: true
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             current_path:
               sortable: false
               default_sort_order: asc
@@ -1421,16 +1520,37 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             nothing_1:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             nothing:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             CAN_open_clearing:
               sortable: false
               default_sort_order: asc
@@ -1438,6 +1558,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
             dropbutton:
               sortable: false
               default_sort_order: asc
@@ -1445,12 +1572,33 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
           override: true
           sticky: false
           summary: ''
           empty_table: true
           caption: ''
           description: ''
+          group_aggregation:
+            group_aggregation_results: '0'
+            grouping_field_class: ''
+            result_label_prefix: ''
+            result_label_suffix: ''
+            grouping_row_class: ''
+          column_aggregation:
+            totals_row_position:
+              2: 2
+              1: 0
+              3: 0
+            totals_per_page: '1'
+            precision: '2'
+            totals_row_class: ''
       row:
         type: fields
       query:
@@ -2553,6 +2701,8 @@ display:
     position: 2
     display_options:
       defaults:
+        style: true
+        row: true
         relationships: false
         fields: true
         arguments: true
