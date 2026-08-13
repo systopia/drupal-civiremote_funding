@@ -24,16 +24,21 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
+            "civicrm/civicrm-asset-plugin": true,
+            "civicrm/composer-compile-plugin": true,
+            "civicrm/composer-downloads-plugin": true,
+            "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": false,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
+            "symfony/runtime": false,
             "tbachert/spi": false
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "0.11.x-dev"
+            "dev-main": "0.12.x-dev"
         }
     },
     "repositories": [

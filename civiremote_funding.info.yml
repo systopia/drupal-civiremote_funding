@@ -14,4 +14,4 @@ dependencies:
   - xls_serialization
 'interface translation project': civiremote_funding
 'interface translation server pattern': modules/custom/%project/translations/%language.po
-version: 0.12.0
+version: 0.12.1-dev
