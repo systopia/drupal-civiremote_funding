@@ -44,7 +44,7 @@ final class ChooseFundingCaseController extends ControllerBase {
       throw new NotFoundHttpException('Query parameter copyDataFromId is missing');
     }
 
-    if ((int) $copyDataFromId != $copyDataFromId) {
+    if (!ctype_digit((string) $copyDataFromId)) {
       throw new BadRequestHttpException('copyDataFromId is not an integer');
     }
 
