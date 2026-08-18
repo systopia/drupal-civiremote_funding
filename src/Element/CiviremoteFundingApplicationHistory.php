@@ -22,13 +22,12 @@ namespace Drupal\civiremote_funding\Element;
 
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessActivity;
 use Drupal\civiremote_funding\Api\DTO\Option;
-use Drupal\Core\Render\Element\RenderElement;
+use Drupal\Core\Render\Attribute\RenderElement;
+use Drupal\Core\Render\Element\RenderElementBase;
 use Drupal\Core\Url;
 
-/**
- * @RenderElement("civiremote_funding_application_history")
- */
-final class CiviremoteFundingApplicationHistory extends RenderElement {
+#[RenderElement('civiremote_funding_application_history')]
+final class CiviremoteFundingApplicationHistory extends RenderElementBase {
 
   /**
    * {@inheritDoc}
@@ -162,6 +161,13 @@ final class CiviremoteFundingApplicationHistory extends RenderElement {
           '#activity' => $activity,
           '#icon' => $withIcon ? $statusOption->getIcon() : NULL,
           '#icon_color' => $statusOption->getColor(),
+        ];
+
+      case 'funding_application_move':
+        return [
+          '#type' => 'civiremote_funding_application_history_move',
+          '#activity' => $activity,
+          '#icon' => $withIcon ? 'fa-arrow-circle-right' : NULL,
         ];
 
       case 'funding_clearing_status_change':
