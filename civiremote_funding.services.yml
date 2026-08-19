@@ -68,6 +68,10 @@ services:
     class: Drupal\civiremote_funding\Controller\ClearingController
     public: true
 
+  Drupal\civiremote_funding\Controller\ChooseFundingCaseController:
+    class: Drupal\civiremote_funding\Controller\ChooseFundingCaseController
+    public: true
+
   Drupal\civiremote_funding\Controller\ChooseFundingProgramController:
     class: Drupal\civiremote_funding\Controller\ChooseFundingProgramController
     arguments:
@@ -125,6 +129,10 @@ services:
     arguments:
       - '@Drupal\civiremote_funding\Form\ResponseHandler\FormResponseHandlerFiles'
       - '@Drupal\civiremote_funding\Form\ResponseHandler\FormResponseHandlerAction'
+    public: true
+
+  Drupal\civiremote_funding\Form\ResponseHandler\NewFundingCaseFormResponseHandler:
+    class: Drupal\civiremote_funding\Form\ResponseHandler\NewFundingCaseFormResponseHandler
     public: true
 
   Drupal\civiremote_funding\File\FundingFileStorage:

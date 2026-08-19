@@ -960,6 +960,104 @@ display:
           type_custom_true: 'Open clearing'
           type_custom_false: ''
           not: false
+        nothing_2:
+          id: nothing_2
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'Link to copy into new combined application'
+          plugin_id: custom
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: 'Copy into new combined application'
+            make_link: true
+            path: 'civiremote/funding/application/add?copyDataFromId={{id}}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+        nothing_3:
+          id: nothing_3
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'Link to copy into existing combined application'
+          plugin_id: custom
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: 'Copy into existing combined application'
+            make_link: true
+            path: 'civiremote/funding/case/application/add?copyDataFromId={{id}}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
         dropbutton:
           id: dropbutton
           table: views
@@ -1014,12 +1112,16 @@ display:
             nothing_1: nothing_1
             nothing: nothing
             CAN_open_clearing: CAN_open_clearing
+            nothing_2: nothing_2
+            nothing_3: nothing_3
             id: '0'
             funding_case_id: '0'
             currency: '0'
-            title: '0'
             identifier: '0'
+            title: '0'
+            start_date: '0'
             status: '0'
+            funding_clearing_process__status: '0'
             creation_date: '0'
             modification_date: '0'
             amount_requested: '0'

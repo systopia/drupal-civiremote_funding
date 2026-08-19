@@ -56,6 +56,10 @@ msgstr ""
 msgid "Amount Approved"
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Copy into existing combined application"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 #: config/optional/views.view.civiremote_funding_combined_case_list.yml
@@ -195,6 +199,10 @@ msgstr ""
 msgid "title"
 msgstr ""
 
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
+msgid "Copy into new combined application"
+msgstr ""
+
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
 msgid "Show history"
@@ -266,6 +274,10 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 msgid "List of CiviCRM funding applications (non-combined)  via remote API"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml
+msgid "Copy application"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
@@ -378,21 +390,29 @@ msgstr ""
 msgid "Application History"
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:52
+#: src/Controller/ChooseFundingCaseController.php:68
+msgid "Failed to load funding cases: @error"
+msgstr ""
+
+#: src/Controller/ChooseFundingCaseController.php:76
+msgid "No matching funding cases found."
+msgstr ""
+
+#: src/Controller/ChooseFundingProgramController.php:78
 msgid "Failed to load available funding programs: @error"
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:60
+#: src/Controller/ChooseFundingProgramController.php:86
 msgid "Currently there is no funding program for new applications."
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:74
-#: src/Form/ChooseFundingProgramForm.php:83
+#: src/Controller/ChooseFundingProgramController.php:100
+#: src/Form/ChooseFundingProgramForm.php:100
 msgid "Failed to load funding case types: @error"
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:81
-#: src/Form/ChooseFundingProgramForm.php:90
+#: src/Controller/ChooseFundingProgramController.php:114
+#: src/Form/ChooseFundingProgramForm.php:107
 msgid "No funding case type available in the selected funding program."
 msgstr ""
 
@@ -514,12 +534,17 @@ msgstr ""
 msgid "Submitting form failed: @error"
 msgstr ""
 
-#: src/Form/ChooseFundingProgramForm.php:59
-msgid "Select Funding Program"
+#: src/Form/ChooseFundingCaseForm.php:63
+msgid "Select Funding Case"
 msgstr ""
 
-#: src/Form/ChooseFundingProgramForm.php:66
+#: src/Form/ChooseFundingCaseForm.php:74
+#: src/Form/ChooseFundingProgramForm.php:80
 msgid "Next"
+msgstr ""
+
+#: src/Form/ChooseFundingProgramForm.php:65
+msgid "Select Funding Program"
 msgstr ""
 
 #: src/Form/NewDrawdownForm.php:87
