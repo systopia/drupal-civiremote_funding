@@ -438,7 +438,7 @@ msgstr ""
 "Bitte nicht vergessen, den Sammelantrag zu beantragen, wenn alles erfasst wurde oder nach "
 "Ergänzungen."
 
-#: src/Controller/FundingCaseController.php:82
+#: src/Controller/FundingCaseController.php:83
 msgid "Add @type"
 msgstr "@type hinzufügen"
 
@@ -446,23 +446,23 @@ msgstr "@type hinzufügen"
 msgid "Transfer Contract: @identifier"
 msgstr "Weiterleitungsvertrag: @identifier"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:44
+#: src/Element/CiviremoteFundingApplicationHistory.php:43
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:50
+#: src/Element/CiviremoteFundingApplicationHistory.php:49
 msgid "Back"
 msgstr "Zurück"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:51
+#: src/Element/CiviremoteFundingApplicationHistory.php:50
 msgid "Filter"
 msgstr "Filter"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:52
+#: src/Element/CiviremoteFundingApplicationHistory.php:51
 msgid "Hide workflow actions"
 msgstr "Ablaufaktivitäten ausblenden"
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:53
+#: src/Element/CiviremoteFundingApplicationHistory.php:52
 msgid "Hide comments"
 msgstr "Kommentare ausblenden"
 
@@ -472,6 +472,7 @@ msgstr "Kommentar"
 
 #: src/Element/CiviremoteFundingApplicationHistoryComment.php:42
 #: src/Element/CiviremoteFundingApplicationHistoryCreate.php:40
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:40
 #: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:44
 #: src/Element/CiviremoteFundingClearingHistoryCreate.php:40
 #: src/Element/CiviremoteFundingClearingHistoryStatusChange.php:44
@@ -482,6 +483,18 @@ msgstr "Durchgeführt von"
 #: src/Entity/FundingFile.php:86
 msgid "Created"
 msgstr "Erstellt"
+
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:38
+msgid "Moved to funding case @identifier"
+msgstr "In Förderfall @identifier verschoben"
+
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:41
+msgid "Previous funding case"
+msgstr "Vorheriger Förderfall"
+
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:42
+msgid "Previous application identifier"
+msgstr "Vorherige Antragsnummer"
 
 #: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:42
 msgid "Status: @status"

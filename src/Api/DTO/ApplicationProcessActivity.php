@@ -76,14 +76,14 @@ final class ApplicationProcessActivity extends AbstractDTO {
   }
 
   /**
-   * @return string Empty if not set, e.g. no comment.
+   * @return string Empty if not set, i.e. no comment.
    */
   public function getAction(): string {
     return $this->values['action'] ?? '';
   }
 
   /**
-   * @return string Empty if not set, e.g. no status change.
+   * @return string Empty if not set, i.e. no status change.
    */
   public function getFromStatus(): string {
     return $this->values['from_status'] ?? '';
@@ -94,6 +94,24 @@ final class ApplicationProcessActivity extends AbstractDTO {
    */
   public function getToStatus(): string {
     return $this->values['to_status'] ?? '';
+  }
+
+  /**
+   * @return string Empty if not set, i.e. no move activity.
+   */
+  public function getFromFundingCaseIdentifier(): string {
+    return $this->values['from_funding_case_identifier'] ?? '';
+  }
+
+  /**
+   * @return string Empty if not set, i.e. no move activity.
+   */
+  public function getToFundingCaseIdentifier(): string {
+    return $this->values['to_funding_case_identifier'] ?? '';
+  }
+
+  public function getPreviousApplicationProcessIdentifier(): string {
+    return $this->values['previous_application_process_identifier'] ?? '';
   }
 
 }
