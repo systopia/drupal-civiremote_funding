@@ -1,13 +1,17 @@
-<h2>{{ civiremote_funding_application_history.application_title }}</h2>
+{% if civiremote_funding_application_history.application_title %}
+  <h2>{{ civiremote_funding_application_history.application_title }}</h2>
+{% endif %}
 
 {{ civiremote_funding_application_history.back_link ? civiremote_funding_application_history.back_link : '' }}
 
-{{ civiremote_funding_application_history.filter }}
-<div class="civiremote-funding-timeline-wrapper">
-  <div class="civiremote-funding-timeline-line">
-    <div class="civiremote-funding-timeline-dot">
-      <a href="#" class="civiremote-funding-timeline-scroll-up"><i class="fa fa-caret-up"></i></a>
+<div class="civiremote-funding-application-history">
+  {{ civiremote_funding_application_history.filter }}
+  <div class="civiremote-funding-timeline-wrapper">
+    <div class="civiremote-funding-timeline-line">
+      <div class="civiremote-funding-timeline-dot">
+        <a href="#" class="civiremote-funding-timeline-scroll-up"><i class="fa fa-caret-up"></i></a>
+      </div>
     </div>
+    {{ civiremote_funding_application_history.activities }}
   </div>
-  {{ civiremote_funding_application_history.activities }}
 </div>

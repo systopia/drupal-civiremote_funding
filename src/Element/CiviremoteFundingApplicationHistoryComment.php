@@ -23,11 +23,10 @@ namespace Drupal\civiremote_funding\Element;
 use Assert\Assertion;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessActivity;
 use Drupal\Core\Render\Element\RenderElement;
+use Drupal\Core\Render\Element\RenderElementBase;
 
-/**
- * @RenderElement("civiremote_funding_application_history_comment")
- */
-final class CiviremoteFundingApplicationHistoryComment extends RenderElement {
+#[\Drupal\Core\Render\Attribute\RenderElement('civiremote_funding_application_history_comment')]
+final class CiviremoteFundingApplicationHistoryComment extends RenderElementBase {
 
   /**
    * {@inheritDoc}

@@ -377,12 +377,17 @@ msgstr ""
 msgid "Link to create drawdown form"
 msgstr ""
 
-#: src/Controller/ApplicationController.php:68
+#: src/Controller/ApplicationController.php:72
+#: src/Controller/ClearingController.php:88
+msgid "Add Comment"
+msgstr ""
+
+#: src/Controller/ApplicationController.php:82
 msgid "Application"
 msgstr ""
 
-#: src/Controller/ApplicationController.php:69
-#: src/Controller/ClearingController.php:85
+#: src/Controller/ApplicationController.php:83
+#: src/Controller/ClearingController.php:99
 msgid "History"
 msgstr ""
 
@@ -416,7 +421,7 @@ msgstr ""
 msgid "No funding case type available in the selected funding program."
 msgstr ""
 
-#: src/Controller/ClearingController.php:84
+#: src/Controller/ClearingController.php:98
 msgid "Clearing"
 msgstr ""
 
@@ -460,13 +465,13 @@ msgstr ""
 msgid "Hide comments"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistoryComment.php:41
+#: src/Element/CiviremoteFundingApplicationHistoryComment.php:40
 msgid "Comment"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistoryComment.php:42
+#: src/Element/CiviremoteFundingApplicationHistoryComment.php:41
 #: src/Element/CiviremoteFundingApplicationHistoryCreate.php:40
-#: src/Element/CiviremoteFundingApplicationHistoryMove.php:40
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:41
 #: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:44
 #: src/Element/CiviremoteFundingClearingHistoryCreate.php:40
 #: src/Element/CiviremoteFundingClearingHistoryStatusChange.php:44
@@ -482,11 +487,11 @@ msgstr ""
 msgid "Moved to funding case @identifier"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistoryMove.php:41
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:42
 msgid "Previous funding case"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistoryMove.php:42
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:43
 msgid "Previous application identifier"
 msgstr ""
 
@@ -534,6 +539,14 @@ msgstr ""
 msgid "Submitting form failed: @error"
 msgstr ""
 
+#: src/Form/AddApplicationCommentForm.php:57
+msgid "Text"
+msgstr ""
+
+#: src/Form/AddApplicationCommentForm.php:64 src/Form/NewDrawdownForm.php:125
+msgid "Submit"
+msgstr ""
+
 #: src/Form/ChooseFundingCaseForm.php:63
 msgid "Select Funding Case"
 msgstr ""
@@ -561,10 +574,6 @@ msgstr ""
 
 #: src/Form/NewDrawdownForm.php:114
 msgid "(Available: @amountAvailable)"
-msgstr ""
-
-#: src/Form/NewDrawdownForm.php:125
-msgid "Submit"
 msgstr ""
 
 #: src/Form/NewDrawdownForm.php:138
