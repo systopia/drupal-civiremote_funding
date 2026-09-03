@@ -133,6 +133,8 @@ final class CiviremoteFundingApplicationHistory extends RenderElementBase {
   ): array {
     // phpcs:enable
     switch ($activity->getActivityTypeName()) {
+      case 'funding_application_comment_applicant':
+        // Fall through.
       case 'funding_application_comment_external':
         return [
           '#type' => 'civiremote_funding_application_history_comment',

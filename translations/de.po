@@ -400,11 +400,15 @@ msgstr "Förderfall ID"
 msgid "Link to create drawdown form"
 msgstr ""
 
-#: src/Controller/ApplicationController.php:68
+#: src/Controller/ApplicationController.php:72 src/Controller/ClearingController.php:88
+msgid "Add Comment"
+msgstr "Kommentar hinzufügen"
+
+#: src/Controller/ApplicationController.php:82
 msgid "Application"
 msgstr "Antrag"
 
-#: src/Controller/ApplicationController.php:69 src/Controller/ClearingController.php:85
+#: src/Controller/ApplicationController.php:83 src/Controller/ClearingController.php:99
 msgid "History"
 msgstr "Verlauf"
 
@@ -438,7 +442,7 @@ msgstr "Laden der Förderfalltypen fehlgeschlagen: @error"
 msgid "No funding case type available in the selected funding program."
 msgstr "Kein Förderfalltyp im gewählten Förderprogramm verfügbar."
 
-#: src/Controller/ClearingController.php:84
+#: src/Controller/ClearingController.php:98
 msgid "Clearing"
 msgstr "Verwendungsnachweis"
 
@@ -486,13 +490,13 @@ msgstr "Ablaufaktivitäten ausblenden"
 msgid "Hide comments"
 msgstr "Kommentare ausblenden"
 
-#: src/Element/CiviremoteFundingApplicationHistoryComment.php:41
+#: src/Element/CiviremoteFundingApplicationHistoryComment.php:40
 msgid "Comment"
 msgstr "Kommentar"
 
-#: src/Element/CiviremoteFundingApplicationHistoryComment.php:42
+#: src/Element/CiviremoteFundingApplicationHistoryComment.php:41
 #: src/Element/CiviremoteFundingApplicationHistoryCreate.php:40
-#: src/Element/CiviremoteFundingApplicationHistoryMove.php:40
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:41
 #: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:44
 #: src/Element/CiviremoteFundingClearingHistoryCreate.php:40
 #: src/Element/CiviremoteFundingClearingHistoryStatusChange.php:44
@@ -508,11 +512,11 @@ msgstr "Erstellt"
 msgid "Moved to funding case @identifier"
 msgstr "In Förderfall @identifier verschoben"
 
-#: src/Element/CiviremoteFundingApplicationHistoryMove.php:41
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:42
 msgid "Previous funding case"
 msgstr "Vorheriger Förderfall"
 
-#: src/Element/CiviremoteFundingApplicationHistoryMove.php:42
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:43
 msgid "Previous application identifier"
 msgstr "Vorherige Antragsnummer"
 
@@ -560,6 +564,14 @@ msgstr "Fehler bei der Formularvalidierung: @error"
 msgid "Submitting form failed: @error"
 msgstr "Senden des Formulars fehlgeschlagen: @error"
 
+#: src/Form/AddApplicationCommentForm.php:57
+msgid "Text"
+msgstr ""
+
+#: src/Form/AddApplicationCommentForm.php:64 src/Form/NewDrawdownForm.php:125
+msgid "Submit"
+msgstr "Absenden"
+
 #: src/Form/ChooseFundingCaseForm.php:63
 msgid "Select Funding Case"
 msgstr "Förderfall auswählen"
@@ -587,10 +599,6 @@ msgstr "Betrag in @currency"
 #: src/Form/NewDrawdownForm.php:114
 msgid "(Available: @amountAvailable)"
 msgstr "(Verfügbar: @amountAvailable)"
-
-#: src/Form/NewDrawdownForm.php:125
-msgid "Submit"
-msgstr "Absenden"
 
 #: src/Form/NewDrawdownForm.php:138
 msgid "Drawdown created."
