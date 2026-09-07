@@ -814,6 +814,108 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: 'Link to funding amount approved change request list'
+          exclude: true
+          alter:
+            alter_text: true
+            text: 'List higher/lesser amount requests'
+            make_link: true
+            path: 'civiremote/funding/transfer-contract/{{funding_case_id}}/funding-amount-approved-change-request?destination={{current_path}}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+        CAN_create_amount_approved_change_request:
+          id: CAN_create_amount_approved_change_request
+          table: cmrf_views_civiremote_funding_transfer_contract
+          field: CAN_create_amount_approved_change_request
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          label: 'Link to create amount approved change request form'
+          exclude: true
+          alter:
+            alter_text: true
+            text: 'Create higher/lesser amount request'
+            make_link: true
+            path: 'civiremote/funding/transfer-contract/{{funding_case_id}}/funding-amount-approved-change-request/add?destination={{current_path}}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: true
+          hide_alter_empty: true
+          type: boolean
+          type_custom_true: ''
+          type_custom_false: ''
+          not: false
         dropbutton:
           id: dropbutton
           table: views
@@ -868,6 +970,8 @@ display:
             CAN_view_contract: CAN_view_contract
             CAN_create_drawdown: CAN_create_drawdown
             nothing_1: nothing_1
+            nothing: nothing
+            CAN_create_amount_approved_change_request: CAN_create_amount_approved_change_request
             funding_case_id: '0'
             payout_process_id: '0'
             currency: '0'
