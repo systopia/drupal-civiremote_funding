@@ -18,7 +18,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Mehr-/Minderbedarfsmeldungen
+      title: 'Amount Approved Change Request'
       fields:
         id:
           id: id
