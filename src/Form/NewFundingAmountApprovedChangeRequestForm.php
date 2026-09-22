@@ -25,9 +25,29 @@ use Drupal\civiremote_funding\Api\Exception\ApiCallFailedException;
 use Drupal\civiremote_funding\Api\FundingApi;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class NewFundingAmountApprovedChangeRequestForm extends FormBase {
+
+  private const COMMENT_MAX_LENGTH = 1000;
+
+  protected FundingApi $fundingApi;
+
+  protected LanguageManagerInterface $languageManager;
+
+  public function __construct(FundingApi $fundingApi, LanguageManagerInterface $languageManager) {
+    $this->fundingApi = $fundingApi;
+    $this->languageManager = $languageManager;
+  }
+
+  public static function create(ContainerInterface $container): static {
+    return new static(
+      $container->get(FundingApi::class),
+      $container->get('language_manager')
+    );
+  }
 
   public function getFormId(): string {
     return 'funding_new_funding_amount_approved_change_request';
@@ -44,12 +64,13 @@ final class NewFundingAmountApprovedChangeRequestForm extends FormBase {
     Assertion::notNull($fundingCaseId);
     $form_state->set('funding_case_id', $fundingCaseId);
 
-    $fundingApi = \Drupal::service(FundingApi::class);
-    $languageManager = \Drupal::languageManager();
-
     try {
-      $transferContract = $fundingApi->getTransferContract($fundingCaseId);
+      $transferContract = $this->fundingApi->getTransferContract($fundingCaseId);
       if (NULL === $transferContract) {
+        throw new NotFoundHttpException();
+      }
+      $fundingCase = $this->fundingApi->getFundingCase($fundingCaseId);
+      if (NULL === $fundingCase) {
         throw new NotFoundHttpException();
       }
     }
@@ -62,11 +83,13 @@ final class NewFundingAmountApprovedChangeRequestForm extends FormBase {
     }
 
     $numberFormatter = new \NumberFormatter(
-      $languageManager->getCurrentLanguage()
+      $this->languageManager->getCurrentLanguage()
         ->getId(), \NumberFormatter::CURRENCY
     );
-    $amountAvailable = $transferContract->getAmountAvailable();
-    $amountAvailableFormatted = $numberFormatter->formatCurrency($amountAvailable, $transferContract->getCurrency());
+    $amountApprovedFormatted = $numberFormatter->formatCurrency(
+      $fundingCase->getAmountApproved(),
+      $transferContract->getCurrency()
+    );
 
     return [
       '#attributes' => ['class' => ['civiremote-funding-form']],
@@ -76,23 +99,24 @@ final class NewFundingAmountApprovedChangeRequestForm extends FormBase {
         '#title' => $this->t('Transfer Contract'),
         '#markup' => $transferContract->getIdentifier(),
       ],
+      'amountApproved' => [
+        '#type' => 'item',
+        '#title' => $this->t('Current approved amount'),
+        '#markup' => $amountApprovedFormatted,
+      ],
       'amount_requested' => [
         '#type' => 'number',
         '#title' => $this->t('Requested amount in @currency', ['@currency' => $transferContract->getCurrency()]),
         '#required' => TRUE,
-        '#field_suffix' => $this->t(
-          '(Available: @amountAvailable)',
-          ['@amountAvailable' => $amountAvailableFormatted]
-        ),
         '#step' => 0.01,
         '#min' => 0,
-        '#max' => $amountAvailable,
         '#attached' => ['library' => ['json_forms/number_input']],
       ],
       'comment' => [
         '#type' => 'textarea',
         '#title' => $this->t('Comment'),
         '#required' => FALSE,
+        '#maxlength' => self::COMMENT_MAX_LENGTH,
       ],
       'actions' => [
         'submit' => [
@@ -104,10 +128,9 @@ final class NewFundingAmountApprovedChangeRequestForm extends FormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $fundingApi = \Drupal::service(FundingApi::class);
     $fundingCaseId = $form_state->get('funding_case_id');
     try {
-      $fundingApi->createFundingAmountApprovedChangeRequest(
+      $this->fundingApi->createFundingAmountApprovedChangeRequest(
         $fundingCaseId,
         // @phpstan-ignore-next-line
         (float) $form_state->getValue('amount_requested'),
