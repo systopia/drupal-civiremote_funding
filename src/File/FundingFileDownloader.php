@@ -77,7 +77,8 @@ class FundingFileDownloader {
       $response = $this->fundingFileHttpClient->get($fundingFile);
     }
     catch (GuzzleException $e) {
-      $this->logger->error(sprintf('Downloading file from CiviCRM failed: %s', $e->getMessage()), [
+      $this->logger->error('Downloading file from CiviCRM failed: @message', [
+        '@message' => $e->getMessage(),
         'uri' => $fundingFile->getCiviUri(),
       ]);
 
