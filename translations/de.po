@@ -206,8 +206,8 @@ msgstr "CiviCRM Mittelabrufliste"
 #: config/optional/views.view.civiremote_funding_task_list.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract.yml
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml
-msgid "Apply"
-msgstr "Anwenden"
+msgid "Apply filter"
+msgstr "Filter anwenden"
 
 #: config/optional/views.view.civiremote_funding_application_list.yml
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml
