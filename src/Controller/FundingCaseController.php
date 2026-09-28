@@ -107,7 +107,7 @@ final class FundingCaseController extends ControllerBase {
   }
 
   public function title(int $fundingCaseId): ?string {
-    $fundingCase = $this->fundingApi->getFundingCase($fundingCaseId,);
+    $fundingCase = $this->fundingApi->getFundingCase($fundingCaseId);
 
     return NULL === $fundingCase ? NULL : $fundingCase->getIdentifier();
   }

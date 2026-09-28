@@ -49,6 +49,14 @@ class FundingApi {
     $this->remoteContactIdProvider = $remoteContactIdProvider;
   }
 
+  public function addApplicationComment(int $applicationProcessId, string $text): void {
+    $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'addApplicantComment', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'applicationProcessId' => $applicationProcessId,
+      'text' => $text,
+    ]);
+  }
+
   /**
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
@@ -59,6 +67,26 @@ class FundingApi {
     ]);
 
     return FundingCase::oneOrNullFromApiResult($result);
+  }
+
+  /**
+   * @param array<string, 'ASC'|'DESC'> $orderBy
+   *
+   * @return list<FundingCase>
+   *
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function getFundingCasesByFundingCaseTypeNotClosed(int $fundingCaseTypeId, array $orderBy = []): array {
+    $result = $this->apiClient->executeV4('RemoteFundingCase', 'get', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'where' => [
+        ['funding_case_type_id', '=', $fundingCaseTypeId],
+        ['status', 'NOT IN', ['cleared', 'rejected', 'withdrawn']],
+      ],
+      'orderBy' => $orderBy,
+    ]);
+
+    return FundingCase::allFromArrays($result['values']);
   }
 
   /**
@@ -184,11 +212,16 @@ class FundingApi {
   }
 
   /**
+   * @param list<string> $extraFields
+   *
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
-  public function getApplicationProcess(int $applicationProcessId): ?ApplicationProcess {
+  public function getApplicationProcess(int $applicationProcessId, array $extraFields = []): ?ApplicationProcess {
+    $extraFields[] = '*';
+
     $result = $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'get', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'select' => $extraFields,
       'where' => [
         ['id', '=', $applicationProcessId],
       ],
@@ -340,11 +373,12 @@ class FundingApi {
   /**
    * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
    */
-  public function getNewApplicationForm(int $fundingProgramId, int $fundingCaseTypeId): FundingForm {
+  public function getNewApplicationForm(int $fundingProgramId, int $fundingCaseTypeId, ?int $copyDataFromId = NULL): FundingForm {
     $result = $this->apiClient->executeV4('RemoteFundingCase', 'getNewApplicationForm', [
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
       'fundingProgramId' => $fundingProgramId,
       'fundingCaseTypeId' => $fundingCaseTypeId,
+      'copyDataFromId' => $copyDataFromId,
     ]);
 
     return FundingForm::fromApiResultValue($result['values']);
@@ -585,6 +619,20 @@ class FundingApi {
 
     // @phpstan-ignore return.type
     return $result['values'][$fundingCaseId];
+  }
+
+  /**
+   * @return list<string>
+   *
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function getAllowedApplicationProcessActionNames(int $applicationProcessId): array {
+    $result = $this->apiClient->executeV4('RemoteFundingApplicationProcess', 'getAllowedActionNames', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'ids' => [$applicationProcessId],
+    ]);
+
+    return $result['values'][$applicationProcessId];
   }
 
 }

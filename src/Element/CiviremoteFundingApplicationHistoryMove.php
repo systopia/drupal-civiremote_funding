@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2023 SYSTOPIA GmbH
+ * Copyright (C) 2026 SYSTOPIA GmbH
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as
@@ -22,24 +22,24 @@ namespace Drupal\civiremote_funding\Element;
 
 use Assert\Assertion;
 use Drupal\civiremote_funding\Api\DTO\ApplicationProcessActivity;
-use Drupal\Core\Render\Element\RenderElement;
+use Drupal\Core\Render\Attribute\RenderElement;
 use Drupal\Core\Render\Element\RenderElementBase;
 
-#[\Drupal\Core\Render\Attribute\RenderElement('civiremote_funding_application_history_comment')]
-final class CiviremoteFundingApplicationHistoryComment extends RenderElementBase {
+#[RenderElement('civiremote_funding_application_history_move')]
+final class CiviremoteFundingApplicationHistoryMove extends RenderElementBase {
 
   /**
    * {@inheritDoc}
-   *
-   * @phpstan-return array<string, mixed>
    */
   public function getInfo(): array {
     return [
       // Instance of ApplicationProcessActivity.
       '#activity' => NULL,
-      '#title' => $this->t('Comment'),
+      '#title' => $this->t('Moved to funding case @identifier'),
+      '#status_label' => NULL,
       '#source_contact_title' => $this->t('Performed by'),
-      '#icon' => NULL,
+      '#previous_funding_case_title' => $this->t('Previous funding case'),
+      '#previous_application_identifier_title' => $this->t('Previous application identifier'),
       '#pre_render' => [
         [__CLASS__, 'preRenderActivity'],
       ],
@@ -55,14 +55,27 @@ final class CiviremoteFundingApplicationHistoryComment extends RenderElementBase
     /** @var \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter */
     $dateFormatter = \Drupal::service('date.formatter');
 
+    if (is_scalar($element['#title']) ||
+      (is_object($element['#title']) && method_exists($element['#title'], '__toString'))
+    ) {
+      $element['#title'] = (string) $element['#title'];
+    }
+    else {
+      throw new \InvalidArgumentException('Expected string for "#title", got ' . gettype($element['#title']));
+    }
+
     Assertion::isInstanceOf($element['#activity'], ApplicationProcessActivity::class);
+    /** @var \Drupal\civiremote_funding\Api\DTO\ApplicationProcessActivity $activity */
     $activity = $element['#activity'];
 
     $element['activity'] = [
       '#type' => 'civiremote_funding_application_history_entry',
-      '#attributes' => ['data-activity-kind' => 'comment'],
+      '#attributes' => ['data-activity-kind' => 'workflow'],
       '#icon' => $element['#icon'],
-      '#title' => $element['#title'],
+      '#icon_color' => $element['#icon_color'],
+      '#title' => \Drupal::translation()->translate($element['#title'], [
+        '@identifier' => $activity->getToFundingCaseIdentifier(),
+      ]),
       '#date' => $dateFormatter->format($activity->getCreatedDate()->getTimestamp()),
       '#content' => [
         '#type' => 'container',
@@ -71,8 +84,15 @@ final class CiviremoteFundingApplicationHistoryComment extends RenderElementBase
           '#title' => $element['#source_contact_title'],
           '#markup' => htmlentities($activity->getSourceContactName()),
         ],
-        'text' => [
-          '#markup' => '<hr>' . $activity->getDetails(),
+        'previous_funding_case' => [
+          '#type' => 'item',
+          '#title' => $element['#previous_funding_case_title'],
+          '#markup' => $activity->getFromFundingCaseIdentifier(),
+        ],
+        'previous_application_identifier' => [
+          '#type' => 'item',
+          '#title' => $element['#previous_application_identifier_title'],
+          '#markup' => $activity->getPreviousApplicationProcessIdentifier(),
         ],
       ],
     ];

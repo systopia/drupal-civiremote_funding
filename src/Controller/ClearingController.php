@@ -22,6 +22,7 @@ namespace Drupal\civiremote_funding\Controller;
 
 use Drupal\civiremote_funding\Api\Exception\ApiCallUnauthorizedException;
 use Drupal\civiremote_funding\Api\FundingApi;
+use Drupal\civiremote_funding\Form\AddApplicationCommentForm;
 use Drupal\civiremote_funding\Form\ClearingForm;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Request;
@@ -78,13 +79,26 @@ final class ClearingController extends ControllerBase {
       $history = [];
     }
 
+    $historyContainer = ['#type' => 'container'];
+
+    $allowedActions = $this->fundingApi->getAllowedApplicationProcessActionNames($applicationProcessId);
+    if (in_array('add-applicant-comment', $allowedActions, TRUE)) {
+      $historyContainer['addComment'] = [
+        '#type' => 'fieldset',
+        '#title' => $this->t('Add Comment'),
+        'form' => $this->formBuilder()->getForm(AddApplicationCommentForm::class),
+      ];
+    }
+
+    $historyContainer['history'] = $history;
+
     $container['tabs'] = [
       '#theme' => 'tabby_tabs',
       '#labels' => [
         $this->t('Clearing'),
         $this->t('History'),
       ],
-      '#content' => [$form, $history],
+      '#content' => [$form, $historyContainer],
     ];
 
     return $container;

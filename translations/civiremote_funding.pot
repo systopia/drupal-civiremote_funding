@@ -8,19 +8,37 @@
 #  src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php: n/a
 #  src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php: n/a
 #  src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php: n/a
+<<<<<<< HEAD
 #  civiremote_funding.permissions.yml: n/a
+=======
+#  tmp/src/Breadcrumb/Modifier/DashboardModifier.php: n/a
+#  civiremote_funding.permissions.yml: n/a
+#  archive/src/Form/ChooseFundingProgramFormHelper.php: n/a
+#  src/Controller/ChooseFundingProgramController.php: n/a
+#  src/Form/ChooseFundingCaseForm.php: n/a
+#  src/Form/ChooseFundingProgramForm.php: n/a
+>>>>>>> origin/main
 #  config/schema/civiremote_funding.schema.yml: n/a
 #  src/Controller/ApplicationController.php: n/a
 #  src/Controller/ClearingController.php: n/a
 #  src/Controller/ApplicationHistoryController.php: n/a
+<<<<<<< HEAD
 #  src/Controller/ChooseFundingProgramController.php: n/a
 #  src/Form/ChooseFundingProgramForm.php: n/a
+=======
+#  src/Controller/ChooseFundingCaseController.php: n/a
+>>>>>>> origin/main
 #  src/Controller/FundingCaseController.php: n/a
 #  src/Controller/TransferContractController.php: n/a
 #  src/Element/CiviremoteFundingApplicationHistory.php: n/a
 #  src/Element/CiviremoteFundingApplicationHistoryComment.php: n/a
+<<<<<<< HEAD
 #  src/Form/NewFundingAmountApprovedChangeRequestForm.php: n/a
 #  src/Element/CiviremoteFundingApplicationHistoryCreate.php: n/a
+=======
+#  src/Element/CiviremoteFundingApplicationHistoryCreate.php: n/a
+#  src/Element/CiviremoteFundingApplicationHistoryMove.php: n/a
+>>>>>>> origin/main
 #  src/Element/CiviremoteFundingApplicationHistoryStatusChange.php: n/a
 #  src/Element/CiviremoteFundingClearingHistoryCreate.php: n/a
 #  src/Element/CiviremoteFundingClearingHistoryStatusChange.php: n/a
@@ -28,10 +46,20 @@
 #  src/File/FundingFileDownloader.php: n/a
 #  src/RemotePage/RemotePageProxy.php: n/a
 #  src/Form/AbstractFundingJsonFormsForm.php: n/a
+<<<<<<< HEAD
 #  src/Form/NewDrawdownForm.php: n/a
 #  config/optional/views.view.civiremote_funding_transfer_contract.yml: n/a
 #  src/Form/ResponseHandler/FormResponseHandlerAction.php: n/a
 #  config/optional/views.view.civiremote_funding_application_list.yml: n/a
+=======
+#  src/Form/AddApplicationCommentForm.php: n/a
+#  src/Form/NewDrawdownForm.php: n/a
+#  tmp/src/Breadcrumb/Modifier/TransferContractModifier.php: n/a
+#  config/optional/views.view.civiremote_funding_transfer_contract.yml: n/a
+#  src/Form/ResponseHandler/FormResponseHandlerAction.php: n/a
+#  config/optional/views.view.civiremote_funding_application_list.yml: n/a
+#  tmp/src/Breadcrumb/Modifier/TransferContractsModifier.php: n/a
+>>>>>>> origin/main
 #  config/optional/views.view.civiremote_funding_transfer_contract_list.yml: n/a
 #  config/optional/views.view.civiremote_funding_task_list.yml: n/a
 #  src/Plugin/views/field/LanguageAwareNumericField.php: n/a
@@ -39,29 +67,43 @@
 #  config/optional/views.view.civiremote_funding_combined_case_list.yml: n/a
 #  config/optional/views.view.civiremote_funding_drawdown_list.yml: n/a
 #  src/Views/ApplicationProcessDropButton.php: n/a
+<<<<<<< HEAD
 #  config/install/core.date_format.civiremote_funding_date_only.yml: n/a
 #  config/optional/cmrf_views.cmrf_dataset.civiremote_funding_amount_approved_change_request.yml: n/a
+=======
+#  tmp/src/Breadcrumb/Modifier/HomeModifier.php: n/a
+#  config/install/core.date_format.civiremote_funding_date_only.yml: n/a
+>>>>>>> origin/main
 #  config/optional/cmrf_views.cmrf_dataset.civiremote_funding_application_process.yml: n/a
 #  config/optional/cmrf_views.cmrf_dataset.civiremote_funding_drawdown.yml: n/a
 #  config/optional/cmrf_views.cmrf_dataset.civiremote_funding_task.yml: n/a
 #  config/optional/cmrf_views.cmrf_dataset.civiremote_funding_transfer_contract.yml: n/a
 #  config/optional/cmrf_views.cmrf_dataset.civiremote_fundingcase.yml: n/a
+<<<<<<< HEAD
 #  config/optional/views.view.civiremote_funding_amount_approved_change_request_list.yml: n/a
+=======
+>>>>>>> origin/main
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: civiremote_funding\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2026-09-28 10:02+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+<<<<<<< HEAD
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: civiremote_funding.info.yml:0 src/Controller/DashboardController.php:39 src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:30 src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:26 src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:26
+=======
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: civiremote_funding.info.yml:0 src/Controller/DashboardController.php:39 src/Plugin/Block/CiviremoteFundingDashboardGroupApplications.php:30 src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:26 src/Plugin/Block/CiviremoteFundingDashboardGroupTasks.php:26 tmp/src/Breadcrumb/Modifier/DashboardModifier.php:21
+>>>>>>> origin/main
 msgid "CiviRemote Funding"
 msgstr ""
 
@@ -81,19 +123,54 @@ msgstr ""
 msgid "Grants access to CiviCRM Funding via CiviRemote."
 msgstr ""
 
+<<<<<<< HEAD
 #: config/schema/civiremote_funding.schema.yml:0
 msgid "File clean up delay (seconds)"
 msgstr ""
 
+=======
+#: archive/src/Form/ChooseFundingProgramFormHelper.php:64 src/Controller/ChooseFundingProgramController.php:78
+msgid "Failed to load available funding programs: @error"
+msgstr ""
+
+#: archive/src/Form/ChooseFundingProgramFormHelper.php:79 src/Form/ChooseFundingCaseForm.php:74 src/Form/ChooseFundingProgramForm.php:80
+msgid "Next"
+msgstr ""
+
+#: archive/src/Form/ChooseFundingProgramFormHelper.php:100 src/Controller/ChooseFundingProgramController.php:100 src/Form/ChooseFundingProgramForm.php:100
+msgid "Failed to load funding case types: @error"
+msgstr ""
+
+#: archive/src/Form/ChooseFundingProgramFormHelper.php:107 src/Controller/ChooseFundingProgramController.php:114 src/Form/ChooseFundingProgramForm.php:107
+msgid "No funding case type available in the selected funding program."
+msgstr ""
+
+#: config/schema/civiremote_funding.schema.yml:0
+msgid "File clean up delay (seconds)"
+msgstr ""
+
+>>>>>>> origin/main
 #: config/schema/civiremote_funding.schema.yml:0
 msgid "Allowed file extensions for uploaded files, separated by space. Leave empty to allow all file extensions."
 msgstr ""
 
+<<<<<<< HEAD
 #: src/Controller/ApplicationController.php:68
 msgid "Application"
 msgstr ""
 
 #: src/Controller/ApplicationController.php:69 src/Controller/ClearingController.php:85
+=======
+#: src/Controller/ApplicationController.php:72 src/Controller/ClearingController.php:88
+msgid "Add Comment"
+msgstr ""
+
+#: src/Controller/ApplicationController.php:82
+msgid "Application"
+msgstr ""
+
+#: src/Controller/ApplicationController.php:83 src/Controller/ClearingController.php:99
+>>>>>>> origin/main
 msgid "History"
 msgstr ""
 
@@ -101,14 +178,19 @@ msgstr ""
 msgid "Application History"
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:52
-msgid "Failed to load available funding programs: @error"
+#: src/Controller/ChooseFundingCaseController.php:68
+msgid "Failed to load funding cases: @error"
 msgstr ""
 
-#: src/Controller/ChooseFundingProgramController.php:60
+#: src/Controller/ChooseFundingCaseController.php:76
+msgid "No matching funding cases found."
+msgstr ""
+
+#: src/Controller/ChooseFundingProgramController.php:86
 msgid "Currently there is no funding program for new applications."
 msgstr ""
 
+<<<<<<< HEAD
 #: src/Controller/ChooseFundingProgramController.php:74 src/Form/ChooseFundingProgramForm.php:83
 msgid "Failed to load funding case types: @error"
 msgstr ""
@@ -118,6 +200,9 @@ msgid "No funding case type available in the selected funding program."
 msgstr ""
 
 #: src/Controller/ClearingController.php:84
+=======
+#: src/Controller/ClearingController.php:98
+>>>>>>> origin/main
 msgid "Clearing"
 msgstr ""
 
@@ -137,36 +222,56 @@ msgstr ""
 msgid "Transfer Contract: @identifier"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:44
+#: src/Element/CiviremoteFundingApplicationHistory.php:43
 msgid "Unknown"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:50
+#: src/Element/CiviremoteFundingApplicationHistory.php:49
 msgid "Back"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:51
+#: src/Element/CiviremoteFundingApplicationHistory.php:50
 msgid "Filter"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:52
+#: src/Element/CiviremoteFundingApplicationHistory.php:51
 msgid "Hide workflow actions"
 msgstr ""
 
-#: src/Element/CiviremoteFundingApplicationHistory.php:53
+#: src/Element/CiviremoteFundingApplicationHistory.php:52
 msgid "Hide comments"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/Element/CiviremoteFundingApplicationHistoryComment.php:41 src/Form/NewFundingAmountApprovedChangeRequestForm.php:117
 msgid "Comment"
 msgstr ""
 
 #: src/Element/CiviremoteFundingApplicationHistoryComment.php:42 src/Element/CiviremoteFundingApplicationHistoryCreate.php:40 src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:44 src/Element/CiviremoteFundingClearingHistoryCreate.php:40 src/Element/CiviremoteFundingClearingHistoryStatusChange.php:44
+=======
+#: src/Element/CiviremoteFundingApplicationHistoryComment.php:40
+msgid "Comment"
+msgstr ""
+
+#: src/Element/CiviremoteFundingApplicationHistoryComment.php:41 src/Element/CiviremoteFundingApplicationHistoryCreate.php:40 src/Element/CiviremoteFundingApplicationHistoryMove.php:40 src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:44 src/Element/CiviremoteFundingClearingHistoryCreate.php:40 src/Element/CiviremoteFundingClearingHistoryStatusChange.php:44
+>>>>>>> origin/main
 msgid "Performed by"
 msgstr ""
 
 #: src/Element/CiviremoteFundingApplicationHistoryCreate.php:39 src/Entity/FundingFile.php:86
 msgid "Created"
+msgstr ""
+
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:38
+msgid "Moved to funding case @identifier"
+msgstr ""
+
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:41
+msgid "Previous funding case"
+msgstr ""
+
+#: src/Element/CiviremoteFundingApplicationHistoryMove.php:42
+msgid "Previous application identifier"
 msgstr ""
 
 #: src/Element/CiviremoteFundingApplicationHistoryStatusChange.php:42
@@ -225,12 +330,20 @@ msgstr ""
 msgid "Submitting form failed: @error"
 msgstr ""
 
-#: src/Form/ChooseFundingProgramForm.php:59
-msgid "Select Funding Program"
+#: src/Form/AddApplicationCommentForm.php:57
+msgid "Text"
 msgstr ""
 
-#: src/Form/ChooseFundingProgramForm.php:66
-msgid "Next"
+#: src/Form/AddApplicationCommentForm.php:64 src/Form/NewDrawdownForm.php:125
+msgid "Submit"
+msgstr ""
+
+#: src/Form/ChooseFundingCaseForm.php:63
+msgid "Select Funding Case"
+msgstr ""
+
+#: src/Form/ChooseFundingProgramForm.php:65
+msgid "Select Funding Program"
 msgstr ""
 
 #: src/Form/NewDrawdownForm.php:87 src/Form/NewFundingAmountApprovedChangeRequestForm.php:79
@@ -241,7 +354,11 @@ msgstr ""
 msgid "Create Drawdown"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/Form/NewDrawdownForm.php:106 src/Form/NewFundingAmountApprovedChangeRequestForm.php:99 config/optional/views.view.civiremote_funding_transfer_contract.yml:0
+=======
+#: src/Form/NewDrawdownForm.php:106 tmp/src/Breadcrumb/Modifier/TransferContractModifier.php:41 config/optional/views.view.civiremote_funding_transfer_contract.yml:0
+>>>>>>> origin/main
 msgid "Transfer Contract"
 msgstr ""
 
@@ -253,10 +370,13 @@ msgstr ""
 msgid "(Available: @amountAvailable)"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/Form/NewDrawdownForm.php:125 src/Form/NewFundingAmountApprovedChangeRequestForm.php:124
 msgid "Submit"
 msgstr ""
 
+=======
+>>>>>>> origin/main
 #: src/Form/NewDrawdownForm.php:138
 msgid "Drawdown created."
 msgstr ""
@@ -325,7 +445,11 @@ msgstr ""
 msgid "Approvements"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:47 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0;0
+=======
+#: src/Plugin/Block/CiviremoteFundingDashboardGroupApprovements.php:47 tmp/src/Breadcrumb/Modifier/TransferContractsModifier.php:41 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0;0
+>>>>>>> origin/main
 msgid "Transfer Contracts"
 msgstr ""
 
@@ -365,7 +489,11 @@ msgstr ""
 msgid "Decimal"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/Plugin/views/field/LanguageAwareNumericField.php:114;127 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+=======
+#: src/Plugin/views/field/LanguageAwareNumericField.php:114;127 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+>>>>>>> origin/main
 msgid "Currency"
 msgstr ""
 
@@ -377,6 +505,13 @@ msgstr ""
 msgid "Create: @label"
 msgstr ""
 
+<<<<<<< HEAD
+=======
+#: tmp/src/Breadcrumb/Modifier/HomeModifier.php:20
+msgid "Home"
+msgstr ""
+
+>>>>>>> origin/main
 #: config/install/core.date_format.civiremote_funding_date_only.yml:0
 msgid "CiviRemote Funding date only"
 msgstr ""
@@ -386,10 +521,13 @@ msgctxt "PHP date format"
 msgid "d M Y"
 msgstr ""
 
+<<<<<<< HEAD
 #: config/optional/cmrf_views.cmrf_dataset.civiremote_funding_amount_approved_change_request.yml:0
 msgid "CiviRemote FundingAmountApprovedChangeRequest"
 msgstr ""
 
+=======
+>>>>>>> origin/main
 #: config/optional/cmrf_views.cmrf_dataset.civiremote_funding_application_process.yml:0
 msgid "CiviRemote FundingApplicationProcess"
 msgstr ""
@@ -410,6 +548,7 @@ msgstr ""
 msgid "CiviRemote FundingCase"
 msgstr ""
 
+<<<<<<< HEAD
 #: config/optional/views.view.civiremote_funding_amount_approved_change_request_list.yml:0
 msgid "CiviRemote Funding Amount Approved Change Request List"
 msgstr ""
@@ -488,6 +627,8 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
+=======
+>>>>>>> origin/main
 #: config/optional/views.view.civiremote_funding_application_list.yml:0
 msgid "CiviCRM Funding Application List (non-combined)"
 msgstr ""
@@ -496,6 +637,7 @@ msgstr ""
 msgid "List of CiviCRM funding applications (non-combined)  via remote API"
 msgstr ""
 
+<<<<<<< HEAD
 #: config/optional/views.view.civiremote_funding_application_list.yml:0;0;0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0;0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
 msgid "Identifier"
 msgstr ""
@@ -580,10 +722,173 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
+=======
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Default"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0;0;0;0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0;0;0;0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0;0;0;0;0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0;0 config/optional/views.view.civiremote_funding_task_list.yml:0;0;0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0;0;0;0;0;0;0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0;0;0;0;0;0;0
+msgid "1"
+msgid_plural "@count"
+msgstr[0] ""
+msgstr[1] ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0;0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Identifier"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0;0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Funding Program"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0;0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0
+msgid "Title"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Activity Start Date"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0;0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0
+msgid "Status"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0
+msgid "Modification Date"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0
+msgid "Requested Funding"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Amount Cleared"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Amount Admitted"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0;0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0
+msgid "Clearing Status"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0
+msgid "Link to application form"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0
+msgid "Open application"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0
+msgid "civiremote/funding/application/{{id}}?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0
+msgid "Link to application history"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Show history"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0
+msgid "civiremote/funding/application/{{id}}/history?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0
+msgid "Link to clearing form"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0
+msgid "civiremote/funding/application/{{id}}/clearing?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Open clearing"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0
+msgid "Link to copy application"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0
+msgid "Copy application"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "civiremote/funding/application/add?copyDataFromId={{id}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Actions dropbutton (Addtional actions might be appended dynamically)"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Actions"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "›"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "‹"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Items per page"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "- All -"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Offset"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "«"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "»"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Apply"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Reset"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Sort by"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Asc"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Desc"
+msgstr ""
+
+>>>>>>> origin/main
 #: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
 msgid "Data export"
 msgstr ""
 
+<<<<<<< HEAD
+=======
+#: config/optional/views.view.civiremote_funding_application_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0 config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Page"
+msgstr ""
+
+>>>>>>> origin/main
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
 msgid "CiviCRM Funding Combined Application Process List"
 msgstr ""
@@ -592,6 +897,7 @@ msgstr ""
 msgid "CiviCRM Funding Combined Applications"
 msgstr ""
 
+<<<<<<< HEAD
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0
 msgid "ID"
 msgstr ""
@@ -632,6 +938,76 @@ msgstr ""
 msgid "civiremote/funding/case/{{funding_case_id}}/application/{{id}}/clearing?destination={{current_path}}"
 msgstr ""
 
+=======
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "ID"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Funding Case ID"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0
+msgid "Creation Date"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0
+msgid "Amount Requested"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_combined_case_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Current path"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Link to open application process"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Open {{arguments.null}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "civiremote/funding/case/{{funding_case_id}}/application/{{id}}?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Link to open application history"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "civiremote/funding/case/{{funding_case_id}}/application/{{id}}/history?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "civiremote/funding/case/{{funding_case_id}}/application/{{id}}/clearing?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Link to copy into new combined application"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Copy into new combined application"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Link to copy into existing combined application"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "Copy into existing combined application"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0
+msgid "civiremote/funding/case/application/add?copyDataFromId={{id}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0;0 config/optional/views.view.civiremote_funding_drawdown_list.yml:0;0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0
+msgid "All"
+msgstr ""
+
+>>>>>>> origin/main
 #: config/optional/views.view.civiremote_funding_combined_application_process_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract.yml:0
 msgid "Embed"
 msgstr ""
@@ -840,6 +1216,7 @@ msgstr ""
 msgid "civiremote/funding/transfer-contract/{{funding_case_id}}/payout-process/{{payout_process_id}}/drawdown?destination={{current_path}}"
 msgstr ""
 
+<<<<<<< HEAD
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
 msgid "Link to funding amount approved change request list"
 msgstr ""
@@ -864,3 +1241,5 @@ msgstr ""
 msgid "civiremote/funding/transfer-contract/{{funding_case_id}}/funding-amount-approved-change-request/add?destination={{current_path}}"
 msgstr ""
 
+=======
+>>>>>>> origin/main
