@@ -56,7 +56,7 @@ class FormResponseHandlerFiles implements FormResponseHandlerInterface {
 
       $fundingFile = $fundingFilesByUri[$submittedUri] ?? NULL;
       if (NULL === $fundingFile) {
-        $this->logger->error(sprintf('No funding file found for "%s"', $submittedUri));
+        $this->logger->error('No funding file found for "@submittedUri"', ['@submittedUri' => $submittedUri]);
       }
       else {
         $fundingFile->setCiviUri($civiUri);
