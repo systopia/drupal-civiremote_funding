@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: { }
+id: civiremote_funding_amount_approved_change_request
+label: 'CiviRemote FundingAmountApprovedChangeRequest'
+connector: civiremote
+entity: RemoteFundingAmountApprovedChangeRequest
+action: get
+getcount: getcount
+getfields: getFields
+params: '{"remoteContactId": "[current-user:civiremote-id]"}'
+api_version: 4

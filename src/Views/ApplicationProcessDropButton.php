@@ -44,7 +44,12 @@ final class ApplicationProcessDropButton extends Dropbutton {
 
   public function __construct(Dropbutton $dropbutton) {
     $this->dropbutton = $dropbutton;
-    parent::__construct($dropbutton->configuration, $dropbutton->getPluginId(), $dropbutton->getPluginDefinition());
+    parent::__construct(
+      $dropbutton->configuration,
+      $dropbutton->getPluginId(),
+      $dropbutton->getPluginDefinition(),
+      $dropbutton->redirectDestination
+    );
     // @phpstan-ignore-next-line
     if (NULL !== $dropbutton->view) {
       $this->init($dropbutton->view, $dropbutton->view->getDisplay(), $dropbutton->options);

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Drupal\civiremote_funding\Api;
 
@@ -458,6 +458,22 @@ class FundingApi {
       'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
       'payoutProcessId' => $payoutProcessId,
       'amount' => $amount,
+    ]);
+  }
+
+  /**
+   * @throws \Drupal\civiremote_funding\Api\Exception\ApiCallFailedException
+   */
+  public function createFundingAmountApprovedChangeRequest(
+    int $fundingCaseId,
+    float $amountRequested,
+    string $comment
+  ): void {
+    $this->apiClient->executeV4('RemoteFundingAmountApprovedChangeRequest', 'create', [
+      'remoteContactId' => $this->remoteContactIdProvider->getRemoteContactId(),
+      'fundingCaseId' => $fundingCaseId,
+      'amountRequested' => $amountRequested,
+      'comment' => $comment,
     ]);
   }
 
