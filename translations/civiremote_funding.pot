@@ -57,7 +57,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2026-09-29 12:22+0200\n"
+"POT-Creation-Date: 2026-10-06 11:08+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -930,7 +930,7 @@ msgid "Link to funding amount approved change request list"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
-msgid "List higher/lesser amount requests"
+msgid "Show higher/lesser amount requests"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0

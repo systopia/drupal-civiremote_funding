@@ -9,7 +9,7 @@ label: 'CiviRemote Funding Amount Approved Change Request List'
 module: views
 description: ''
 tag: ''
-base_table: cmrf_views_civiremote_fundingamountapprovedchangerequest
+base_table: cmrf_views_civiremote_funding_amount_approved_change_request
 base_field: ''
 display:
   default:
@@ -22,7 +22,7 @@ display:
       fields:
         id:
           id: id
-          table: cmrf_views_civiremote_fundingamountapprovedchangerequest
+          table: cmrf_views_civiremote_funding_amount_approved_change_request
           field: id
           relationship: none
           group_type: group
@@ -84,27 +84,27 @@ display:
           currency: ''
         amount_approved:
           id: amount_approved
-          table: cmrf_views_civiremote_fundingamountapprovedchangerequest
+          table: cmrf_views_civiremote_funding_amount_approved_change_request
           field: amount_approved
           plugin_id: numeric
         amount_requested:
           id: amount_requested
-          table: cmrf_views_civiremote_fundingamountapprovedchangerequest
+          table: cmrf_views_civiremote_funding_amount_approved_change_request
           field: amount_requested
           plugin_id: numeric
         status:
           id: status
-          table: cmrf_views_civiremote_fundingamountapprovedchangerequest
+          table: cmrf_views_civiremote_funding_amount_approved_change_request
           field: status
           plugin_id: string
         creation_date:
           id: creation_date
-          table: cmrf_views_civiremote_fundingamountapprovedchangerequest
+          table: cmrf_views_civiremote_funding_amount_approved_change_request
           field: creation_date
           plugin_id: datetime
         decision_date:
           id: decision_date
-          table: cmrf_views_civiremote_fundingamountapprovedchangerequest
+          table: cmrf_views_civiremote_funding_amount_approved_change_request
           field: decision_date
           plugin_id: datetime
       pager:
@@ -144,7 +144,7 @@ display:
         options:
           perm: 'civiremote_funding: access'
       cache:
-        type: tag
+        type: none
         options: {  }
       empty: {  }
       sorts:

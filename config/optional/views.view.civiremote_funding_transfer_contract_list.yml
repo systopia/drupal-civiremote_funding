@@ -826,7 +826,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: 'List higher/lesser amount requests'
+            text: 'Show higher/lesser amount requests'
             make_link: true
             path: 'civiremote/funding/transfer-contract/{{funding_case_id}}/funding-amount-approved-change-request?destination={{current_path}}'
             absolute: false
