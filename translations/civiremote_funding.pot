@@ -57,7 +57,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2026-10-06 11:08+0200\n"
+"POT-Creation-Date: 2026-10-06 11:21+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -830,11 +830,23 @@ msgid "Link to funding case form"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_task_list.yml:0
-msgid "{% if activity_type_id__name == 'funding_case_task' %}Open combined application{% endif %}"
+msgid "{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type != 'drawdown_create' %}Open combined application{% endif %}"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_task_list.yml:0
 msgid "civiremote/funding/case/{{ source_record_id }}?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_task_list.yml:0 config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Link to create drawdown form"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_task_list.yml:0
+msgid "{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type == 'drawdown_create' %}Create drawdown{% endif %}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_task_list.yml:0
+msgid "civiremote/funding/transfer-contract/{{ source_record_id }}/payout-process/{{ funding_payout_process_task__payout_process_id }}/drawdown/add?destination={{current_path}}"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_task_list.yml:0
@@ -907,10 +919,6 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
 msgid "List of CiviCRM funding transfer contracts via remote API"
-msgstr ""
-
-#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
-msgid "Link to create drawdown form"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0

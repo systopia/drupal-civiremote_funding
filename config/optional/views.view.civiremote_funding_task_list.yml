@@ -141,6 +141,121 @@ display:
           format_language_aware: false
           format_style: 0
           currency: ''
+        funding_payout_process_task__payout_process_id:
+          id: funding_payout_process_task__payout_process_id
+          table: cmrf_views_civiremote_funding_task
+          field: funding_payout_process_task__payout_process_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          format_language_aware: false
+          format_style: 0
+          currency: ''
+        funding_case_task__type:
+          id: funding_case_task__type
+          table: cmrf_views_civiremote_funding_task
+          field: funding_case_task__type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cmrf_views_standard
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
         subject:
           id: subject
           table: cmrf_views_civiremote_funding_task
@@ -953,7 +1068,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if activity_type_id__name == 'funding_case_task' %}Open combined application{% endif %}"
+            text: "{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type != 'drawdown_create' %}Open combined application{% endif %}"
             make_link: true
             path: 'civiremote/funding/case/{{ source_record_id }}?destination={{current_path}}'
             absolute: false
@@ -990,6 +1105,55 @@ display:
           hide_empty: true
           empty_zero: false
           hide_alter_empty: true
+        nothing_5:
+          id: nothing_5
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'Link to create drawdown form'
+          plugin_id: custom
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type == 'drawdown_create' %}Create drawdown{% endif %}"
+            make_link: true
+            path: 'civiremote/funding/transfer-contract/{{ source_record_id }}/payout-process/{{ funding_payout_process_task__payout_process_id }}/drawdown/add?destination={{current_path}}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
         dropbutton:
           id: dropbutton
           table: views
@@ -1045,8 +1209,11 @@ display:
             nothing_3: nothing_3
             nothing_2: nothing_2
             nothing_1: nothing_1
+            nothing_5: nothing_5
             source_record_id: '0'
             funding_application_process_task__application_process_id: '0'
+            funding_payout_process_task__payout_process_id: '0'
+            funding_case_task__type: '0'
             subject: '0'
             funding_case_task__due_date: '0'
             modified_date: '0'
