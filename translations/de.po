@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: civiremote_funding\n"
-"POT-Creation-Date: 2026-10-06 11:08+0200\n"
+"POT-Creation-Date: 2026-10-06 11:21+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -987,13 +987,34 @@ msgstr ""
 
 #: config/optional/views.view.civiremote_funding_task_list.yml:0
 msgid ""
-"{% if activity_type_id__name == 'funding_case_task' %}Open combined application{% endif "
-"%}"
+"{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type != "
+"'drawdown_create' %}Open combined application{% endif %}"
 msgstr ""
-"{% if activity_type_id__name == 'funding_case_task' %}Sammelantrag öffnen{% endif %}"
+"{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type != "
+"'drawdown_create' %}Sammelantrag öffnen{% endif %}"
 
 #: config/optional/views.view.civiremote_funding_task_list.yml:0
 msgid "civiremote/funding/case/{{ source_record_id }}?destination={{current_path}}"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_task_list.yml:0
+#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
+msgid "Link to create drawdown form"
+msgstr ""
+
+#: config/optional/views.view.civiremote_funding_task_list.yml:0
+msgid ""
+"{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type == "
+"'drawdown_create' %}Create drawdown{% endif %}"
+msgstr ""
+"{% if activity_type_id__name == 'funding_case_task' and  funding_case_task__type == "
+"'drawdown_create' %}Mittelabruf erstellen{% endif %}"
+
+#: config/optional/views.view.civiremote_funding_task_list.yml:0
+msgid ""
+"civiremote/funding/transfer-contract/{{ source_record_id }}/payout-process/"
+"{{ funding_payout_process_task__payout_process_id }}/drawdown/add?"
+"destination={{current_path}}"
 msgstr ""
 
 #: config/optional/views.view.civiremote_funding_task_list.yml:0
@@ -1080,10 +1101,6 @@ msgstr "CiviCRM Weiterleitungsvertragsliste"
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
 msgid "List of CiviCRM funding transfer contracts via remote API"
 msgstr "Liste der CiviCRM Weiterleitungsverträge via Remote API"
-
-#: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
-msgid "Link to create drawdown form"
-msgstr ""
 
 #: config/optional/views.view.civiremote_funding_transfer_contract_list.yml:0
 msgid ""
